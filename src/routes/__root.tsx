@@ -72,14 +72,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "GLT Mentorship Cohort 1 — DSA & Internship Guidance" },
+      { title: "GLT DSA & Internship Guidance Cohort — Girls Leading Tech" },
       {
         name: "description",
         content:
-          "A 4-week mentorship program by Girls Leading Tech connecting ambitious girls across India with experienced women in tech. Apply as a mentee or mentor.",
+          "A 4-week DSA and internship guidance cohort by Girls Leading Tech. Learn data structures, crack interviews, and land your first internship with women already doing it.",
       },
       { name: "author", content: "Girls Leading Tech" },
-      { property: "og:title", content: "GLT Mentorship Cohort 1 — DSA & Internship Guidance" },
+      { property: "og:title", content: "GLT DSA & Internship Guidance Cohort — Girls Leading Tech" },
       {
         property: "og:description",
         content:

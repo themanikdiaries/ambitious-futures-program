@@ -21,17 +21,17 @@ gsap.registerPlugin(ScrollTrigger);
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GLT Mentorship Cohort 1 — DSA & Internship Guidance" },
+      { title: "GLT DSA & Internship Guidance Cohort — Girls Leading Tech" },
       {
         name: "description",
         content:
-          "Join Cohort 1 of the Girls Leading Tech Mentorship Program. 4 weeks of guidance from experienced women in tech on DSA, internships, and career growth.",
+          "A focused 4-week DSA and internship guidance cohort. Learn data structures, build projects, crack interviews, and land your first internship — guided by women already in tech.",
       },
-      { property: "og:title", content: "GLT Mentorship Cohort 1 — DSA & Internship Guidance" },
+      { property: "og:title", content: "GLT DSA & Internship Guidance Cohort" },
       {
         property: "og:description",
         content:
-          "A 4-week mentorship program connecting ambitious girls across India with women already building careers in tech.",
+          "Master DSA fundamentals and land your first internship in 4 weeks with mentors who've done it.",
       },
     ],
   }),
@@ -42,7 +42,7 @@ const APPLY_MENTEE_URL = "#apply-mentee";
 const APPLY_MENTOR_URL = "#apply-mentor";
 
 function LandingPage() {
-  // Master GSAP setup: scroll reveals + parallax shapes
+  // Master GSAP setup: scroll reveals, parallax, 3D tilts
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Generic reveal for [data-reveal]
@@ -52,7 +52,22 @@ function LandingPage() {
           opacity: 0,
           duration: 0.9,
           ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 85%" },
+          scrollTrigger: { trigger: el, start: "top 88%" },
+        });
+      });
+
+      // 3D tilt-in reveals for cards
+      gsap.utils.toArray<HTMLElement>("[data-tilt]").forEach((el) => {
+        gsap.from(el, {
+          y: 80,
+          opacity: 0,
+          rotateX: 35,
+          rotateY: -15,
+          transformPerspective: 1200,
+          transformOrigin: "center bottom",
+          duration: 1.1,
+          ease: "power4.out",
+          scrollTrigger: { trigger: el, start: "top 90%" },
         });
       });
 
@@ -64,6 +79,37 @@ function LandingPage() {
           ease: "none",
           scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true },
         });
+      });
+
+      // Scroll-driven 3D rotation for [data-spin3d]
+      gsap.utils.toArray<HTMLElement>("[data-spin3d]").forEach((el) => {
+        gsap.to(el, {
+          rotateY: 360,
+          rotateX: 25,
+          ease: "none",
+          transformPerspective: 1000,
+          scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 1.2 },
+        });
+      });
+
+      // Mousemove 3D tilt for [data-mouse3d]
+      gsap.utils.toArray<HTMLElement>("[data-mouse3d]").forEach((el) => {
+        const onMove = (e: MouseEvent) => {
+          const r = el.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          gsap.to(el, {
+            rotateY: x * 18,
+            rotateX: -y * 18,
+            transformPerspective: 1000,
+            duration: 0.5,
+            ease: "power2.out",
+          });
+        };
+        const onLeave = () =>
+          gsap.to(el, { rotateY: 0, rotateX: 0, duration: 0.7, ease: "power3.out" });
+        el.addEventListener("mousemove", onMove);
+        el.addEventListener("mouseleave", onLeave);
       });
 
       // Hero headline word-by-word
@@ -87,18 +133,20 @@ function LandingPage() {
           opacity: 0,
           duration: 0.8,
           ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 80%" },
+          scrollTrigger: { trigger: el, start: "top 85%" },
         });
       });
 
-      // Timeline bars draw in
+      // Timeline cards
       gsap.utils.toArray<HTMLElement>("[data-week-card]").forEach((el, i) => {
         gsap.from(el, {
           x: i % 2 === 0 ? -80 : 80,
+          rotateY: i % 2 === 0 ? -25 : 25,
           opacity: 0,
           duration: 0.9,
           ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 85%" },
+          transformPerspective: 1000,
+          scrollTrigger: { trigger: el, start: "top 88%" },
         });
       });
     });
@@ -137,23 +185,26 @@ function Navbar() {
     { label: "FAQs", href: "#faq" },
   ];
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3 sm:top-4 sm:px-4">
       <nav
-        className="pointer-events-auto flex items-center gap-1 rounded-full border-2 border-ink bg-white/60 px-2 py-2 shadow-pop backdrop-blur-xl supports-[backdrop-filter]:bg-white/40"
+        className="pointer-events-auto flex max-w-[calc(100vw-1.5rem)] items-center gap-1 overflow-x-auto rounded-full border-2 border-ink bg-white/60 px-2 py-2 shadow-pop backdrop-blur-xl supports-[backdrop-filter]:bg-white/40 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         style={{ borderColor: "var(--ink)" }}
       >
+        <span className="sm:hidden inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-yellow)] px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-ink whitespace-nowrap" style={{ color: "var(--ink)" }}>
+          GLT · DSA Cohort
+        </span>
         {links.map((l) => (
           <a
             key={l.href}
             href={l.href}
-            className="hidden rounded-full px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-[var(--brand-yellow)] sm:inline-block"
+            className="hidden rounded-full px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-[var(--brand-yellow)] sm:inline-block whitespace-nowrap"
           >
             {l.label}
           </a>
         ))}
         <a
           href="#apply"
-          className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-red)] px-4 py-2 text-sm font-bold text-white transition hover:bg-[var(--brand-blue)]"
+          className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-red)] px-4 py-2 text-sm font-bold text-white transition hover:bg-[var(--brand-blue)] whitespace-nowrap"
         >
           Apply
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-yellow)]" />
@@ -171,45 +222,48 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-gradient-hero pt-32 pb-20 sm:pt-40 sm:pb-28"
+      className="relative overflow-hidden bg-gradient-hero pt-28 pb-16 sm:pt-40 sm:pb-28"
     >
       {/* Bauhaus floating shapes */}
       <div
         data-parallax="0.25"
-        className="pointer-events-none absolute -left-16 top-32 h-40 w-40 rounded-full bg-[var(--brand-red)] opacity-90"
+        className="pointer-events-none absolute -left-16 top-32 h-32 w-32 rounded-full bg-[var(--brand-red)] opacity-90 sm:h-40 sm:w-40"
       />
       <div
         data-parallax="0.4"
-        className="pointer-events-none absolute right-10 top-24 h-24 w-24 rotate-12 bg-[var(--brand-yellow)]"
+        data-spin3d
+        className="pointer-events-none absolute right-6 top-20 h-20 w-20 rotate-12 bg-[var(--brand-yellow)] sm:right-10 sm:top-24 sm:h-24 sm:w-24"
       />
       <div
         data-parallax="0.2"
-        className="pointer-events-none absolute left-1/3 bottom-12 h-32 w-32 rotate-45 border-4 border-ink"
+        data-spin3d
+        className="pointer-events-none absolute left-1/3 bottom-12 hidden h-32 w-32 rotate-45 border-4 border-ink sm:block"
         style={{ borderColor: "var(--ink)" }}
       />
       <svg
         data-parallax="0.35"
-        className="pointer-events-none absolute -right-10 bottom-20 h-48 w-48 text-[var(--brand-blue)]"
+        data-spin3d
+        className="pointer-events-none absolute -right-10 bottom-20 h-32 w-32 text-[var(--brand-blue)] sm:h-48 sm:w-48"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
         <polygon points="50,5 95,95 5,95" />
       </svg>
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[var(--brand-yellow)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink"
+          <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[var(--brand-yellow)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-ink sm:text-xs"
             style={{ borderColor: "var(--ink)", color: "var(--ink)" }}>
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[var(--brand-red)]" />
-            GLT Mentorship · Cohort 1
+            DSA & Internship Guidance Cohort
           </span>
 
           <h1
             data-headline
-            className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="mt-5 font-display text-[2.25rem] font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
           >
             {words.map((w, i) => (
-              <span key={i} className="inline-block overflow-hidden pr-3 align-bottom">
+              <span key={i} className="inline-block overflow-hidden pr-2 align-bottom sm:pr-3">
                 <span
                   data-word
                   className={`inline-block ${
@@ -235,9 +289,10 @@ function Hero() {
             ))}
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg text-foreground/75">
-            A 4-week mentorship program connecting ambitious girls across India with mentors
-            who've already navigated internships, DSA, projects, and career growth.
+          <p className="mt-6 max-w-xl text-base text-foreground/75 sm:text-lg">
+            A focused 4-week DSA & internship guidance cohort — taught by women already
+            building careers in tech. Roadmaps, mock interviews, resume reviews, and a
+            community that actually shows up.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3" id="apply">
@@ -261,14 +316,14 @@ function Hero() {
             </Button>
           </div>
 
-          <dl className="mt-12 grid grid-cols-3 gap-4 border-t-4 border-ink pt-8" style={{ borderColor: "var(--ink)" }}>
+          <dl className="mt-10 grid grid-cols-3 gap-3 border-t-4 border-ink pt-6 sm:mt-12 sm:gap-4 sm:pt-8" style={{ borderColor: "var(--ink)" }}>
             <Stat value="4,000+" label="Girls in community" color="red" />
             <Stat value="1,100+" label="Colleges" color="blue" />
             <Stat value="23+" label="States" color="yellow" />
           </dl>
         </div>
 
-        <div className="relative">
+        <div className="relative" data-mouse3d style={{ transformStyle: "preserve-3d" }}>
           <div
             className="relative rotate-2 rounded-3xl border-4 border-ink bg-card p-2 shadow-soft"
             style={{ borderColor: "var(--ink)" }}
@@ -282,14 +337,14 @@ function Hero() {
             />
           </div>
           <MentorPreviewCard
-            className="absolute -bottom-6 -left-6 hidden -rotate-3 sm:block"
+            className="absolute -bottom-4 -left-3 -rotate-3 sm:-bottom-6 sm:-left-6"
             img={mentor1}
             name="Ananya Sharma"
             role="SDE Intern @ Microsoft"
             color="var(--brand-yellow)"
           />
           <MentorPreviewCard
-            className="absolute -right-4 -top-6 hidden rotate-3 sm:block"
+            className="absolute -right-2 -top-4 hidden rotate-3 sm:-right-4 sm:-top-6 sm:block"
             img={mentor3}
             name="Riya Verma"
             role="PM Intern @ Google"
@@ -365,13 +420,21 @@ function MentorPreviewCard({
 
 /* ------------------------------ Marquee Bar ----------------------------- */
 function MarqueeBar() {
-  const items = ["DSA", "INTERNSHIPS", "RESUME", "PROJECTS", "MOCK INTERVIEWS", "NETWORKING", "PORTFOLIO", "MENTORSHIP"];
+  const items = [
+    "You don't have to be ready — you have to start.",
+    "She believed she could, so she did.",
+    "Every expert was once a beginner.",
+    "Talent is everywhere. Opportunity is what we build here.",
+    "Your first internship is closer than you think.",
+    "Consistency beats talent. Show up.",
+    "Learn in public. Grow in community.",
+  ];
   return (
     <div className="border-y-4 border-ink bg-[var(--brand-yellow)] py-4 overflow-hidden" style={{ borderColor: "var(--ink)" }}>
-      <div className="animate-marquee flex w-max gap-8 whitespace-nowrap font-display text-2xl font-extrabold tracking-tight text-ink" style={{ color: "var(--ink)" }}>
+      <div className="animate-marquee flex w-max gap-10 whitespace-nowrap font-display text-lg font-extrabold tracking-tight text-ink sm:text-2xl" style={{ color: "var(--ink)" }}>
         {[...items, ...items, ...items].map((it, i) => (
-          <span key={i} className="flex items-center gap-8">
-            {it}
+          <span key={i} className="flex items-center gap-10">
+            <span className="italic">"{it}"</span>
             <span className="inline-block h-3 w-3 rounded-full bg-[var(--brand-red)]" />
           </span>
         ))}
@@ -445,19 +508,19 @@ function ProgramOverview() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5" style={{ perspective: "1200px" }}>
           {facts.map((f) => (
             <div
               key={f.label}
-              data-reveal
-              className="rounded-2xl border-2 border-ink p-5 shadow-card transition-transform hover:-translate-y-1"
+              data-tilt
+              className="rounded-2xl border-2 border-ink p-4 shadow-card transition-transform hover:-translate-y-1 hover:rotate-1 sm:p-5"
               style={{ background: f.bg, borderColor: "var(--ink)", color: whiteText(f.bg) ? "white" : "var(--ink)" }}
             >
               <Shape kind={f.shape} className="h-7 w-7" />
-              <div className="mt-4 text-xs font-bold uppercase tracking-wider opacity-80">
+              <div className="mt-4 text-[11px] font-bold uppercase tracking-wider opacity-80 sm:text-xs">
                 {f.label}
               </div>
-              <div className="mt-1 font-display text-lg font-extrabold">{f.value}</div>
+              <div className="mt-1 font-display text-base font-extrabold sm:text-lg">{f.value}</div>
             </div>
           ))}
         </div>
@@ -468,10 +531,11 @@ function ProgramOverview() {
             badge="◆"
             title="What mentees will learn"
             items={[
-              "Clear roadmaps for DSA, dev, and product paths",
-              "Resume reviews and project guidance",
-              "Mock interviews and networking strategy",
-              "How to land your first internship — confidently",
+              "DSA fundamentals: arrays, strings, recursion, trees, graphs, DP",
+              "A weekly LeetCode plan + pattern-based problem solving",
+              "Resume that gets shortlisted + 1:1 review with your mentor",
+              "Mock interviews — DSA rounds, HR rounds, behavioral",
+              "How to actually apply to internships and stand out",
             ]}
           />
           <Panel
@@ -651,13 +715,13 @@ function Mentors() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" style={{ perspective: "1400px" }}>
           {MENTORS.map((m, i) => {
             const white = m.bg !== "var(--brand-yellow)";
             return (
               <article
                 key={m.name}
-                data-reveal
+                data-tilt
                 className={`group overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
                 style={{ background: m.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
               >
@@ -799,26 +863,68 @@ function WhoShouldApply() {
 function Process() {
   const containerRef = useRef<HTMLDivElement>(null);
   const steps = [
-    { title: "Apply", desc: "Fill the short application — takes 5 minutes.", bg: "var(--brand-red)", num: "01" },
-    { title: "Shortlisting", desc: "We review every form personally. No bots, no filters.", bg: "var(--brand-yellow)", num: "02" },
-    { title: "Mentor Matching", desc: "You're paired with a mentor who fits your goals.", bg: "var(--brand-blue)", num: "03" },
-    { title: "Cohort Begins", desc: "First session, first roadmap, first wins.", bg: "var(--brand-red)", num: "04" },
+    {
+      title: "Apply",
+      kicker: "5 minutes · Honest answers only",
+      bullets: [
+        "Tell us about your year, branch, and current DSA comfort level.",
+        "Share what you want to crack: SDE, data, product, open source.",
+        "No CV polish needed — we read every form ourselves.",
+      ],
+      bg: "var(--brand-red)",
+      num: "01",
+    },
+    {
+      title: "Shortlisting",
+      kicker: "Reviewed by humans · Not bots",
+      bullets: [
+        "We look for commitment, curiosity, and clarity of intent.",
+        "First-years and pre-final years are equally welcome.",
+        "Selected applicants are notified via email within a week.",
+      ],
+      bg: "var(--brand-yellow)",
+      num: "02",
+    },
+    {
+      title: "Mentor Matching",
+      kicker: "1 mentor · ~10 mentees",
+      bullets: [
+        "Matched on goals — DSA depth, internship target, working language.",
+        "Intro call with your mentor to set expectations and a 4-week plan.",
+        "Join your private cohort channel + the wider GLT community.",
+      ],
+      bg: "var(--brand-blue)",
+      num: "03",
+    },
+    {
+      title: "Cohort Begins",
+      kicker: "4 weeks · Live + async",
+      bullets: [
+        "Weekly live session: DSA patterns, mock interviews, resume teardowns.",
+        "Async support over the week + weekly LeetCode + project checkpoints.",
+        "End with a 90-day action plan and a network that doesn't disappear.",
+      ],
+      bg: "var(--brand-red)",
+      num: "04",
+    },
   ];
 
   useEffect(() => {
     if (!containerRef.current) return;
+    // Skip pinned 3D flip on mobile — we render a stacked version instead.
+    if (window.matchMedia("(max-width: 767px)").matches) return;
+
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray<HTMLElement>(".process-card");
       cards.forEach((card, i) => {
         gsap.set(card, {
           rotateY: i === 0 ? 0 : -90,
           opacity: i === 0 ? 1 : 0,
-          transformPerspective: 1200,
+          transformPerspective: 1400,
           transformOrigin: "left center",
         });
       });
 
-      // Pinned scroll-flip sequence
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -847,20 +953,56 @@ function Process() {
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">
             ✦ How it works
           </p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
+          <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-5xl">
             The application process — <span className="italic">scroll to flip</span>
           </h2>
-          <p className="mt-3 text-foreground/70">Each step animates into view as you scroll.</p>
+          <p className="mt-3 text-sm text-foreground/70 sm:text-base">
+            Four steps from "I'm thinking about it" to "I'm in the cohort."
+          </p>
         </div>
       </div>
-      <div ref={containerRef} className="relative mx-auto mt-12 flex h-screen max-w-5xl items-center justify-center px-4 sm:px-6 lg:px-8">
+
+      {/* Mobile: stacked tilt-in cards */}
+      <div className="mx-auto mt-10 grid max-w-2xl gap-4 px-4 pb-10 sm:px-6 md:hidden" style={{ perspective: "1200px" }}>
+        {steps.map((s, i) => {
+          const white = s.bg !== "var(--brand-yellow)";
+          return (
+            <div
+              key={s.title}
+              data-tilt
+              className="rounded-3xl border-4 border-ink p-6 shadow-pop"
+              style={{ background: s.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
+            >
+              <div className="flex items-start justify-between">
+                <span className="font-display text-5xl font-extrabold opacity-90">{s.num}</span>
+                <span className="rounded-full border-2 border-current px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest">
+                  Step {i + 1}/{steps.length}
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-3xl font-extrabold">{s.title}</h3>
+              <p className="mt-1 text-xs font-bold uppercase tracking-wider opacity-80">{s.kicker}</p>
+              <ul className="mt-4 space-y-2 text-sm font-medium opacity-95">
+                {s.bullets.map((b) => (
+                  <li key={b} className="flex gap-2">
+                    <span aria-hidden>→</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop: pinned 3D flipping cards */}
+      <div ref={containerRef} className="relative mx-auto mt-12 hidden h-screen max-w-5xl items-center justify-center px-4 sm:px-6 md:flex lg:px-8">
         <div className="relative aspect-[4/3] w-full max-w-3xl" style={{ perspective: "1400px" }}>
           {steps.map((s, i) => {
             const white = s.bg !== "var(--brand-yellow)";
             return (
               <div
                 key={s.title}
-                className="process-card absolute inset-0 flex flex-col justify-between rounded-3xl border-4 border-ink p-10 shadow-pop"
+                className="process-card absolute inset-0 flex flex-col justify-between rounded-3xl border-4 border-ink p-8 shadow-pop sm:p-10"
                 style={{ background: s.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
               >
                 <div className="flex items-start justify-between">
@@ -870,17 +1012,26 @@ function Process() {
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-display text-5xl font-extrabold sm:text-6xl">{s.title}</h3>
-                  <p className="mt-4 max-w-md text-lg font-medium opacity-90">{s.desc}</p>
+                  <h3 className="font-display text-4xl font-extrabold sm:text-5xl">{s.title}</h3>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-wider opacity-80">{s.kicker}</p>
+                  <ul className="mt-5 grid max-w-2xl gap-2 text-base font-medium opacity-95 sm:text-lg">
+                    {s.bullets.map((b) => (
+                      <li key={b} className="flex gap-3">
+                        <span aria-hidden className="font-extrabold">→</span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
-      <div className="mx-auto -mt-8 max-w-3xl px-4 pb-20 text-center sm:px-6 lg:px-8">
+
+      <div className="mx-auto max-w-3xl px-4 pb-20 text-center sm:px-6 md:-mt-8 lg:px-8">
         <div
-          className="rounded-2xl border-2 border-ink bg-[var(--brand-yellow)] p-5 text-sm font-bold text-ink shadow-card sm:text-base"
+          className="rounded-2xl border-2 border-ink bg-[var(--brand-yellow)] p-4 text-xs font-bold text-ink shadow-card sm:p-5 sm:text-base"
           style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
         >
           ⚡ Limited seats. Selection-based. Real commitment expected — both ways.
