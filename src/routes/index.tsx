@@ -21,17 +21,17 @@ gsap.registerPlugin(ScrollTrigger);
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "GLT Mentorship Cohort 1 — DSA & Internship Guidance" },
+      { title: "GLT DSA & Internship Guidance Cohort — Girls Leading Tech" },
       {
         name: "description",
         content:
-          "Join Cohort 1 of the Girls Leading Tech Mentorship Program. 4 weeks of guidance from experienced women in tech on DSA, internships, and career growth.",
+          "A focused 4-week DSA and internship guidance cohort. Learn data structures, build projects, crack interviews, and land your first internship — guided by women already in tech.",
       },
-      { property: "og:title", content: "GLT Mentorship Cohort 1 — DSA & Internship Guidance" },
+      { property: "og:title", content: "GLT DSA & Internship Guidance Cohort" },
       {
         property: "og:description",
         content:
-          "A 4-week mentorship program connecting ambitious girls across India with women already building careers in tech.",
+          "Master DSA fundamentals and land your first internship in 4 weeks with mentors who've done it.",
       },
     ],
   }),
