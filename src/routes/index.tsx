@@ -185,23 +185,26 @@ function Navbar() {
     { label: "FAQs", href: "#faq" },
   ];
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3 sm:top-4 sm:px-4">
       <nav
-        className="pointer-events-auto flex items-center gap-1 rounded-full border-2 border-ink bg-white/60 px-2 py-2 shadow-pop backdrop-blur-xl supports-[backdrop-filter]:bg-white/40"
+        className="pointer-events-auto flex max-w-[calc(100vw-1.5rem)] items-center gap-1 overflow-x-auto rounded-full border-2 border-ink bg-white/60 px-2 py-2 shadow-pop backdrop-blur-xl supports-[backdrop-filter]:bg-white/40 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         style={{ borderColor: "var(--ink)" }}
       >
+        <span className="sm:hidden inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-yellow)] px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-ink whitespace-nowrap" style={{ color: "var(--ink)" }}>
+          GLT · DSA Cohort
+        </span>
         {links.map((l) => (
           <a
             key={l.href}
             href={l.href}
-            className="hidden rounded-full px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-[var(--brand-yellow)] sm:inline-block"
+            className="hidden rounded-full px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-[var(--brand-yellow)] sm:inline-block whitespace-nowrap"
           >
             {l.label}
           </a>
         ))}
         <a
           href="#apply"
-          className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-red)] px-4 py-2 text-sm font-bold text-white transition hover:bg-[var(--brand-blue)]"
+          className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-red)] px-4 py-2 text-sm font-bold text-white transition hover:bg-[var(--brand-blue)] whitespace-nowrap"
         >
           Apply
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-yellow)]" />
