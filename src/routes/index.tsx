@@ -222,45 +222,48 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-gradient-hero pt-32 pb-20 sm:pt-40 sm:pb-28"
+      className="relative overflow-hidden bg-gradient-hero pt-28 pb-16 sm:pt-40 sm:pb-28"
     >
       {/* Bauhaus floating shapes */}
       <div
         data-parallax="0.25"
-        className="pointer-events-none absolute -left-16 top-32 h-40 w-40 rounded-full bg-[var(--brand-red)] opacity-90"
+        className="pointer-events-none absolute -left-16 top-32 h-32 w-32 rounded-full bg-[var(--brand-red)] opacity-90 sm:h-40 sm:w-40"
       />
       <div
         data-parallax="0.4"
-        className="pointer-events-none absolute right-10 top-24 h-24 w-24 rotate-12 bg-[var(--brand-yellow)]"
+        data-spin3d
+        className="pointer-events-none absolute right-6 top-20 h-20 w-20 rotate-12 bg-[var(--brand-yellow)] sm:right-10 sm:top-24 sm:h-24 sm:w-24"
       />
       <div
         data-parallax="0.2"
-        className="pointer-events-none absolute left-1/3 bottom-12 h-32 w-32 rotate-45 border-4 border-ink"
+        data-spin3d
+        className="pointer-events-none absolute left-1/3 bottom-12 hidden h-32 w-32 rotate-45 border-4 border-ink sm:block"
         style={{ borderColor: "var(--ink)" }}
       />
       <svg
         data-parallax="0.35"
-        className="pointer-events-none absolute -right-10 bottom-20 h-48 w-48 text-[var(--brand-blue)]"
+        data-spin3d
+        className="pointer-events-none absolute -right-10 bottom-20 h-32 w-32 text-[var(--brand-blue)] sm:h-48 sm:w-48"
         viewBox="0 0 100 100"
         fill="currentColor"
       >
         <polygon points="50,5 95,95 5,95" />
       </svg>
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[var(--brand-yellow)] px-3 py-1 text-xs font-bold uppercase tracking-wider text-ink"
+          <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[var(--brand-yellow)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-ink sm:text-xs"
             style={{ borderColor: "var(--ink)", color: "var(--ink)" }}>
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[var(--brand-red)]" />
-            GLT Mentorship · Cohort 1
+            DSA & Internship Guidance Cohort
           </span>
 
           <h1
             data-headline
-            className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="mt-5 font-display text-[2.25rem] font-extrabold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
           >
             {words.map((w, i) => (
-              <span key={i} className="inline-block overflow-hidden pr-3 align-bottom">
+              <span key={i} className="inline-block overflow-hidden pr-2 align-bottom sm:pr-3">
                 <span
                   data-word
                   className={`inline-block ${
@@ -286,9 +289,10 @@ function Hero() {
             ))}
           </h1>
 
-          <p className="mt-6 max-w-xl text-lg text-foreground/75">
-            A 4-week mentorship program connecting ambitious girls across India with mentors
-            who've already navigated internships, DSA, projects, and career growth.
+          <p className="mt-6 max-w-xl text-base text-foreground/75 sm:text-lg">
+            A focused 4-week DSA & internship guidance cohort — taught by women already
+            building careers in tech. Roadmaps, mock interviews, resume reviews, and a
+            community that actually shows up.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3" id="apply">
@@ -312,14 +316,14 @@ function Hero() {
             </Button>
           </div>
 
-          <dl className="mt-12 grid grid-cols-3 gap-4 border-t-4 border-ink pt-8" style={{ borderColor: "var(--ink)" }}>
+          <dl className="mt-10 grid grid-cols-3 gap-3 border-t-4 border-ink pt-6 sm:mt-12 sm:gap-4 sm:pt-8" style={{ borderColor: "var(--ink)" }}>
             <Stat value="4,000+" label="Girls in community" color="red" />
             <Stat value="1,100+" label="Colleges" color="blue" />
             <Stat value="23+" label="States" color="yellow" />
           </dl>
         </div>
 
-        <div className="relative">
+        <div className="relative" data-mouse3d style={{ transformStyle: "preserve-3d" }}>
           <div
             className="relative rotate-2 rounded-3xl border-4 border-ink bg-card p-2 shadow-soft"
             style={{ borderColor: "var(--ink)" }}
@@ -333,14 +337,14 @@ function Hero() {
             />
           </div>
           <MentorPreviewCard
-            className="absolute -bottom-6 -left-6 hidden -rotate-3 sm:block"
+            className="absolute -bottom-4 -left-3 -rotate-3 sm:-bottom-6 sm:-left-6"
             img={mentor1}
             name="Ananya Sharma"
             role="SDE Intern @ Microsoft"
             color="var(--brand-yellow)"
           />
           <MentorPreviewCard
-            className="absolute -right-4 -top-6 hidden rotate-3 sm:block"
+            className="absolute -right-2 -top-4 hidden rotate-3 sm:-right-4 sm:-top-6 sm:block"
             img={mentor3}
             name="Riya Verma"
             role="PM Intern @ Google"
