@@ -863,26 +863,68 @@ function WhoShouldApply() {
 function Process() {
   const containerRef = useRef<HTMLDivElement>(null);
   const steps = [
-    { title: "Apply", desc: "Fill the short application — takes 5 minutes.", bg: "var(--brand-red)", num: "01" },
-    { title: "Shortlisting", desc: "We review every form personally. No bots, no filters.", bg: "var(--brand-yellow)", num: "02" },
-    { title: "Mentor Matching", desc: "You're paired with a mentor who fits your goals.", bg: "var(--brand-blue)", num: "03" },
-    { title: "Cohort Begins", desc: "First session, first roadmap, first wins.", bg: "var(--brand-red)", num: "04" },
+    {
+      title: "Apply",
+      kicker: "5 minutes · Honest answers only",
+      bullets: [
+        "Tell us about your year, branch, and current DSA comfort level.",
+        "Share what you want to crack: SDE, data, product, open source.",
+        "No CV polish needed — we read every form ourselves.",
+      ],
+      bg: "var(--brand-red)",
+      num: "01",
+    },
+    {
+      title: "Shortlisting",
+      kicker: "Reviewed by humans · Not bots",
+      bullets: [
+        "We look for commitment, curiosity, and clarity of intent.",
+        "First-years and pre-final years are equally welcome.",
+        "Selected applicants are notified via email within a week.",
+      ],
+      bg: "var(--brand-yellow)",
+      num: "02",
+    },
+    {
+      title: "Mentor Matching",
+      kicker: "1 mentor · ~10 mentees",
+      bullets: [
+        "Matched on goals — DSA depth, internship target, working language.",
+        "Intro call with your mentor to set expectations and a 4-week plan.",
+        "Join your private cohort channel + the wider GLT community.",
+      ],
+      bg: "var(--brand-blue)",
+      num: "03",
+    },
+    {
+      title: "Cohort Begins",
+      kicker: "4 weeks · Live + async",
+      bullets: [
+        "Weekly live session: DSA patterns, mock interviews, resume teardowns.",
+        "Async support over the week + weekly LeetCode + project checkpoints.",
+        "End with a 90-day action plan and a network that doesn't disappear.",
+      ],
+      bg: "var(--brand-red)",
+      num: "04",
+    },
   ];
 
   useEffect(() => {
     if (!containerRef.current) return;
+    // Skip pinned 3D flip on mobile — we render a stacked version instead.
+    if (window.matchMedia("(max-width: 767px)").matches) return;
+
     const ctx = gsap.context(() => {
       const cards = gsap.utils.toArray<HTMLElement>(".process-card");
       cards.forEach((card, i) => {
         gsap.set(card, {
           rotateY: i === 0 ? 0 : -90,
           opacity: i === 0 ? 1 : 0,
-          transformPerspective: 1200,
+          transformPerspective: 1400,
           transformOrigin: "left center",
         });
       });
 
-      // Pinned scroll-flip sequence
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -911,20 +953,56 @@ function Process() {
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">
             ✦ How it works
           </p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
+          <h2 className="mt-3 font-display text-3xl font-extrabold sm:text-5xl">
             The application process — <span className="italic">scroll to flip</span>
           </h2>
-          <p className="mt-3 text-foreground/70">Each step animates into view as you scroll.</p>
+          <p className="mt-3 text-sm text-foreground/70 sm:text-base">
+            Four steps from "I'm thinking about it" to "I'm in the cohort."
+          </p>
         </div>
       </div>
-      <div ref={containerRef} className="relative mx-auto mt-12 flex h-screen max-w-5xl items-center justify-center px-4 sm:px-6 lg:px-8">
+
+      {/* Mobile: stacked tilt-in cards */}
+      <div className="mx-auto mt-10 grid max-w-2xl gap-4 px-4 pb-10 sm:px-6 md:hidden" style={{ perspective: "1200px" }}>
+        {steps.map((s, i) => {
+          const white = s.bg !== "var(--brand-yellow)";
+          return (
+            <div
+              key={s.title}
+              data-tilt
+              className="rounded-3xl border-4 border-ink p-6 shadow-pop"
+              style={{ background: s.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
+            >
+              <div className="flex items-start justify-between">
+                <span className="font-display text-5xl font-extrabold opacity-90">{s.num}</span>
+                <span className="rounded-full border-2 border-current px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest">
+                  Step {i + 1}/{steps.length}
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-3xl font-extrabold">{s.title}</h3>
+              <p className="mt-1 text-xs font-bold uppercase tracking-wider opacity-80">{s.kicker}</p>
+              <ul className="mt-4 space-y-2 text-sm font-medium opacity-95">
+                {s.bullets.map((b) => (
+                  <li key={b} className="flex gap-2">
+                    <span aria-hidden>→</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop: pinned 3D flipping cards */}
+      <div ref={containerRef} className="relative mx-auto mt-12 hidden h-screen max-w-5xl items-center justify-center px-4 sm:px-6 md:flex lg:px-8">
         <div className="relative aspect-[4/3] w-full max-w-3xl" style={{ perspective: "1400px" }}>
           {steps.map((s, i) => {
             const white = s.bg !== "var(--brand-yellow)";
             return (
               <div
                 key={s.title}
-                className="process-card absolute inset-0 flex flex-col justify-between rounded-3xl border-4 border-ink p-10 shadow-pop"
+                className="process-card absolute inset-0 flex flex-col justify-between rounded-3xl border-4 border-ink p-8 shadow-pop sm:p-10"
                 style={{ background: s.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
               >
                 <div className="flex items-start justify-between">
@@ -934,17 +1012,26 @@ function Process() {
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-display text-5xl font-extrabold sm:text-6xl">{s.title}</h3>
-                  <p className="mt-4 max-w-md text-lg font-medium opacity-90">{s.desc}</p>
+                  <h3 className="font-display text-4xl font-extrabold sm:text-5xl">{s.title}</h3>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-wider opacity-80">{s.kicker}</p>
+                  <ul className="mt-5 grid max-w-2xl gap-2 text-base font-medium opacity-95 sm:text-lg">
+                    {s.bullets.map((b) => (
+                      <li key={b} className="flex gap-3">
+                        <span aria-hidden className="font-extrabold">→</span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
-      <div className="mx-auto -mt-8 max-w-3xl px-4 pb-20 text-center sm:px-6 lg:px-8">
+
+      <div className="mx-auto max-w-3xl px-4 pb-20 text-center sm:px-6 md:-mt-8 lg:px-8">
         <div
-          className="rounded-2xl border-2 border-ink bg-[var(--brand-yellow)] p-5 text-sm font-bold text-ink shadow-card sm:text-base"
+          className="rounded-2xl border-2 border-ink bg-[var(--brand-yellow)] p-4 text-xs font-bold text-ink shadow-card sm:p-5 sm:text-base"
           style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
         >
           ⚡ Limited seats. Selection-based. Real commitment expected — both ways.
