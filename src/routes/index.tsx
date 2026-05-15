@@ -42,7 +42,7 @@ const APPLY_MENTEE_URL = "#apply-mentee";
 const APPLY_MENTOR_URL = "#apply-mentor";
 
 function LandingPage() {
-  // Master GSAP setup: scroll reveals + parallax shapes
+  // Master GSAP setup: scroll reveals, parallax, 3D tilts
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Generic reveal for [data-reveal]
@@ -52,7 +52,22 @@ function LandingPage() {
           opacity: 0,
           duration: 0.9,
           ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 85%" },
+          scrollTrigger: { trigger: el, start: "top 88%" },
+        });
+      });
+
+      // 3D tilt-in reveals for cards
+      gsap.utils.toArray<HTMLElement>("[data-tilt]").forEach((el) => {
+        gsap.from(el, {
+          y: 80,
+          opacity: 0,
+          rotateX: 35,
+          rotateY: -15,
+          transformPerspective: 1200,
+          transformOrigin: "center bottom",
+          duration: 1.1,
+          ease: "power4.out",
+          scrollTrigger: { trigger: el, start: "top 90%" },
         });
       });
 
@@ -64,6 +79,37 @@ function LandingPage() {
           ease: "none",
           scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true },
         });
+      });
+
+      // Scroll-driven 3D rotation for [data-spin3d]
+      gsap.utils.toArray<HTMLElement>("[data-spin3d]").forEach((el) => {
+        gsap.to(el, {
+          rotateY: 360,
+          rotateX: 25,
+          ease: "none",
+          transformPerspective: 1000,
+          scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 1.2 },
+        });
+      });
+
+      // Mousemove 3D tilt for [data-mouse3d]
+      gsap.utils.toArray<HTMLElement>("[data-mouse3d]").forEach((el) => {
+        const onMove = (e: MouseEvent) => {
+          const r = el.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          gsap.to(el, {
+            rotateY: x * 18,
+            rotateX: -y * 18,
+            transformPerspective: 1000,
+            duration: 0.5,
+            ease: "power2.out",
+          });
+        };
+        const onLeave = () =>
+          gsap.to(el, { rotateY: 0, rotateX: 0, duration: 0.7, ease: "power3.out" });
+        el.addEventListener("mousemove", onMove);
+        el.addEventListener("mouseleave", onLeave);
       });
 
       // Hero headline word-by-word
@@ -87,18 +133,20 @@ function LandingPage() {
           opacity: 0,
           duration: 0.8,
           ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 80%" },
+          scrollTrigger: { trigger: el, start: "top 85%" },
         });
       });
 
-      // Timeline bars draw in
+      // Timeline cards
       gsap.utils.toArray<HTMLElement>("[data-week-card]").forEach((el, i) => {
         gsap.from(el, {
           x: i % 2 === 0 ? -80 : 80,
+          rotateY: i % 2 === 0 ? -25 : 25,
           opacity: 0,
           duration: 0.9,
           ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 85%" },
+          transformPerspective: 1000,
+          scrollTrigger: { trigger: el, start: "top 88%" },
         });
       });
     });
