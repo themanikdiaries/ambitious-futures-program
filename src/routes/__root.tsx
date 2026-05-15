@@ -87,6 +87,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "GLT DSA & Internship Guidance Cohort — Girls Leading Tech" },
+      { name: "description", content: "Connects ambitious girls with experienced women in tech for internship and career guidance." },
+      { property: "og:description", content: "Connects ambitious girls with experienced women in tech for internship and career guidance." },
+      { name: "twitter:description", content: "Connects ambitious girls with experienced women in tech for internship and career guidance." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e9f5a579-d883-4243-be04-9d579a025c49/id-preview-8070ab7e--ebf1f849-558a-4fd8-9510-7b384adcaf8d.lovable.app-1778764054167.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e9f5a579-d883-4243-be04-9d579a025c49/id-preview-8070ab7e--ebf1f849-558a-4fd8-9510-7b384adcaf8d.lovable.app-1778764054167.png" },
     ],
     links: [
       {
