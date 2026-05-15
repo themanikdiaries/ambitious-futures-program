@@ -508,19 +508,19 @@ function ProgramOverview() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5" style={{ perspective: "1200px" }}>
           {facts.map((f) => (
             <div
               key={f.label}
-              data-reveal
-              className="rounded-2xl border-2 border-ink p-5 shadow-card transition-transform hover:-translate-y-1"
+              data-tilt
+              className="rounded-2xl border-2 border-ink p-4 shadow-card transition-transform hover:-translate-y-1 hover:rotate-1 sm:p-5"
               style={{ background: f.bg, borderColor: "var(--ink)", color: whiteText(f.bg) ? "white" : "var(--ink)" }}
             >
               <Shape kind={f.shape} className="h-7 w-7" />
-              <div className="mt-4 text-xs font-bold uppercase tracking-wider opacity-80">
+              <div className="mt-4 text-[11px] font-bold uppercase tracking-wider opacity-80 sm:text-xs">
                 {f.label}
               </div>
-              <div className="mt-1 font-display text-lg font-extrabold">{f.value}</div>
+              <div className="mt-1 font-display text-base font-extrabold sm:text-lg">{f.value}</div>
             </div>
           ))}
         </div>
@@ -531,10 +531,11 @@ function ProgramOverview() {
             badge="◆"
             title="What mentees will learn"
             items={[
-              "Clear roadmaps for DSA, dev, and product paths",
-              "Resume reviews and project guidance",
-              "Mock interviews and networking strategy",
-              "How to land your first internship — confidently",
+              "DSA fundamentals: arrays, strings, recursion, trees, graphs, DP",
+              "A weekly LeetCode plan + pattern-based problem solving",
+              "Resume that gets shortlisted + 1:1 review with your mentor",
+              "Mock interviews — DSA rounds, HR rounds, behavioral",
+              "How to actually apply to internships and stand out",
             ]}
           />
           <Panel
