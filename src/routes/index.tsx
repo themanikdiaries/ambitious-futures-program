@@ -420,13 +420,21 @@ function MentorPreviewCard({
 
 /* ------------------------------ Marquee Bar ----------------------------- */
 function MarqueeBar() {
-  const items = ["DSA", "INTERNSHIPS", "RESUME", "PROJECTS", "MOCK INTERVIEWS", "NETWORKING", "PORTFOLIO", "MENTORSHIP"];
+  const items = [
+    "You don't have to be ready — you have to start.",
+    "She believed she could, so she did.",
+    "Every expert was once a beginner.",
+    "Talent is everywhere. Opportunity is what we build here.",
+    "Your first internship is closer than you think.",
+    "Consistency beats talent. Show up.",
+    "Learn in public. Grow in community.",
+  ];
   return (
     <div className="border-y-4 border-ink bg-[var(--brand-yellow)] py-4 overflow-hidden" style={{ borderColor: "var(--ink)" }}>
-      <div className="animate-marquee flex w-max gap-8 whitespace-nowrap font-display text-2xl font-extrabold tracking-tight text-ink" style={{ color: "var(--ink)" }}>
+      <div className="animate-marquee flex w-max gap-10 whitespace-nowrap font-display text-lg font-extrabold tracking-tight text-ink sm:text-2xl" style={{ color: "var(--ink)" }}>
         {[...items, ...items, ...items].map((it, i) => (
-          <span key={i} className="flex items-center gap-8">
-            {it}
+          <span key={i} className="flex items-center gap-10">
+            <span className="italic">"{it}"</span>
             <span className="inline-block h-3 w-3 rounded-full bg-[var(--brand-red)]" />
           </span>
         ))}
