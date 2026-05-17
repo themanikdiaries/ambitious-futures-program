@@ -15,6 +15,7 @@ import mentor2 from "@/assets/mentor-2.jpg";
 import mentor3 from "@/assets/mentor-3.jpg";
 import mentor4 from "@/assets/mentor-4.jpg";
 import community1 from "@/assets/community-1.jpg";
+import gltLogo from "@/assets/glt-logo.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -203,9 +204,12 @@ function Navbar() {
         className="pointer-events-auto flex max-w-[calc(100vw-1.5rem)] items-center gap-1 overflow-x-auto rounded-full border-2 border-ink bg-white/60 px-2 py-2 shadow-pop backdrop-blur-xl supports-[backdrop-filter]:bg-white/40 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         style={{ borderColor: "var(--ink)" }}
       >
-        <span className="sm:hidden inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-yellow)] px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-ink whitespace-nowrap" style={{ color: "var(--ink)" }}>
-          GLT · DSA Cohort
-        </span>
+        <a href="#top" className="flex flex-shrink-0 items-center gap-2 rounded-full pl-1 pr-2 whitespace-nowrap">
+          <img src={gltLogo} alt="Girls Leading Tech" className="h-8 w-8 rounded-full border-2 border-ink object-cover sm:h-9 sm:w-9" style={{ borderColor: "var(--ink)" }} />
+          <span className="sm:hidden text-[11px] font-extrabold uppercase tracking-wider text-ink" style={{ color: "var(--ink)" }}>
+            GLT · DSA
+          </span>
+        </a>
         {links.map((l) => (
           <a
             key={l.href}
