@@ -727,13 +727,12 @@ function Mentors() {
           </h2>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4" style={{ perspective: "1400px" }}>
+        <div data-stagger-up className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {MENTORS.map((m, i) => {
             const white = m.bg !== "var(--brand-yellow)";
             return (
               <article
                 key={m.name}
-                data-tilt
                 className={`group overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
                 style={{ background: m.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
               >
