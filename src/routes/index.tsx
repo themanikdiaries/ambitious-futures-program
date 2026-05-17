@@ -521,11 +521,10 @@ function ProgramOverview() {
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5" style={{ perspective: "1200px" }}>
+        <div data-stagger-up className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
           {facts.map((f) => (
             <div
               key={f.label}
-              data-tilt
               className="rounded-2xl border-2 border-ink p-4 shadow-card transition-transform hover:-translate-y-1 hover:rotate-1 sm:p-5"
               style={{ background: f.bg, borderColor: "var(--ink)", color: whiteText(f.bg) ? "white" : "var(--ink)" }}
             >
