@@ -596,7 +596,6 @@ function Panel({
   const bg = tone === "red" ? "var(--brand-red)" : "var(--brand-blue)";
   return (
     <div
-      data-reveal
       className="rounded-3xl border-2 border-ink bg-white p-8 shadow-card"
       style={{ borderColor: "var(--ink)" }}
     >
