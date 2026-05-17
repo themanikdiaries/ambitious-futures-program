@@ -71,6 +71,19 @@ function LandingPage() {
         });
       });
 
+      // Smooth one-by-one bottom-to-top stagger for grids
+      gsap.utils.toArray<HTMLElement>("[data-stagger-up]").forEach((container) => {
+        const items = Array.from(container.children) as HTMLElement[];
+        gsap.from(items, {
+          y: 80,
+          opacity: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: { trigger: container, start: "top 85%" },
+        });
+      });
+
       // Floating shape parallax
       gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
         const speed = parseFloat(el.dataset.parallax || "0.3");
