@@ -541,7 +541,7 @@ function ProgramOverview() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div className="mt-20 grid gap-6 sm:mt-24 lg:grid-cols-2">
           <Panel
             tone="red"
             badge="◆"
