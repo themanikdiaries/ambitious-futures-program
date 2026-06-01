@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { toPng } from "html-to-image";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
