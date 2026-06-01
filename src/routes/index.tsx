@@ -182,6 +182,7 @@ function LandingPage() {
         <WhoShouldApply />
         <Process />
         <CommunityProof />
+        <AssetGenerator />
         <FAQ />
         <FinalCTA />
       </main>
