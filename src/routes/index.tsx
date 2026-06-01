@@ -198,6 +198,7 @@ function Navbar() {
     { label: "Program", href: "#program" },
     { label: "Timeline", href: "#timeline" },
     { label: "Mentors", href: "#mentors" },
+    { label: "Studio", href: "#generator" },
     { label: "FAQs", href: "#faq" },
   ];
   return (
