@@ -1121,6 +1121,256 @@ function Quote({ quote, by, bg, textInk }: { quote: string; by: string; bg: stri
   );
 }
 
+/* --------------------------- Asset Generator ---------------------------- */
+function AssetGenerator() {
+  const [mode, setMode] = useState<"photobooth" | "ticket">("photobooth");
+  return (
+    <section id="generator" className="relative overflow-hidden border-b-4 border-ink bg-[var(--brand-yellow)] py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
+      <div data-parallax="0.25" className="pointer-events-none absolute -left-16 top-10 h-44 w-44 rounded-full bg-[var(--brand-red)]" />
+      <div data-parallax="0.35" className="pointer-events-none absolute right-0 bottom-10 h-52 w-52 rotate-12 bg-[var(--brand-blue)]" />
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center" data-section-title>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">★ Flex your cohort vibes</p>
+          <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
+            The <span className="bg-white px-2 border-2 border-ink" style={{ borderColor: "var(--ink)" }}>GLT Asset Studio</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-base font-medium text-ink/80 sm:text-lg">
+            Generate your own photobooth shot or cohort ticket, then share it on LinkedIn, X and Instagram. Tag <strong>@girlsleadingtech</strong> and show the world you're in.
+          </p>
+        </div>
+
+        <div className="mt-8 flex justify-center gap-2" data-reveal>
+          {(["photobooth", "ticket"] as const).map((m) => (
+            <button
+              key={m}
+              onClick={() => setMode(m)}
+              className={`rounded-full border-2 border-ink px-5 py-2 text-sm font-bold uppercase tracking-wider transition ${mode === m ? "bg-ink text-white" : "bg-white text-ink hover:bg-[var(--brand-red)] hover:text-white"}`}
+              style={{ borderColor: "var(--ink)" }}
+            >
+              {m === "photobooth" ? "📸 Photobooth" : "🎟️ Ticket"}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-10" data-reveal>
+          {mode === "photobooth" ? <Photobooth /> : <TicketGen />}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const FRAMES = [
+  { id: "red", bg: "var(--brand-red)", fg: "#fff", label: "Bold Red" },
+  { id: "blue", bg: "var(--brand-blue)", fg: "#fff", label: "Electric Blue" },
+  { id: "yellow", bg: "var(--brand-yellow)", fg: "#1a1a1a", label: "Sunshine" },
+];
+
+function downloadNode(node: HTMLElement, filename: string) {
+  return toPng(node, { cacheBust: true, pixelRatio: 2, backgroundColor: "#ffffff" }).then((dataUrl) => {
+    const a = document.createElement("a");
+    a.href = dataUrl;
+    a.download = filename;
+    a.click();
+  });
+}
+
+function shareLinks(text: string) {
+  const url = "https://girlsleadingtech.com";
+  const enc = encodeURIComponent(`${text}\n\n#GirlsLeadingTech #GLTCohort`);
+  return {
+    twitter: `https://twitter.com/intent/tweet?text=${enc}&url=${encodeURIComponent(url)}&via=GirlLeadingTech`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+  };
+}
+
+function Photobooth() {
+  const [img, setImg] = useState<string | null>(null);
+  const [frame, setFrame] = useState(FRAMES[0]);
+  const [caption, setCaption] = useState("I'm in the GLT Cohort!");
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [busy, setBusy] = useState(false);
+
+  const onFile = (f: File) => {
+    const reader = new FileReader();
+    reader.onload = () => setImg(reader.result as string);
+    reader.readAsDataURL(f);
+  };
+
+  const download = useCallback(async () => {
+    if (!cardRef.current) return;
+    setBusy(true);
+    try { await downloadNode(cardRef.current, "glt-photobooth.png"); } finally { setBusy(false); }
+  }, []);
+
+  const links = shareLinks(`${caption} 💛 Joining the Girls Leading Tech DSA & Internship Cohort.`);
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
+      <div className="rounded-3xl border-2 border-ink bg-white p-6 shadow-pop" style={{ borderColor: "var(--ink)" }}>
+        <label className="block text-xs font-bold uppercase tracking-wider text-ink/70">1. Upload your photo</label>
+        <label className="mt-2 flex h-32 cursor-pointer items-center justify-center rounded-2xl border-2 border-dashed border-ink bg-[var(--brand-yellow)]/30 text-center text-sm font-bold text-ink hover:bg-[var(--brand-yellow)]/60" style={{ borderColor: "var(--ink)" }}>
+          {img ? "✓ Photo loaded — click to swap" : "📷 Click to choose a selfie"}
+          <input type="file" accept="image/*" className="hidden" onChange={(e) => e.target.files?.[0] && onFile(e.target.files[0])} />
+        </label>
+
+        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">2. Pick a vibe</label>
+        <div className="mt-2 flex gap-2">
+          {FRAMES.map((f) => (
+            <button key={f.id} onClick={() => setFrame(f)} className={`flex-1 rounded-xl border-2 border-ink px-3 py-2 text-xs font-bold transition ${frame.id === f.id ? "ring-4 ring-ink" : ""}`} style={{ borderColor: "var(--ink)", background: f.bg, color: f.fg }}>
+              {f.label}
+            </button>
+          ))}
+        </div>
+
+        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">3. Your caption</label>
+        <input value={caption} onChange={(e) => setCaption(e.target.value)} maxLength={60} className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none" style={{ borderColor: "var(--ink)" }} />
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          <button disabled={!img || busy} onClick={download} className="rounded-full border-2 border-ink bg-ink px-5 py-2.5 text-sm font-bold text-white disabled:opacity-40" style={{ borderColor: "var(--ink)" }}>
+            {busy ? "Rendering…" : "⬇ Download PNG"}
+          </button>
+          <a href={links.twitter} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-ink bg-[var(--brand-blue)] px-5 py-2.5 text-sm font-bold text-white" style={{ borderColor: "var(--ink)" }}>𝕏 Share</a>
+          <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-5 py-2.5 text-sm font-bold text-white" style={{ borderColor: "var(--ink)" }}>in Share</a>
+        </div>
+        <p className="mt-3 text-xs text-ink/60">Download first, then attach the image to your post.</p>
+      </div>
+
+      <div className="flex justify-center">
+        <div ref={cardRef} className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl border-4 border-ink shadow-pop" style={{ borderColor: "var(--ink)", background: frame.bg, color: frame.fg }}>
+          <div className="absolute left-3 top-3 h-3 w-3 rounded-full bg-white/80" />
+          <div className="absolute right-3 top-3 h-3 w-3 rounded-full bg-white/80" />
+          <div className="absolute left-3 bottom-3 h-3 w-3 rounded-full bg-white/80" />
+          <div className="absolute right-3 bottom-3 h-3 w-3 rounded-full bg-white/80" />
+
+          <div className="flex items-center justify-between px-5 pt-5">
+            <div className="flex items-center gap-2">
+              <img src={gltLogo} alt="GLT" className="h-8 w-8 rounded-full border-2 border-white object-cover" crossOrigin="anonymous" />
+              <span className="text-[11px] font-extrabold uppercase tracking-widest">Girls Leading Tech</span>
+            </div>
+            <span className="rounded-full border-2 border-current px-2 py-0.5 text-[10px] font-bold uppercase">Cohort 01</span>
+          </div>
+
+          <div className="mx-5 mt-4 aspect-square overflow-hidden rounded-2xl border-4 border-white bg-white/20">
+            {img ? (
+              <img src={img} alt="you" className="h-full w-full object-cover" />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center text-center text-xs font-bold opacity-70">
+                Your photo will<br />appear here
+              </div>
+            )}
+          </div>
+
+          <div className="px-5 pb-5 pt-4">
+            <p className="font-display text-xl font-extrabold leading-tight">"{caption}"</p>
+            <p className="mt-2 text-[10px] font-bold uppercase tracking-widest opacity-80">#GLTCohort · DSA & Internship Guidance</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TicketGen() {
+  const [name, setName] = useState("Ada Lovelace");
+  const [role, setRole] = useState<"Mentee" | "Mentor">("Mentee");
+  const [track, setTrack] = useState("DSA & Internship Guidance");
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [busy, setBusy] = useState(false);
+
+  const ticketId = `GLT-${(name.replace(/\s/g, "").slice(0, 4).toUpperCase() || "XXXX")}-${String(Math.abs(name.length * 73 + role.length * 11) % 9999).padStart(4, "0")}`;
+
+  const download = useCallback(async () => {
+    if (!cardRef.current) return;
+    setBusy(true);
+    try { await downloadNode(cardRef.current, `glt-ticket-${name.replace(/\s/g, "-").toLowerCase()}.png`); } finally { setBusy(false); }
+  }, [name]);
+
+  const links = shareLinks(`I just got my ticket to the Girls Leading Tech DSA & Internship Cohort as a ${role}! 🎟️💛`);
+
+  return (
+    <div className="grid gap-8 lg:grid-cols-[1fr_1.3fr]">
+      <div className="rounded-3xl border-2 border-ink bg-white p-6 shadow-pop" style={{ borderColor: "var(--ink)" }}>
+        <label className="block text-xs font-bold uppercase tracking-wider text-ink/70">Your name</label>
+        <input value={name} onChange={(e) => setName(e.target.value)} maxLength={28} className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none" style={{ borderColor: "var(--ink)" }} />
+
+        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">Joining as</label>
+        <div className="mt-2 grid grid-cols-2 gap-2">
+          {(["Mentee", "Mentor"] as const).map((r) => (
+            <button key={r} onClick={() => setRole(r)} className={`rounded-xl border-2 border-ink px-3 py-2 text-sm font-bold ${role === r ? "bg-ink text-white" : "bg-white"}`} style={{ borderColor: "var(--ink)" }}>{r}</button>
+          ))}
+        </div>
+
+        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">Track</label>
+        <input value={track} onChange={(e) => setTrack(e.target.value)} maxLength={40} className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none" style={{ borderColor: "var(--ink)" }} />
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          <button disabled={busy} onClick={download} className="rounded-full border-2 border-ink bg-ink px-5 py-2.5 text-sm font-bold text-white disabled:opacity-40" style={{ borderColor: "var(--ink)" }}>
+            {busy ? "Rendering…" : "⬇ Download ticket"}
+          </button>
+          <a href={links.twitter} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-ink bg-[var(--brand-blue)] px-5 py-2.5 text-sm font-bold text-white" style={{ borderColor: "var(--ink)" }}>𝕏 Share</a>
+          <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-5 py-2.5 text-sm font-bold text-white" style={{ borderColor: "var(--ink)" }}>in Share</a>
+        </div>
+        <p className="mt-3 text-xs text-ink/60">Download first, then attach the image to your post.</p>
+      </div>
+
+      <div className="flex justify-center">
+        <div ref={cardRef} className="relative flex w-full max-w-xl overflow-hidden rounded-3xl border-4 border-ink bg-white shadow-pop" style={{ borderColor: "var(--ink)" }}>
+          <div className="relative flex w-28 flex-col items-center justify-between bg-[var(--brand-red)] p-4 text-white">
+            <img src={gltLogo} alt="GLT" className="h-12 w-12 rounded-full border-2 border-white object-cover" crossOrigin="anonymous" />
+            <div className="rotate-180 [writing-mode:vertical-rl] text-[11px] font-extrabold uppercase tracking-[0.3em]">
+              Girls Leading Tech
+            </div>
+            <div className="text-[10px] font-bold opacity-90">ADMIT ONE</div>
+          </div>
+
+          <div className="relative w-0 border-l-4 border-dashed border-ink" style={{ borderColor: "var(--ink)" }}>
+            <div className="absolute -left-3 -top-3 h-6 w-6 rounded-full bg-[var(--brand-yellow)] border-2 border-ink" style={{ borderColor: "var(--ink)" }} />
+            <div className="absolute -left-3 -bottom-3 h-6 w-6 rounded-full bg-[var(--brand-yellow)] border-2 border-ink" style={{ borderColor: "var(--ink)" }} />
+          </div>
+
+          <div className="flex-1 bg-white p-5">
+            <div className="flex items-center justify-between">
+              <span className="rounded-full border-2 border-ink bg-[var(--brand-yellow)] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-ink" style={{ borderColor: "var(--ink)" }}>Cohort 01</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-ink/60">{ticketId}</span>
+            </div>
+
+            <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-ink/60">Attendee</p>
+            <p className="font-display text-2xl font-extrabold leading-tight text-ink sm:text-3xl">{name || "—"}</p>
+
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              <div className="rounded-xl border-2 border-ink bg-[var(--brand-blue)] p-2.5 text-white" style={{ borderColor: "var(--ink)" }}>
+                <p className="text-[9px] font-bold uppercase tracking-widest opacity-90">Role</p>
+                <p className="font-display text-base font-extrabold">{role}</p>
+              </div>
+              <div className="rounded-xl border-2 border-ink bg-[var(--brand-red)] p-2.5 text-white" style={{ borderColor: "var(--ink)" }}>
+                <p className="text-[9px] font-bold uppercase tracking-widest opacity-90">Track</p>
+                <p className="font-display text-sm font-extrabold leading-tight">{track}</p>
+              </div>
+            </div>
+
+            <div className="mt-4 flex items-end justify-between">
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-widest text-ink/60">Duration</p>
+                <p className="font-display text-sm font-extrabold text-ink">4 weeks · Online</p>
+              </div>
+              <div className="flex h-10 items-end gap-[2px]">
+                {Array.from({ length: 28 }).map((_, i) => (
+                  <span key={i} className="block bg-ink" style={{ width: 2, height: `${30 + ((i * 37) % 70)}%` }} />
+                ))}
+              </div>
+            </div>
+
+            <p className="mt-3 text-center text-[10px] font-bold uppercase tracking-widest text-ink/70">
+              girlsleadingtech.com · #GLTCohort
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* --------------------------------- FAQ ---------------------------------- */
 function FAQ() {
   const items = [
