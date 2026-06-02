@@ -38,8 +38,8 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const APPLY_MENTEE_URL = "https://airtable.com/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
-const APPLY_MENTOR_URL = "https://airtable.com/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
+const APPLY_FORM_URL = "https://airtable.com/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
+const APPLY_FORM_EMBED_URL = "https://airtable.com/embed/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
 
 function LandingPage() {
   // Master GSAP setup: scroll reveals, parallax, 3D tilts
@@ -179,6 +179,7 @@ function LandingPage() {
         <OrganizingTeam />
         <WhoShouldApply />
         <Process />
+        <ApplicationForm />
         <CommunityProof />
         <AssetGenerator />
         <FAQ />
@@ -313,24 +314,16 @@ function Hero() {
             community that actually shows up.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3" id="apply">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Button
               asChild
               size="lg"
               className="rounded-full border-2 border-ink bg-[var(--brand-red)] text-white shadow-pop hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
               style={{ borderColor: "var(--ink)" }}
             >
-              <a href={APPLY_MENTEE_URL}>
+              <a href="#apply">
                 Apply as Mentee →
               </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              className="rounded-full border-2 border-ink bg-[var(--brand-blue)] text-white shadow-pop hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
-              style={{ borderColor: "var(--ink)" }}
-            >
-              <a href={APPLY_MENTOR_URL}>Apply as Mentor</a>
             </Button>
           </div>
 
