@@ -1525,15 +1525,7 @@ function FinalCTA() {
             className="rounded-full border-2 border-ink bg-[var(--brand-red)] text-white shadow-pop hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
             style={{ borderColor: "var(--ink)" }}
           >
-            <a href={APPLY_MENTEE_URL}>Apply as Mentee →</a>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            className="rounded-full border-2 border-ink bg-[var(--brand-blue)] text-white shadow-pop hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
-            style={{ borderColor: "var(--ink)" }}
-          >
-            <a href={APPLY_MENTOR_URL}>Apply as Mentor</a>
+            <a href="#apply">Apply as Mentee →</a>
           </Button>
         </div>
       </div>
