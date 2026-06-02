@@ -206,9 +206,20 @@ function Navbar() {
         className="pointer-events-auto flex max-w-[calc(100vw-1.5rem)] items-center gap-1 overflow-x-auto rounded-full border-2 border-ink bg-white/60 px-2 py-2 shadow-pop backdrop-blur-xl supports-[backdrop-filter]:bg-white/40 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         style={{ borderColor: "var(--ink)" }}
       >
-        <a href="#top" className="flex flex-shrink-0 items-center gap-2 rounded-full pl-1 pr-2 whitespace-nowrap">
-          <img src={gltLogo} alt="Girls Leading Tech" className="h-8 w-8 rounded-full border-2 border-ink object-cover sm:h-9 sm:w-9" style={{ borderColor: "var(--ink)" }} />
-          <span className="sm:hidden text-[11px] font-extrabold uppercase tracking-wider text-ink" style={{ color: "var(--ink)" }}>
+        <a
+          href="#top"
+          className="flex flex-shrink-0 items-center gap-2 rounded-full pl-1 pr-2 whitespace-nowrap"
+        >
+          <img
+            src={gltLogo}
+            alt="Girls Leading Tech"
+            className="h-8 w-8 rounded-full border-2 border-ink object-cover sm:h-9 sm:w-9"
+            style={{ borderColor: "var(--ink)" }}
+          />
+          <span
+            className="sm:hidden text-[11px] font-extrabold uppercase tracking-wider text-ink"
+            style={{ color: "var(--ink)" }}
+          >
             GLT · DSA
           </span>
         </a>
@@ -271,8 +282,10 @@ function Hero() {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-12 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[var(--brand-yellow)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-ink sm:text-xs"
-            style={{ borderColor: "var(--ink)", color: "var(--ink)" }}>
+          <span
+            className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[var(--brand-yellow)] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-ink sm:text-xs"
+            style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
+          >
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[var(--brand-red)]" />
             DSA & Internship Guidance Cohort
           </span>
@@ -297,7 +310,12 @@ function Hero() {
                         viewBox="0 0 100 10"
                         preserveAspectRatio="none"
                       >
-                        <path d="M0,5 Q25,0 50,5 T100,5" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path
+                          d="M0,5 Q25,0 50,5 T100,5"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          fill="none"
+                        />
                       </svg>
                     </span>
                   ) : (
@@ -309,9 +327,9 @@ function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-base text-foreground/75 sm:text-lg">
-            A focused 4-week DSA & internship guidance cohort — taught by women already
-            building careers in tech. Roadmaps, mock interviews, resume reviews, and a
-            community that actually shows up.
+            A focused 4-week DSA & internship guidance cohort — taught by women already building
+            careers in tech. Roadmaps, mock interviews, resume reviews, and a community that
+            actually shows up.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -321,13 +339,14 @@ function Hero() {
               className="rounded-full border-2 border-ink bg-[var(--brand-red)] text-white shadow-pop hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
               style={{ borderColor: "var(--ink)" }}
             >
-              <a href="#apply">
-                Apply as Mentee →
-              </a>
+              <a href="#apply">Apply as Mentee →</a>
             </Button>
           </div>
 
-          <dl className="mt-10 grid grid-cols-3 gap-3 border-t-4 border-ink pt-6 sm:mt-12 sm:gap-4 sm:pt-8" style={{ borderColor: "var(--ink)" }}>
+          <dl
+            className="mt-10 grid grid-cols-3 gap-3 border-t-4 border-ink pt-6 sm:mt-12 sm:gap-4 sm:pt-8"
+            style={{ borderColor: "var(--ink)" }}
+          >
             <Stat value="4,000+" label="Girls in community" color="red" />
             <Stat value="1,100+" label="Colleges" color="blue" />
             <Stat value="23+" label="States" color="yellow" />
@@ -389,7 +408,9 @@ function Stat({
       >
         {value}
       </dt>
-      <dd className="mt-1 text-xs font-semibold uppercase tracking-wider text-foreground/70 sm:text-sm">{label}</dd>
+      <dd className="mt-1 text-xs font-semibold uppercase tracking-wider text-foreground/70 sm:text-sm">
+        {label}
+      </dd>
     </div>
   );
 }
@@ -422,8 +443,12 @@ function MentorPreviewCard({
         style={{ borderColor: "var(--ink)" }}
       />
       <div>
-        <div className="text-sm font-bold text-ink" style={{ color: "var(--ink)" }}>{name}</div>
-        <div className="text-xs font-medium text-ink/80" style={{ color: "var(--ink)" }}>{role}</div>
+        <div className="text-sm font-bold text-ink" style={{ color: "var(--ink)" }}>
+          {name}
+        </div>
+        <div className="text-xs font-medium text-ink/80" style={{ color: "var(--ink)" }}>
+          {role}
+        </div>
       </div>
     </div>
   );
@@ -441,8 +466,14 @@ function MarqueeBar() {
     "Learn in public. Grow in community.",
   ];
   return (
-    <div className="border-y-4 border-ink bg-[var(--brand-yellow)] py-4 overflow-hidden" style={{ borderColor: "var(--ink)" }}>
-      <div className="animate-marquee flex w-max gap-10 whitespace-nowrap font-display text-lg font-extrabold tracking-tight text-ink sm:text-2xl" style={{ color: "var(--ink)" }}>
+    <div
+      className="border-y-4 border-ink bg-[var(--brand-yellow)] py-4 overflow-hidden"
+      style={{ borderColor: "var(--ink)" }}
+    >
+      <div
+        className="animate-marquee flex w-max gap-10 whitespace-nowrap font-display text-lg font-extrabold tracking-tight text-ink sm:text-2xl"
+        style={{ color: "var(--ink)" }}
+      >
         {[...items, ...items, ...items].map((it, i) => (
           <span key={i} className="flex items-center gap-10">
             <span className="italic">"{it}"</span>
@@ -457,7 +488,11 @@ function MarqueeBar() {
 /* ------------------------------ Why this exists ------------------------- */
 function WhyThisExists() {
   return (
-    <section id="why" className="relative border-b-4 border-ink py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
+    <section
+      id="why"
+      className="relative border-b-4 border-ink py-20 sm:py-28"
+      style={{ borderColor: "var(--ink)" }}
+    >
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
         <div className="lg:col-span-5" data-section-title>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-blue)]">
@@ -469,21 +504,20 @@ function WhyThisExists() {
         </div>
         <div className="space-y-5 text-lg text-foreground/75 lg:col-span-7" data-reveal>
           <p>
-            Many students begin their tech journey without direction, guidance, or access to
-            the right network. Talent is everywhere — opportunity, often, is not.
+            Many students begin their tech journey without direction, guidance, or access to the
+            right network. Talent is everywhere — opportunity, often, is not.
           </p>
           <p>
-            At <span className="font-bold text-foreground">Girls Leading Tech</span>,
-            we believe mentorship can change that. This cohort is designed to connect
-            experienced women in tech with ambitious learners looking for clarity,
-            consistency, and community.
+            At <span className="font-bold text-foreground">Girls Leading Tech</span>, we believe
+            mentorship can change that. This cohort is designed to connect experienced women in tech
+            with ambitious learners looking for clarity, consistency, and community.
           </p>
           <blockquote
             className="rounded-2xl border-2 border-ink bg-[var(--brand-red)] px-6 py-5 text-base font-medium text-white shadow-card"
             style={{ borderColor: "var(--ink)" }}
           >
-            "You can't be what you can't see. We're building a room where every girl can
-            see herself in the people she's learning from."
+            "You can't be what you can't see. We're building a room where every girl can see herself
+            in the people she's learning from."
           </blockquote>
         </div>
       </div>
@@ -493,7 +527,12 @@ function WhyThisExists() {
 
 /* ---------------------------- Program overview -------------------------- */
 function ProgramOverview() {
-  const facts: { label: string; value: string; bg: string; shape: "circle" | "square" | "tri" | "cross" | "halfmoon" }[] = [
+  const facts: {
+    label: string;
+    value: string;
+    bg: string;
+    shape: "circle" | "square" | "tri" | "cross" | "halfmoon";
+  }[] = [
     { label: "Duration", value: "4 Weeks", bg: "var(--brand-red)", shape: "circle" },
     { label: "Format", value: "Virtual Group", bg: "var(--brand-blue)", shape: "square" },
     { label: "Mentor Ratio", value: "1 : 10", bg: "var(--brand-yellow)", shape: "tri" },
@@ -504,7 +543,11 @@ function ProgramOverview() {
   const whiteText = (bg: string) => bg !== "var(--brand-yellow)";
 
   return (
-    <section id="program" className="border-b-4 border-ink bg-white py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
+    <section
+      id="program"
+      className="border-b-4 border-ink bg-white py-20 sm:py-28"
+      style={{ borderColor: "var(--ink)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center" data-section-title>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">
@@ -519,12 +562,19 @@ function ProgramOverview() {
           </p>
         </div>
 
-        <div data-stagger-up className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
+        <div
+          data-stagger-up
+          className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5"
+        >
           {facts.map((f) => (
             <div
               key={f.label}
               className="rounded-2xl border-2 border-ink p-4 shadow-card transition-transform hover:-translate-y-1 hover:rotate-1 sm:p-5"
-              style={{ background: f.bg, borderColor: "var(--ink)", color: whiteText(f.bg) ? "white" : "var(--ink)" }}
+              style={{
+                background: f.bg,
+                borderColor: "var(--ink)",
+                color: whiteText(f.bg) ? "white" : "var(--ink)",
+              }}
             >
               <Shape kind={f.shape} className="h-7 w-7" />
               <div className="mt-4 text-[11px] font-bold uppercase tracking-wider opacity-80 sm:text-xs">
@@ -565,18 +615,44 @@ function ProgramOverview() {
   );
 }
 
-function Shape({ kind, className }: { kind: "circle" | "square" | "tri" | "cross" | "halfmoon"; className?: string }) {
+function Shape({
+  kind,
+  className,
+}: {
+  kind: "circle" | "square" | "tri" | "cross" | "halfmoon";
+  className?: string;
+}) {
   switch (kind) {
     case "circle":
-      return <svg viewBox="0 0 24 24" className={className}><circle cx="12" cy="12" r="10" fill="currentColor" /></svg>;
+      return (
+        <svg viewBox="0 0 24 24" className={className}>
+          <circle cx="12" cy="12" r="10" fill="currentColor" />
+        </svg>
+      );
     case "square":
-      return <svg viewBox="0 0 24 24" className={className}><rect x="3" y="3" width="18" height="18" fill="currentColor" /></svg>;
+      return (
+        <svg viewBox="0 0 24 24" className={className}>
+          <rect x="3" y="3" width="18" height="18" fill="currentColor" />
+        </svg>
+      );
     case "tri":
-      return <svg viewBox="0 0 24 24" className={className}><polygon points="12,2 22,22 2,22" fill="currentColor" /></svg>;
+      return (
+        <svg viewBox="0 0 24 24" className={className}>
+          <polygon points="12,2 22,22 2,22" fill="currentColor" />
+        </svg>
+      );
     case "cross":
-      return <svg viewBox="0 0 24 24" className={className}><path d="M4 4 L20 20 M20 4 L4 20" stroke="currentColor" strokeWidth="4" /></svg>;
+      return (
+        <svg viewBox="0 0 24 24" className={className}>
+          <path d="M4 4 L20 20 M20 4 L4 20" stroke="currentColor" strokeWidth="4" />
+        </svg>
+      );
     case "halfmoon":
-      return <svg viewBox="0 0 24 24" className={className}><path d="M2 12 A10 10 0 0 1 22 12 Z" fill="currentColor" /></svg>;
+      return (
+        <svg viewBox="0 0 24 24" className={className}>
+          <path d="M2 12 A10 10 0 0 1 22 12 Z" fill="currentColor" />
+        </svg>
+      );
   }
 }
 
@@ -663,10 +739,16 @@ function Timeline() {
     >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center" data-section-title>
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-ink" style={{ color: "var(--ink)" }}>
+          <p
+            className="text-sm font-bold uppercase tracking-[0.2em] text-ink"
+            style={{ color: "var(--ink)" }}
+          >
             ● Cohort timeline
           </p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl text-ink" style={{ color: "var(--ink)" }}>
+          <h2
+            className="mt-3 font-display text-4xl font-extrabold sm:text-5xl text-ink"
+            style={{ color: "var(--ink)" }}
+          >
             Four weeks. <span className="italic">One playbook.</span>
           </h2>
         </div>
@@ -678,7 +760,11 @@ function Timeline() {
                 key={w.week}
                 data-week-card
                 className="rounded-3xl border-2 border-ink p-6 shadow-pop sm:p-8"
-                style={{ background: w.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
+                style={{
+                  background: w.bg,
+                  borderColor: "var(--ink)",
+                  color: white ? "white" : "var(--ink)",
+                }}
               >
                 <div className="flex items-start gap-5">
                   <span
@@ -688,7 +774,9 @@ function Timeline() {
                     0{i + 1}
                   </span>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-widest opacity-80">{w.week}</div>
+                    <div className="text-xs font-bold uppercase tracking-widest opacity-80">
+                      {w.week}
+                    </div>
                     <h3 className="mt-1 font-display text-2xl font-extrabold">{w.title}</h3>
                     <p className="mt-2 opacity-90">{w.desc}</p>
                   </div>
@@ -704,27 +792,54 @@ function Timeline() {
 
 /* ------------------------------- Mentors -------------------------------- */
 const MENTOR_TEASERS = [
-  { tag: "Mentor 01", hint: "SDE @ Big Tech · DSA whisperer", bg: "var(--brand-red)", fg: "white", emoji: "👩‍💻" },
-  { tag: "Mentor 02", hint: "Backend engineer · System design", bg: "var(--brand-yellow)", fg: "var(--ink)", emoji: "⚙️" },
-  { tag: "Mentor 03", hint: "PM Intern → FAANG · Case prep", bg: "var(--brand-blue)", fg: "white", emoji: "🚀" },
-  { tag: "Mentor 04", hint: "Data Scientist · ML + Open source", bg: "var(--brand-red)", fg: "white", emoji: "📊" },
+  {
+    tag: "Mentor 01",
+    hint: "SDE @ Big Tech · DSA whisperer",
+    bg: "var(--brand-red)",
+    fg: "white",
+    emoji: "👩‍💻",
+  },
+  {
+    tag: "Mentor 02",
+    hint: "Backend engineer · System design",
+    bg: "var(--brand-yellow)",
+    fg: "var(--ink)",
+    emoji: "⚙️",
+  },
+  {
+    tag: "Mentor 03",
+    hint: "PM Intern → FAANG · Case prep",
+    bg: "var(--brand-blue)",
+    fg: "white",
+    emoji: "🚀",
+  },
+  {
+    tag: "Mentor 04",
+    hint: "Data Scientist · ML + Open source",
+    bg: "var(--brand-red)",
+    fg: "white",
+    emoji: "📊",
+  },
 ];
 
 function Mentors() {
   return (
-    <section id="mentors" className="border-b-4 border-ink bg-white py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
+    <section
+      id="mentors"
+      className="border-b-4 border-ink bg-white py-20 sm:py-28"
+      style={{ borderColor: "var(--ink)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center" data-section-title>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">
             ✦ Meet the mentors
           </p>
           <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-            The lineup is{" "}
-            <span className="bg-[var(--brand-red)] px-2 text-white">under wraps</span>
+            The lineup is <span className="bg-[var(--brand-red)] px-2 text-white">under wraps</span>
           </h2>
           <p className="mt-4 text-base text-foreground/75 sm:text-lg">
-            We're curating a small, intentional set of women already shipping at top tech
-            companies. Names drop soon — get on the list before they do.
+            We're curating a small, intentional set of women already shipping at top tech companies.
+            Names drop soon — get on the list before they do.
           </p>
         </div>
 
@@ -735,7 +850,10 @@ function Mentors() {
               className={`group relative overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 hover:rotate-0 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
               style={{ background: m.bg, borderColor: "var(--ink)", color: m.fg }}
             >
-              <div className="relative aspect-[4/5] overflow-hidden border-b-2 border-ink" style={{ borderColor: "var(--ink)" }}>
+              <div
+                className="relative aspect-[4/5] overflow-hidden border-b-2 border-ink"
+                style={{ borderColor: "var(--ink)" }}
+              >
                 {/* dotted texture */}
                 <div
                   className="absolute inset-0 opacity-30"
@@ -777,7 +895,8 @@ function Mentors() {
         </div>
         <div className="mt-10 flex flex-col items-center gap-3 text-center">
           <p className="text-sm font-medium text-foreground/70">
-            Want to be first to know who's mentoring? Apply now — accepted mentees get the reveal first.
+            Want to be first to know who's mentoring? Apply now — accepted mentees get the reveal
+            first.
           </p>
           <a
             href="#apply"
@@ -813,8 +932,8 @@ function OrganizingTeam() {
             </h2>
           </div>
           <p className="max-w-md text-foreground/70">
-            A volunteer-led group of women putting in late nights so this cohort gets the
-            care it deserves.
+            A volunteer-led group of women putting in late nights so this cohort gets the care it
+            deserves.
           </p>
         </div>
 
@@ -826,13 +945,20 @@ function OrganizingTeam() {
                 key={p.name}
                 data-reveal
                 className="flex items-center gap-4 rounded-2xl border-2 border-ink p-4 shadow-card"
-                style={{ background: p.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
+                style={{
+                  background: p.bg,
+                  borderColor: "var(--ink)",
+                  color: white ? "white" : "var(--ink)",
+                }}
               >
                 <div
                   className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-2 border-ink bg-white font-display text-lg font-extrabold text-ink"
                   style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
                 >
-                  {p.name.split(" ").map((n) => n[0]).join("")}
+                  {p.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
                 </div>
                 <div className="min-w-0">
                   <div className="truncate font-bold">{p.name}</div>
@@ -857,7 +983,10 @@ function WhoShouldApply() {
     "Aspiring developers who want a community to build with",
   ];
   return (
-    <section className="border-b-4 border-ink bg-[var(--brand-blue)] py-20 text-white sm:py-28" style={{ borderColor: "var(--ink)" }}>
+    <section
+      className="border-b-4 border-ink bg-[var(--brand-blue)] py-20 text-white sm:py-28"
+      style={{ borderColor: "var(--ink)" }}
+    >
       <div className="mx-auto grid max-w-5xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div data-section-title>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-yellow)]">
@@ -867,8 +996,8 @@ function WhoShouldApply() {
             This cohort was built for you if…
           </h2>
           <p className="mt-4 text-white/80">
-            You don't need a perfect CV or a fancy college. You need curiosity, commitment,
-            and 4 weeks of honest effort.
+            You don't need a perfect CV or a fancy college. You need curiosity, commitment, and 4
+            weeks of honest effort.
           </p>
         </div>
         <ul
@@ -972,8 +1101,11 @@ function Process() {
       cards.forEach((card, i) => {
         if (i === 0) return;
         const prev = cards[i - 1];
-        tl.to(prev, { rotateY: 90, opacity: 0, duration: 1, ease: "power2.inOut" })
-          .to(card, { rotateY: 0, opacity: 1, duration: 1, ease: "power2.inOut" }, "<");
+        tl.to(prev, { rotateY: 90, opacity: 0, duration: 1, ease: "power2.inOut" }).to(
+          card,
+          { rotateY: 0, opacity: 1, duration: 1, ease: "power2.inOut" },
+          "<",
+        );
       });
     }, containerRef);
     return () => ctx.revert();
@@ -996,7 +1128,10 @@ function Process() {
       </div>
 
       {/* Mobile: stacked tilt-in cards */}
-      <div className="mx-auto mt-10 grid max-w-2xl gap-4 px-4 pb-10 sm:px-6 md:hidden" style={{ perspective: "1200px" }}>
+      <div
+        className="mx-auto mt-10 grid max-w-2xl gap-4 px-4 pb-10 sm:px-6 md:hidden"
+        style={{ perspective: "1200px" }}
+      >
         {steps.map((s, i) => {
           const white = s.bg !== "var(--brand-yellow)";
           return (
@@ -1004,7 +1139,11 @@ function Process() {
               key={s.title}
               data-tilt
               className="rounded-3xl border-4 border-ink p-6 shadow-pop"
-              style={{ background: s.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
+              style={{
+                background: s.bg,
+                borderColor: "var(--ink)",
+                color: white ? "white" : "var(--ink)",
+              }}
             >
               <div className="flex items-start justify-between">
                 <span className="font-display text-5xl font-extrabold opacity-90">{s.num}</span>
@@ -1013,7 +1152,9 @@ function Process() {
                 </span>
               </div>
               <h3 className="mt-4 font-display text-3xl font-extrabold">{s.title}</h3>
-              <p className="mt-1 text-xs font-bold uppercase tracking-wider opacity-80">{s.kicker}</p>
+              <p className="mt-1 text-xs font-bold uppercase tracking-wider opacity-80">
+                {s.kicker}
+              </p>
               <ul className="mt-4 space-y-2 text-sm font-medium opacity-95">
                 {s.bullets.map((b) => (
                   <li key={b} className="flex gap-2">
@@ -1028,7 +1169,10 @@ function Process() {
       </div>
 
       {/* Desktop: pinned 3D flipping cards */}
-      <div ref={containerRef} className="relative mx-auto mt-12 hidden h-screen max-w-5xl items-center justify-center px-4 sm:px-6 md:flex lg:px-8">
+      <div
+        ref={containerRef}
+        className="relative mx-auto mt-12 hidden h-screen max-w-5xl items-center justify-center px-4 sm:px-6 md:flex lg:px-8"
+      >
         <div className="relative aspect-[4/3] w-full max-w-3xl" style={{ perspective: "1400px" }}>
           {steps.map((s, i) => {
             const white = s.bg !== "var(--brand-yellow)";
@@ -1036,7 +1180,11 @@ function Process() {
               <div
                 key={s.title}
                 className="process-card absolute inset-0 flex flex-col justify-between rounded-3xl border-4 border-ink p-8 shadow-pop sm:p-10"
-                style={{ background: s.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
+                style={{
+                  background: s.bg,
+                  borderColor: "var(--ink)",
+                  color: white ? "white" : "var(--ink)",
+                }}
               >
                 <div className="flex items-start justify-between">
                   <span className="font-display text-7xl font-extrabold opacity-90">{s.num}</span>
@@ -1046,11 +1194,15 @@ function Process() {
                 </div>
                 <div>
                   <h3 className="font-display text-4xl font-extrabold sm:text-5xl">{s.title}</h3>
-                  <p className="mt-2 text-sm font-bold uppercase tracking-wider opacity-80">{s.kicker}</p>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-wider opacity-80">
+                    {s.kicker}
+                  </p>
                   <ul className="mt-5 grid max-w-2xl gap-2 text-base font-medium opacity-95 sm:text-lg">
                     {s.bullets.map((b) => (
                       <li key={b} className="flex gap-3">
-                        <span aria-hidden className="font-extrabold">→</span>
+                        <span aria-hidden className="font-extrabold">
+                          →
+                        </span>
                         <span>{b}</span>
                       </li>
                     ))}
@@ -1077,7 +1229,11 @@ function Process() {
 /* -------------------------- Embedded application ------------------------- */
 function ApplicationForm() {
   return (
-    <section id="apply" className="border-y-4 border-ink bg-white py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
+    <section
+      id="apply"
+      className="border-y-4 border-ink bg-white py-20 sm:py-28"
+      style={{ borderColor: "var(--ink)" }}
+    >
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center" data-section-title>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">
@@ -1104,7 +1260,16 @@ function ApplicationForm() {
           />
         </div>
         <p className="mt-4 text-center text-sm font-medium text-foreground/70">
-          If the form does not load, <a href={APPLY_FORM_URL} target="_blank" rel="noopener noreferrer" className="font-bold text-[var(--brand-blue)] underline">open it in a new tab</a>.
+          If the form does not load,{" "}
+          <a
+            href={APPLY_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-bold text-[var(--brand-blue)] underline"
+          >
+            open it in a new tab
+          </a>
+          .
         </p>
       </div>
     </section>
@@ -1114,7 +1279,10 @@ function ApplicationForm() {
 /* --------------------------- Community proof ---------------------------- */
 function CommunityProof() {
   return (
-    <section className="border-y-4 border-ink bg-[var(--brand-red)] py-20 text-white sm:py-28" style={{ borderColor: "var(--ink)" }}>
+    <section
+      className="border-y-4 border-ink bg-[var(--brand-red)] py-20 text-white sm:py-28"
+      style={{ borderColor: "var(--ink)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div data-section-title>
@@ -1125,9 +1293,9 @@ function CommunityProof() {
               A community that already shows up — every single week
             </h2>
             <p className="mt-4 text-white/85">
-              Before this mentorship cohort, we've spent over a year building a real
-              community of women in tech across India. Workshops, AMAs, late-night
-              accountability calls — loud, warm, and honest.
+              Before this mentorship cohort, we've spent over a year building a real community of
+              women in tech across India. Workshops, AMAs, late-night accountability calls — loud,
+              warm, and honest.
             </p>
             <div className="mt-6 grid grid-cols-3 gap-4">
               <BigStat value="40+" label="Events" />
@@ -1145,8 +1313,17 @@ function CommunityProof() {
               className="col-span-2 aspect-[16/10] w-full rounded-2xl border-2 border-ink object-cover shadow-pop"
               style={{ borderColor: "var(--ink)" }}
             />
-            <Quote quote="Finally a space where my questions don't sound stupid." by="Sanya, B.Tech Year 2" bg="var(--brand-yellow)" textInk />
-            <Quote quote="The most actionable advice I've gotten on my resume." by="Tanu, B.Sc CS" bg="var(--brand-blue)" />
+            <Quote
+              quote="Finally a space where my questions don't sound stupid."
+              by="Sanya, B.Tech Year 2"
+              bg="var(--brand-yellow)"
+              textInk
+            />
+            <Quote
+              quote="The most actionable advice I've gotten on my resume."
+              by="Tanu, B.Sc CS"
+              bg="var(--brand-blue)"
+            />
           </div>
         </div>
       </div>
@@ -1156,14 +1333,27 @@ function CommunityProof() {
 
 function BigStat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="rounded-2xl border-2 border-ink bg-white p-3 text-ink shadow-card" style={{ borderColor: "var(--ink)", color: "var(--ink)" }}>
+    <div
+      className="rounded-2xl border-2 border-ink bg-white p-3 text-ink shadow-card"
+      style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
+    >
       <div className="font-display text-3xl font-extrabold">{value}</div>
       <div className="text-xs font-semibold uppercase opacity-80">{label}</div>
     </div>
   );
 }
 
-function Quote({ quote, by, bg, textInk }: { quote: string; by: string; bg: string; textInk?: boolean }) {
+function Quote({
+  quote,
+  by,
+  bg,
+  textInk,
+}: {
+  quote: string;
+  by: string;
+  bg: string;
+  textInk?: boolean;
+}) {
   return (
     <figure
       className="rounded-2xl border-2 border-ink p-5 shadow-card"
@@ -1179,17 +1369,36 @@ function Quote({ quote, by, bg, textInk }: { quote: string; by: string; bg: stri
 function AssetGenerator() {
   const [mode, setMode] = useState<"photobooth" | "ticket">("photobooth");
   return (
-    <section id="generator" className="relative overflow-hidden border-b-4 border-ink bg-[var(--brand-yellow)] py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
-      <div data-parallax="0.25" className="pointer-events-none absolute -left-16 top-10 h-44 w-44 rounded-full bg-[var(--brand-red)]" />
-      <div data-parallax="0.35" className="pointer-events-none absolute right-0 bottom-10 h-52 w-52 rotate-12 bg-[var(--brand-blue)]" />
+    <section
+      id="generator"
+      className="relative overflow-hidden border-b-4 border-ink bg-[var(--brand-yellow)] py-20 sm:py-28"
+      style={{ borderColor: "var(--ink)" }}
+    >
+      <div
+        data-parallax="0.25"
+        className="pointer-events-none absolute -left-16 top-10 h-44 w-44 rounded-full bg-[var(--brand-red)]"
+      />
+      <div
+        data-parallax="0.35"
+        className="pointer-events-none absolute right-0 bottom-10 h-52 w-52 rotate-12 bg-[var(--brand-blue)]"
+      />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="text-center" data-section-title>
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">★ Flex your cohort vibes</p>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">
+            ★ Flex your cohort vibes
+          </p>
           <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-            The <span className="bg-white px-2 border-2 border-ink" style={{ borderColor: "var(--ink)" }}>GLT Asset Studio</span>
+            The{" "}
+            <span
+              className="bg-white px-2 border-2 border-ink"
+              style={{ borderColor: "var(--ink)" }}
+            >
+              GLT Asset Studio
+            </span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base font-medium text-ink/80 sm:text-lg">
-            Generate your own photobooth shot or cohort ticket, then share it on LinkedIn, X and Instagram. Tag <strong>@girlsleadingtech</strong> and show the world you're in.
+            Generate your own photobooth shot or cohort ticket, then share it on LinkedIn, X and
+            Instagram. Tag <strong>@girlsleadingtech</strong> and show the world you're in.
           </p>
         </div>
 
@@ -1284,7 +1493,14 @@ function loadCanvasImage(src: string) {
   });
 }
 
-function roundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+function roundedRect(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  r: number,
+) {
   const radius = Math.min(r, w / 2, h / 2);
   ctx.beginPath();
   ctx.moveTo(x + radius, y);
@@ -1295,7 +1511,14 @@ function roundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: num
   ctx.closePath();
 }
 
-function drawCoverImage(ctx: CanvasRenderingContext2D, image: HTMLImageElement, x: number, y: number, w: number, h: number) {
+function drawCoverImage(
+  ctx: CanvasRenderingContext2D,
+  image: HTMLImageElement,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+) {
   const scale = Math.max(w / image.naturalWidth, h / image.naturalHeight);
   const sw = w / scale;
   const sh = h / scale;
@@ -1304,7 +1527,14 @@ function drawCoverImage(ctx: CanvasRenderingContext2D, image: HTMLImageElement, 
   ctx.drawImage(image, sx, sy, sw, sh, x, y, w, h);
 }
 
-function drawWrappedText(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, maxWidth: number, lineHeight: number) {
+function drawWrappedText(
+  ctx: CanvasRenderingContext2D,
+  text: string,
+  x: number,
+  y: number,
+  maxWidth: number,
+  lineHeight: number,
+) {
   const words = text.split(" ");
   let line = "";
   words.forEach((word) => {
@@ -1320,7 +1550,11 @@ function drawWrappedText(ctx: CanvasRenderingContext2D, text: string, x: number,
   if (line) ctx.fillText(line, x, y);
 }
 
-async function downloadPhotoboothCanvas(photoSrc: string, frame: (typeof FRAMES)[number], caption: string) {
+async function downloadPhotoboothCanvas(
+  photoSrc: string,
+  frame: (typeof FRAMES)[number],
+  caption: string,
+) {
   const [photo, logo] = await Promise.all([loadCanvasImage(photoSrc), loadCanvasImage(gltLogo)]);
   const canvas = document.createElement("canvas");
   canvas.width = 1080;
@@ -1407,44 +1641,103 @@ function Photobooth() {
   const download = useCallback(async () => {
     if (!img) return;
     setBusy(true);
-    try { await downloadPhotoboothCanvas(img, frame, caption); } finally { setBusy(false); }
+    try {
+      await downloadPhotoboothCanvas(img, frame, caption);
+    } finally {
+      setBusy(false);
+    }
   }, [caption, frame, img]);
 
   const links = shareLinks(`${caption} 💛 Joining the Girls Leading Tech DSA & Internship Cohort.`);
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
-      <div className="rounded-3xl border-2 border-ink bg-white p-6 shadow-pop" style={{ borderColor: "var(--ink)" }}>
-        <label className="block text-xs font-bold uppercase tracking-wider text-ink/70">1. Upload your photo</label>
-        <label className="mt-2 flex h-32 cursor-pointer items-center justify-center rounded-2xl border-2 border-dashed border-ink bg-[var(--brand-yellow)]/30 text-center text-sm font-bold text-ink hover:bg-[var(--brand-yellow)]/60" style={{ borderColor: "var(--ink)" }}>
+      <div
+        className="rounded-3xl border-2 border-ink bg-white p-6 shadow-pop"
+        style={{ borderColor: "var(--ink)" }}
+      >
+        <label className="block text-xs font-bold uppercase tracking-wider text-ink/70">
+          1. Upload your photo
+        </label>
+        <label
+          className="mt-2 flex h-32 cursor-pointer items-center justify-center rounded-2xl border-2 border-dashed border-ink bg-[var(--brand-yellow)]/30 text-center text-sm font-bold text-ink hover:bg-[var(--brand-yellow)]/60"
+          style={{ borderColor: "var(--ink)" }}
+        >
           {img ? "✓ Photo loaded — click to swap" : "📷 Click to choose a selfie"}
-          <input type="file" accept="image/*" className="hidden" onChange={(e) => e.target.files?.[0] && onFile(e.target.files[0])} />
+          <input
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={(e) => e.target.files?.[0] && onFile(e.target.files[0])}
+          />
         </label>
 
-        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">2. Pick a vibe</label>
+        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">
+          2. Pick a vibe
+        </label>
         <div className="mt-2 flex gap-2">
           {FRAMES.map((f) => (
-            <button key={f.id} onClick={() => setFrame(f)} className={`flex-1 rounded-xl border-2 border-ink px-3 py-2 text-xs font-bold transition ${frame.id === f.id ? "ring-4 ring-ink" : ""}`} style={{ borderColor: "var(--ink)", background: f.bg, color: f.fg }}>
+            <button
+              key={f.id}
+              onClick={() => setFrame(f)}
+              className={`flex-1 rounded-xl border-2 border-ink px-3 py-2 text-xs font-bold transition ${frame.id === f.id ? "ring-4 ring-ink" : ""}`}
+              style={{ borderColor: "var(--ink)", background: f.bg, color: f.fg }}
+            >
               {f.label}
             </button>
           ))}
         </div>
 
-        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">3. Your caption</label>
-        <input value={caption} onChange={(e) => setCaption(e.target.value)} maxLength={60} className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none" style={{ borderColor: "var(--ink)" }} />
+        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">
+          3. Your caption
+        </label>
+        <input
+          value={caption}
+          onChange={(e) => setCaption(e.target.value)}
+          maxLength={60}
+          className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none"
+          style={{ borderColor: "var(--ink)" }}
+        />
 
         <div className="mt-6 flex flex-wrap gap-2">
-          <button disabled={!img || busy} onClick={download} className="rounded-full border-2 border-ink bg-ink px-5 py-2.5 text-sm font-bold text-white disabled:opacity-40" style={{ borderColor: "var(--ink)" }}>
+          <button
+            disabled={!img || busy}
+            onClick={download}
+            className="rounded-full border-2 border-ink bg-ink px-5 py-2.5 text-sm font-bold text-white disabled:opacity-40"
+            style={{ borderColor: "var(--ink)" }}
+          >
             {busy ? "Rendering…" : "⬇ Download PNG"}
           </button>
-          <a href={links.twitter} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-ink bg-[var(--brand-blue)] px-5 py-2.5 text-sm font-bold text-white" style={{ borderColor: "var(--ink)" }}>𝕏 Share</a>
-          <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-5 py-2.5 text-sm font-bold text-white" style={{ borderColor: "var(--ink)" }}>in Share</a>
+          <a
+            href={links.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border-2 border-ink bg-[var(--brand-blue)] px-5 py-2.5 text-sm font-bold text-white"
+            style={{ borderColor: "var(--ink)" }}
+          >
+            𝕏 Share
+          </a>
+          <a
+            href={links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-5 py-2.5 text-sm font-bold text-white"
+            style={{ borderColor: "var(--ink)" }}
+          >
+            in Share
+          </a>
         </div>
-        <p className="mt-3 text-xs text-ink/60">Download first, then attach the image to your post.</p>
+        <p className="mt-3 text-xs text-ink/60">
+          Download first, then attach the image to your post.
+        </p>
       </div>
 
       <div className="flex justify-center">
-        <div ref={cardRef} className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl border-4 border-ink shadow-pop" style={{ borderColor: "var(--ink)", background: frame.bg, color: frame.fg }}>
+        <div
+          ref={cardRef}
+          className="relative aspect-[4/5] w-full max-w-sm overflow-hidden rounded-3xl border-4 border-ink shadow-pop"
+          style={{ borderColor: "var(--ink)", background: frame.bg, color: frame.fg }}
+        >
           <div className="absolute left-3 top-3 h-3 w-3 rounded-full bg-white/80" />
           <div className="absolute right-3 top-3 h-3 w-3 rounded-full bg-white/80" />
           <div className="absolute left-3 bottom-3 h-3 w-3 rounded-full bg-white/80" />
@@ -1452,10 +1745,19 @@ function Photobooth() {
 
           <div className="flex items-center justify-between px-5 pt-5">
             <div className="flex items-center gap-2">
-              <img src={gltLogo} alt="GLT" className="h-8 w-8 rounded-full border-2 border-white object-cover" crossOrigin="anonymous" />
-              <span className="text-[11px] font-extrabold uppercase tracking-widest">Girls Leading Tech</span>
+              <img
+                src={gltLogo}
+                alt="GLT"
+                className="h-8 w-8 rounded-full border-2 border-white object-cover"
+                crossOrigin="anonymous"
+              />
+              <span className="text-[11px] font-extrabold uppercase tracking-widest">
+                Girls Leading Tech
+              </span>
             </div>
-            <span className="rounded-full border-2 border-current px-2 py-0.5 text-[10px] font-bold uppercase">Cohort 01</span>
+            <span className="rounded-full border-2 border-current px-2 py-0.5 text-[10px] font-bold uppercase">
+              Cohort 01
+            </span>
           </div>
 
           <div className="mx-5 mt-4 aspect-square overflow-hidden rounded-2xl border-4 border-white bg-white/20">
@@ -1463,14 +1765,18 @@ function Photobooth() {
               <img src={img} alt="you" className="h-full w-full object-cover" />
             ) : (
               <div className="flex h-full w-full items-center justify-center text-center text-xs font-bold opacity-70">
-                Your photo will<br />appear here
+                Your photo will
+                <br />
+                appear here
               </div>
             )}
           </div>
 
           <div className="px-5 pb-5 pt-4">
             <p className="font-display text-xl font-extrabold leading-tight">"{caption}"</p>
-            <p className="mt-2 text-[10px] font-bold uppercase tracking-widest opacity-80">#GLTCohort · DSA & Internship Guidance</p>
+            <p className="mt-2 text-[10px] font-bold uppercase tracking-widest opacity-80">
+              #GLTCohort · DSA & Internship Guidance
+            </p>
           </div>
         </div>
       </div>
@@ -1485,69 +1791,158 @@ function TicketGen() {
   const cardRef = useRef<HTMLDivElement>(null);
   const [busy, setBusy] = useState(false);
 
-  const ticketId = `GLT-${(name.replace(/\s/g, "").slice(0, 4).toUpperCase() || "XXXX")}-${String(Math.abs(name.length * 73 + role.length * 11) % 9999).padStart(4, "0")}`;
+  const ticketId = `GLT-${name.replace(/\s/g, "").slice(0, 4).toUpperCase() || "XXXX"}-${String(Math.abs(name.length * 73 + role.length * 11) % 9999).padStart(4, "0")}`;
 
   const download = useCallback(async () => {
     if (!cardRef.current) return;
     setBusy(true);
-    try { await downloadNode(cardRef.current, `glt-ticket-${name.replace(/\s/g, "-").toLowerCase()}.png`); } finally { setBusy(false); }
+    try {
+      await downloadNode(
+        cardRef.current,
+        `glt-ticket-${name.replace(/\s/g, "-").toLowerCase()}.png`,
+      );
+    } finally {
+      setBusy(false);
+    }
   }, [name]);
 
-  const links = shareLinks(`I just got my ticket to the Girls Leading Tech DSA & Internship Cohort as a ${role}! 🎟️💛`);
+  const links = shareLinks(
+    `I just got my ticket to the Girls Leading Tech DSA & Internship Cohort as a ${role}! 🎟️💛`,
+  );
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_1.3fr]">
-      <div className="rounded-3xl border-2 border-ink bg-white p-6 shadow-pop" style={{ borderColor: "var(--ink)" }}>
-        <label className="block text-xs font-bold uppercase tracking-wider text-ink/70">Your name</label>
-        <input value={name} onChange={(e) => setName(e.target.value)} maxLength={28} className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none" style={{ borderColor: "var(--ink)" }} />
+      <div
+        className="rounded-3xl border-2 border-ink bg-white p-6 shadow-pop"
+        style={{ borderColor: "var(--ink)" }}
+      >
+        <label className="block text-xs font-bold uppercase tracking-wider text-ink/70">
+          Your name
+        </label>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          maxLength={28}
+          className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none"
+          style={{ borderColor: "var(--ink)" }}
+        />
 
-        <div className="mt-5 rounded-xl border-2 border-ink bg-[var(--brand-yellow)] px-3 py-2 text-sm font-bold text-ink" style={{ borderColor: "var(--ink)", color: "var(--ink)" }}>
+        <div
+          className="mt-5 rounded-xl border-2 border-ink bg-[var(--brand-yellow)] px-3 py-2 text-sm font-bold text-ink"
+          style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
+        >
           Joining as: Mentee
         </div>
 
-        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">Track</label>
-        <input value={track} onChange={(e) => setTrack(e.target.value)} maxLength={40} className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none" style={{ borderColor: "var(--ink)" }} />
+        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">
+          Track
+        </label>
+        <input
+          value={track}
+          onChange={(e) => setTrack(e.target.value)}
+          maxLength={40}
+          className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none"
+          style={{ borderColor: "var(--ink)" }}
+        />
 
         <div className="mt-6 flex flex-wrap gap-2">
-          <button disabled={busy} onClick={download} className="rounded-full border-2 border-ink bg-ink px-5 py-2.5 text-sm font-bold text-white disabled:opacity-40" style={{ borderColor: "var(--ink)" }}>
+          <button
+            disabled={busy}
+            onClick={download}
+            className="rounded-full border-2 border-ink bg-ink px-5 py-2.5 text-sm font-bold text-white disabled:opacity-40"
+            style={{ borderColor: "var(--ink)" }}
+          >
             {busy ? "Rendering…" : "⬇ Download ticket"}
           </button>
-          <a href={links.twitter} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-ink bg-[var(--brand-blue)] px-5 py-2.5 text-sm font-bold text-white" style={{ borderColor: "var(--ink)" }}>𝕏 Share</a>
-          <a href={links.linkedin} target="_blank" rel="noopener noreferrer" className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-5 py-2.5 text-sm font-bold text-white" style={{ borderColor: "var(--ink)" }}>in Share</a>
+          <a
+            href={links.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border-2 border-ink bg-[var(--brand-blue)] px-5 py-2.5 text-sm font-bold text-white"
+            style={{ borderColor: "var(--ink)" }}
+          >
+            𝕏 Share
+          </a>
+          <a
+            href={links.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-5 py-2.5 text-sm font-bold text-white"
+            style={{ borderColor: "var(--ink)" }}
+          >
+            in Share
+          </a>
         </div>
-        <p className="mt-3 text-xs text-ink/60">Download first, then attach the image to your post.</p>
+        <p className="mt-3 text-xs text-ink/60">
+          Download first, then attach the image to your post.
+        </p>
       </div>
 
       <div className="flex justify-center">
-        <div ref={cardRef} className="relative flex w-full max-w-xl overflow-hidden rounded-3xl border-4 border-ink bg-white shadow-pop" style={{ borderColor: "var(--ink)" }}>
+        <div
+          ref={cardRef}
+          className="relative flex w-full max-w-xl overflow-hidden rounded-3xl border-4 border-ink bg-white shadow-pop"
+          style={{ borderColor: "var(--ink)" }}
+        >
           <div className="relative flex w-28 flex-col items-center justify-between bg-[var(--brand-red)] p-4 text-white">
-            <img src={gltLogo} alt="GLT" className="h-12 w-12 rounded-full border-2 border-white object-cover" crossOrigin="anonymous" />
+            <img
+              src={gltLogo}
+              alt="GLT"
+              className="h-12 w-12 rounded-full border-2 border-white object-cover"
+              crossOrigin="anonymous"
+            />
             <div className="rotate-180 [writing-mode:vertical-rl] text-[11px] font-extrabold uppercase tracking-[0.3em]">
               Girls Leading Tech
             </div>
             <div className="text-[10px] font-bold opacity-90">ADMIT ONE</div>
           </div>
 
-          <div className="relative w-0 border-l-4 border-dashed border-ink" style={{ borderColor: "var(--ink)" }}>
-            <div className="absolute -left-3 -top-3 h-6 w-6 rounded-full bg-[var(--brand-yellow)] border-2 border-ink" style={{ borderColor: "var(--ink)" }} />
-            <div className="absolute -left-3 -bottom-3 h-6 w-6 rounded-full bg-[var(--brand-yellow)] border-2 border-ink" style={{ borderColor: "var(--ink)" }} />
+          <div
+            className="relative w-0 border-l-4 border-dashed border-ink"
+            style={{ borderColor: "var(--ink)" }}
+          >
+            <div
+              className="absolute -left-3 -top-3 h-6 w-6 rounded-full bg-[var(--brand-yellow)] border-2 border-ink"
+              style={{ borderColor: "var(--ink)" }}
+            />
+            <div
+              className="absolute -left-3 -bottom-3 h-6 w-6 rounded-full bg-[var(--brand-yellow)] border-2 border-ink"
+              style={{ borderColor: "var(--ink)" }}
+            />
           </div>
 
           <div className="flex-1 bg-white p-5">
             <div className="flex items-center justify-between">
-              <span className="rounded-full border-2 border-ink bg-[var(--brand-yellow)] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-ink" style={{ borderColor: "var(--ink)" }}>Cohort 01</span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-ink/60">{ticketId}</span>
+              <span
+                className="rounded-full border-2 border-ink bg-[var(--brand-yellow)] px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-ink"
+                style={{ borderColor: "var(--ink)" }}
+              >
+                Cohort 01
+              </span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-ink/60">
+                {ticketId}
+              </span>
             </div>
 
-            <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-ink/60">Attendee</p>
-            <p className="font-display text-2xl font-extrabold leading-tight text-ink sm:text-3xl">{name || "—"}</p>
+            <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-ink/60">
+              Attendee
+            </p>
+            <p className="font-display text-2xl font-extrabold leading-tight text-ink sm:text-3xl">
+              {name || "—"}
+            </p>
 
             <div className="mt-4 grid grid-cols-2 gap-3">
-              <div className="rounded-xl border-2 border-ink bg-[var(--brand-blue)] p-2.5 text-white" style={{ borderColor: "var(--ink)" }}>
+              <div
+                className="rounded-xl border-2 border-ink bg-[var(--brand-blue)] p-2.5 text-white"
+                style={{ borderColor: "var(--ink)" }}
+              >
                 <p className="text-[9px] font-bold uppercase tracking-widest opacity-90">Role</p>
                 <p className="font-display text-base font-extrabold">{role}</p>
               </div>
-              <div className="rounded-xl border-2 border-ink bg-[var(--brand-red)] p-2.5 text-white" style={{ borderColor: "var(--ink)" }}>
+              <div
+                className="rounded-xl border-2 border-ink bg-[var(--brand-red)] p-2.5 text-white"
+                style={{ borderColor: "var(--ink)" }}
+              >
                 <p className="text-[9px] font-bold uppercase tracking-widest opacity-90">Track</p>
                 <p className="font-display text-sm font-extrabold leading-tight">{track}</p>
               </div>
@@ -1555,12 +1950,18 @@ function TicketGen() {
 
             <div className="mt-4 flex items-end justify-between">
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-widest text-ink/60">Duration</p>
+                <p className="text-[9px] font-bold uppercase tracking-widest text-ink/60">
+                  Duration
+                </p>
                 <p className="font-display text-sm font-extrabold text-ink">4 weeks · Online</p>
               </div>
               <div className="flex h-10 items-end gap-[2px]">
                 {Array.from({ length: 28 }).map((_, i) => (
-                  <span key={i} className="block bg-ink" style={{ width: 2, height: `${30 + ((i * 37) % 70)}%` }} />
+                  <span
+                    key={i}
+                    className="block bg-ink"
+                    style={{ width: 2, height: `${30 + ((i * 37) % 70)}%` }}
+                  />
                 ))}
               </div>
             </div>
@@ -1578,16 +1979,41 @@ function TicketGen() {
 /* --------------------------------- FAQ ---------------------------------- */
 function FAQ() {
   const items = [
-    { q: "Is the program free?", a: "Yes. The first cohort is fully free for selected mentees. Our mentors and team volunteer their time." },
-    { q: "Is it beginner friendly?", a: "Absolutely. If you're just starting out and feel a little lost, this cohort is designed exactly for you." },
-    { q: "Will sessions be recorded?", a: "Yes — recordings will be shared with your cohort so you never miss a session, even on busy weeks." },
-    { q: "How are mentees selected?", a: "Through a short application. We look for commitment and curiosity — not credentials." },
-    { q: "Can first-year students apply?", a: "Yes. First-years and pre-final-years are equally welcome." },
-    { q: "What is expected from mentors?", a: "About 2–3 hours a week for 4 weeks: one group session plus async support over the community." },
-    { q: "Will certificates be provided?", a: "Yes. Mentees and mentors who complete the cohort receive a verified certificate from GLT." },
+    {
+      q: "Is the program free?",
+      a: "Yes. The first cohort is fully free for selected mentees. Our mentors and team volunteer their time.",
+    },
+    {
+      q: "Is it beginner friendly?",
+      a: "Absolutely. If you're just starting out and feel a little lost, this cohort is designed exactly for you.",
+    },
+    {
+      q: "Will sessions be recorded?",
+      a: "Yes — recordings will be shared with your cohort so you never miss a session, even on busy weeks.",
+    },
+    {
+      q: "How are mentees selected?",
+      a: "Through a short application. We look for commitment and curiosity — not credentials.",
+    },
+    {
+      q: "Can first-year students apply?",
+      a: "Yes. First-years and pre-final-years are equally welcome.",
+    },
+    {
+      q: "What is expected from mentors?",
+      a: "About 2–3 hours a week for 4 weeks: one group session plus async support over the community.",
+    },
+    {
+      q: "Will certificates be provided?",
+      a: "Yes. Mentees and mentors who complete the cohort receive a verified certificate from GLT.",
+    },
   ];
   return (
-    <section id="faq" className="border-b-4 border-ink bg-white py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
+    <section
+      id="faq"
+      className="border-b-4 border-ink bg-white py-20 sm:py-28"
+      style={{ borderColor: "var(--ink)" }}
+    >
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="text-center" data-section-title>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-blue)]">
@@ -1621,16 +2047,28 @@ function FAQ() {
 /* ------------------------------ Final CTA ------------------------------- */
 function FinalCTA() {
   return (
-    <section className="relative overflow-hidden border-b-4 border-ink bg-[var(--brand-yellow)] py-20 text-ink sm:py-28" style={{ borderColor: "var(--ink)", color: "var(--ink)" }}>
-      <div data-parallax="0.2" className="pointer-events-none absolute -left-10 top-10 h-32 w-32 rounded-full bg-[var(--brand-red)]" />
-      <div data-parallax="0.3" className="pointer-events-none absolute right-10 bottom-10 h-40 w-40 rotate-12 bg-[var(--brand-blue)]" />
-      <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8" data-section-title>
+    <section
+      className="relative overflow-hidden border-b-4 border-ink bg-[var(--brand-yellow)] py-20 text-ink sm:py-28"
+      style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
+    >
+      <div
+        data-parallax="0.2"
+        className="pointer-events-none absolute -left-10 top-10 h-32 w-32 rounded-full bg-[var(--brand-red)]"
+      />
+      <div
+        data-parallax="0.3"
+        className="pointer-events-none absolute right-10 bottom-10 h-40 w-40 rotate-12 bg-[var(--brand-blue)]"
+      />
+      <div
+        className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8"
+        data-section-title
+      >
         <h2 className="font-display text-4xl font-extrabold leading-[1.05] sm:text-6xl">
           Ready to grow with a community that supports you?
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-base font-medium sm:text-lg">
-          Join the first mentorship cohort by Girls Leading Tech and learn from women
-          already building their careers in tech.
+          Join the first mentorship cohort by Girls Leading Tech and learn from women already
+          building their careers in tech.
         </p>
         <div className="mt-9 flex flex-wrap justify-center gap-3">
           <Button
@@ -1649,12 +2087,37 @@ function FinalCTA() {
 
 /* -------------------------------- Footer -------------------------------- */
 const SOCIALS = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/girlsleadingtech", glyph: "in", bg: "var(--brand-blue)" },
-  { label: "Instagram", href: "https://www.instagram.com/girlsleadingtech", glyph: "ig", bg: "var(--brand-red)" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/girlsleadingtech",
+    glyph: "in",
+    bg: "var(--brand-blue)",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/girlsleadingtech",
+    glyph: "ig",
+    bg: "var(--brand-red)",
+  },
   { label: "X / Twitter", href: "https://x.com/GirlLeadingTech", glyph: "𝕏", bg: "var(--ink)" },
-  { label: "WhatsApp", href: "https://whatsapp.com/channel/0029VayYXL4K5cD7Zrzq052G", glyph: "wa", bg: "var(--brand-yellow)" },
-  { label: "YouTube", href: "https://youtube.com/@girlsleadingtech", glyph: "▶", bg: "var(--brand-red)" },
-  { label: "Substack", href: "https://girlsintech.substack.com/", glyph: "S", bg: "var(--brand-blue)" },
+  {
+    label: "WhatsApp",
+    href: "https://whatsapp.com/channel/0029VayYXL4K5cD7Zrzq052G",
+    glyph: "wa",
+    bg: "var(--brand-yellow)",
+  },
+  {
+    label: "YouTube",
+    href: "https://youtube.com/@girlsleadingtech",
+    glyph: "▶",
+    bg: "var(--brand-red)",
+  },
+  {
+    label: "Substack",
+    href: "https://girlsintech.substack.com/",
+    glyph: "S",
+    bg: "var(--brand-blue)",
+  },
 ];
 
 function Footer() {
@@ -1675,8 +2138,8 @@ function Footer() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="font-display text-2xl font-bold leading-snug">
-              A community of ambitious girls in tech across India — building careers,
-              friendships and futures, together.
+              A community of ambitious girls in tech across India — building careers, friendships
+              and futures, together.
             </p>
             <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/70">
               <span className="h-2 w-2 rounded-full bg-[var(--brand-red)] animate-pulse" />
@@ -1687,16 +2150,38 @@ function Footer() {
           <div className="lg:col-span-3">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Explore</h4>
             <ul className="mt-4 space-y-2 font-display text-lg font-semibold">
-              <li><a href="#why" className="hover:text-[var(--brand-yellow)]">About</a></li>
-              <li><a href="#program" className="hover:text-[var(--brand-yellow)]">Program</a></li>
-              <li><a href="#timeline" className="hover:text-[var(--brand-yellow)]">Timeline</a></li>
-              <li><a href="#mentors" className="hover:text-[var(--brand-yellow)]">Mentors</a></li>
-              <li><a href="#faq" className="hover:text-[var(--brand-yellow)]">FAQ</a></li>
+              <li>
+                <a href="#why" className="hover:text-[var(--brand-yellow)]">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#program" className="hover:text-[var(--brand-yellow)]">
+                  Program
+                </a>
+              </li>
+              <li>
+                <a href="#timeline" className="hover:text-[var(--brand-yellow)]">
+                  Timeline
+                </a>
+              </li>
+              <li>
+                <a href="#mentors" className="hover:text-[var(--brand-yellow)]">
+                  Mentors
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-[var(--brand-yellow)]">
+                  FAQ
+                </a>
+              </li>
             </ul>
           </div>
 
           <div className="lg:col-span-4">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Find us everywhere</h4>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">
+              Find us everywhere
+            </h4>
             <div className="mt-4 grid grid-cols-3 gap-3">
               {SOCIALS.map((s) => {
                 const dark = s.bg === "var(--brand-yellow)" || s.bg === "var(--ink)";
@@ -1715,7 +2200,9 @@ function Footer() {
                     }}
                   >
                     <span className="text-2xl">{s.glyph}</span>
-                    <span className="mt-1 text-[10px] uppercase tracking-wider opacity-90">{s.label}</span>
+                    <span className="mt-1 text-[10px] uppercase tracking-wider opacity-90">
+                      {s.label}
+                    </span>
                   </a>
                 );
               })}
