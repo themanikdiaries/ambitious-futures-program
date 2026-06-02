@@ -1188,14 +1188,25 @@ function AssetGenerator() {
   );
 }
 
+// Hex fallbacks — html-to-image cannot rasterize oklch() colors reliably.
+const INK_HEX = "#141520";
+const RED_HEX = "#ef2b2d";
+const BLUE_HEX = "#2535c4";
+const YELLOW_HEX = "#f5c842";
+
 const FRAMES = [
-  { id: "red", bg: "var(--brand-red)", fg: "#fff", label: "Bold Red" },
-  { id: "blue", bg: "var(--brand-blue)", fg: "#fff", label: "Electric Blue" },
-  { id: "yellow", bg: "var(--brand-yellow)", fg: "#1a1a1a", label: "Sunshine" },
+  { id: "red", bg: RED_HEX, fg: "#ffffff", label: "Bold Red" },
+  { id: "blue", bg: BLUE_HEX, fg: "#ffffff", label: "Electric Blue" },
+  { id: "yellow", bg: YELLOW_HEX, fg: INK_HEX, label: "Sunshine" },
 ];
 
 function downloadNode(node: HTMLElement, filename: string) {
-  return toPng(node, { cacheBust: true, pixelRatio: 2, backgroundColor: "#ffffff" }).then((dataUrl) => {
+  return toPng(node, {
+    cacheBust: true,
+    pixelRatio: 2,
+    backgroundColor: "#ffffff",
+    skipFonts: false,
+  }).then((dataUrl) => {
     const a = document.createElement("a");
     a.href = dataUrl;
     a.download = filename;
