@@ -40,8 +40,8 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const APPLY_MENTEE_URL = "#apply-mentee";
-const APPLY_MENTOR_URL = "#apply-mentor";
+const APPLY_MENTEE_URL = "https://airtable.com/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
+const APPLY_MENTOR_URL = "https://airtable.com/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
 
 function LandingPage() {
   // Master GSAP setup: scroll reveals, parallax, 3D tilts
