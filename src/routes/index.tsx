@@ -1201,17 +1201,42 @@ const FRAMES = [
 ];
 
 function downloadNode(node: HTMLElement, filename: string) {
+  // html-to-image serializes computed colors into an SVG foreignObject. Browsers
+  // refuse to paint oklch() inside that SVG, so override the brand CSS vars on
+  // the captured root with hex fallbacks before capturing.
+  const prev: Record<string, string> = {};
+  const vars: Record<string, string> = {
+    "--ink": INK_HEX,
+    "--brand-red": RED_HEX,
+    "--brand-blue": BLUE_HEX,
+    "--brand-yellow": YELLOW_HEX,
+    "--foreground": INK_HEX,
+    "--background": "#ffffff",
+    "--card": "#ffffff",
+    "--border": INK_HEX,
+  };
+  Object.entries(vars).forEach(([k, v]) => {
+    prev[k] = node.style.getPropertyValue(k);
+    node.style.setProperty(k, v);
+  });
+
   return toPng(node, {
     cacheBust: true,
     pixelRatio: 2,
     backgroundColor: "#ffffff",
-    skipFonts: false,
-  }).then((dataUrl) => {
-    const a = document.createElement("a");
-    a.href = dataUrl;
-    a.download = filename;
-    a.click();
-  });
+  })
+    .then((dataUrl) => {
+      const a = document.createElement("a");
+      a.href = dataUrl;
+      a.download = filename;
+      a.click();
+    })
+    .finally(() => {
+      Object.entries(prev).forEach(([k, v]) => {
+        if (v) node.style.setProperty(k, v);
+        else node.style.removeProperty(k);
+      });
+    });
 }
 
 function shareLinks(text: string) {
