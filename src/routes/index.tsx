@@ -12,9 +12,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroIllustration from "@/assets/hero-illustration.jpg";
 import mentor1 from "@/assets/mentor-1.jpg";
-import mentor2 from "@/assets/mentor-2.jpg";
 import mentor3 from "@/assets/mentor-3.jpg";
-import mentor4 from "@/assets/mentor-4.jpg";
 import community1 from "@/assets/community-1.jpg";
 import gltLogo from "@/assets/glt-logo.png";
 
