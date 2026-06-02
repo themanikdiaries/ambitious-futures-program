@@ -780,9 +780,7 @@ function Mentors() {
             Want to be first to know who's mentoring? Apply now — accepted mentees get the reveal first.
           </p>
           <a
-            href={APPLY_MENTEE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#apply"
             className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-6 py-2.5 text-sm font-bold text-white shadow-pop transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             style={{ borderColor: "var(--ink)" }}
           >
@@ -1071,6 +1069,43 @@ function Process() {
         >
           ⚡ Limited seats. Selection-based. Real commitment expected — both ways.
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------- Embedded application ------------------------- */
+function ApplicationForm() {
+  return (
+    <section id="apply" className="border-y-4 border-ink bg-white py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center" data-section-title>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">
+            ✦ Mentee applications
+          </p>
+          <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
+            Apply for the <span className="bg-[var(--brand-yellow)] px-2">GLT cohort</span>
+          </h2>
+          <p className="mt-4 text-base text-foreground/75 sm:text-lg">
+            Fill the form below to apply as a mentee. We read every response ourselves.
+          </p>
+        </div>
+
+        <div
+          className="mt-10 overflow-hidden rounded-3xl border-4 border-ink bg-white shadow-pop"
+          style={{ borderColor: "var(--ink)" }}
+          data-reveal
+        >
+          <iframe
+            title="Girls Leading Tech mentee application form"
+            src={APPLY_FORM_EMBED_URL}
+            className="h-[780px] w-full bg-white"
+            loading="lazy"
+          />
+        </div>
+        <p className="mt-4 text-center text-sm font-medium text-foreground/70">
+          If the form does not load, <a href={APPLY_FORM_URL} target="_blank" rel="noopener noreferrer" className="font-bold text-[var(--brand-blue)] underline">open it in a new tab</a>.
+        </p>
       </div>
     </section>
   );
