@@ -1274,6 +1274,123 @@ function shareLinks(text: string) {
   };
 }
 
+function loadCanvasImage(src: string) {
+  return new Promise<HTMLImageElement>((resolve, reject) => {
+    const image = new Image();
+    if (!src.startsWith("data:")) image.crossOrigin = "anonymous";
+    image.onload = () => resolve(image);
+    image.onerror = reject;
+    image.src = src;
+  });
+}
+
+function roundedRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+  const radius = Math.min(r, w / 2, h / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + radius, y);
+  ctx.arcTo(x + w, y, x + w, y + h, radius);
+  ctx.arcTo(x + w, y + h, x, y + h, radius);
+  ctx.arcTo(x, y + h, x, y, radius);
+  ctx.arcTo(x, y, x + w, y, radius);
+  ctx.closePath();
+}
+
+function drawCoverImage(ctx: CanvasRenderingContext2D, image: HTMLImageElement, x: number, y: number, w: number, h: number) {
+  const scale = Math.max(w / image.naturalWidth, h / image.naturalHeight);
+  const sw = w / scale;
+  const sh = h / scale;
+  const sx = (image.naturalWidth - sw) / 2;
+  const sy = (image.naturalHeight - sh) / 2;
+  ctx.drawImage(image, sx, sy, sw, sh, x, y, w, h);
+}
+
+function drawWrappedText(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, maxWidth: number, lineHeight: number) {
+  const words = text.split(" ");
+  let line = "";
+  words.forEach((word) => {
+    const testLine = line ? `${line} ${word}` : word;
+    if (ctx.measureText(testLine).width > maxWidth && line) {
+      ctx.fillText(line, x, y);
+      line = word;
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  });
+  if (line) ctx.fillText(line, x, y);
+}
+
+async function downloadPhotoboothCanvas(photoSrc: string, frame: (typeof FRAMES)[number], caption: string) {
+  const [photo, logo] = await Promise.all([loadCanvasImage(photoSrc), loadCanvasImage(gltLogo)]);
+  const canvas = document.createElement("canvas");
+  canvas.width = 1080;
+  canvas.height = 1350;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  ctx.fillStyle = frame.bg;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = frame.id === "yellow" ? RED_HEX : YELLOW_HEX;
+  ctx.fillRect(0, 0, 1080, 44);
+  ctx.fillRect(0, 1306, 1080, 44);
+  ctx.fillStyle = frame.id === "blue" ? RED_HEX : BLUE_HEX;
+  ctx.fillRect(0, 0, 44, 1350);
+  ctx.fillRect(1036, 0, 44, 1350);
+
+  ctx.fillStyle = "rgba(255,255,255,0.22)";
+  for (let y = 120; y < 1230; y += 92) {
+    for (let x = 84; x < 1000; x += 92) {
+      ctx.beginPath();
+      ctx.arc(x, y, 7, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(120, 116, 42, 0, Math.PI * 2);
+  ctx.clip();
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(78, 74, 84, 84);
+  ctx.drawImage(logo, 78, 74, 84, 84);
+  ctx.restore();
+  ctx.strokeStyle = "#ffffff";
+  ctx.lineWidth = 8;
+  ctx.beginPath();
+  ctx.arc(120, 116, 46, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.fillStyle = frame.fg;
+  ctx.font = "900 30px system-ui, sans-serif";
+  ctx.fillText("Girls Leading Tech", 190, 106);
+  ctx.font = "800 22px system-ui, sans-serif";
+  ctx.fillText("DSA & Internship Guidance · Cohort 01", 190, 142);
+
+  const photoX = 100;
+  const photoY = 210;
+  const photoSize = 880;
+  roundedRect(ctx, photoX - 12, photoY - 12, photoSize + 24, photoSize + 24, 74);
+  ctx.fillStyle = "#ffffff";
+  ctx.fill();
+  ctx.save();
+  roundedRect(ctx, photoX, photoY, photoSize, photoSize, 62);
+  ctx.clip();
+  drawCoverImage(ctx, photo, photoX, photoY, photoSize, photoSize);
+  ctx.restore();
+
+  ctx.fillStyle = frame.fg;
+  ctx.font = "900 46px system-ui, sans-serif";
+  drawWrappedText(ctx, `“${caption}”`, 100, 1170, 880, 54);
+  ctx.font = "900 22px system-ui, sans-serif";
+  ctx.fillText("#GLTCohort · #GirlsLeadingTech", 100, 1265);
+
+  const a = document.createElement("a");
+  a.href = canvas.toDataURL("image/png");
+  a.download = "glt-photobooth.png";
+  a.click();
+}
+
 function Photobooth() {
   const [img, setImg] = useState<string | null>(null);
   const [frame, setFrame] = useState(FRAMES[0]);
@@ -1288,10 +1405,10 @@ function Photobooth() {
   };
 
   const download = useCallback(async () => {
-    if (!cardRef.current) return;
+    if (!img) return;
     setBusy(true);
-    try { await downloadNode(cardRef.current, "glt-photobooth.png"); } finally { setBusy(false); }
-  }, []);
+    try { await downloadPhotoboothCanvas(img, frame, caption); } finally { setBusy(false); }
+  }, [caption, frame, img]);
 
   const links = shareLinks(`${caption} 💛 Joining the Girls Leading Tech DSA & Internship Cohort.`);
 
