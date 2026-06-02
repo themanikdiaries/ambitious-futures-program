@@ -1480,7 +1480,7 @@ function Photobooth() {
 
 function TicketGen() {
   const [name, setName] = useState("Ada Lovelace");
-  const [role, setRole] = useState<"Mentee" | "Mentor">("Mentee");
+  const role = "Mentee";
   const [track, setTrack] = useState("DSA & Internship Guidance");
   const cardRef = useRef<HTMLDivElement>(null);
   const [busy, setBusy] = useState(false);
@@ -1501,11 +1501,8 @@ function TicketGen() {
         <label className="block text-xs font-bold uppercase tracking-wider text-ink/70">Your name</label>
         <input value={name} onChange={(e) => setName(e.target.value)} maxLength={28} className="mt-2 w-full rounded-xl border-2 border-ink bg-white px-3 py-2 text-sm font-semibold focus:outline-none" style={{ borderColor: "var(--ink)" }} />
 
-        <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">Joining as</label>
-        <div className="mt-2 grid grid-cols-2 gap-2">
-          {(["Mentee", "Mentor"] as const).map((r) => (
-            <button key={r} onClick={() => setRole(r)} className={`rounded-xl border-2 border-ink px-3 py-2 text-sm font-bold ${role === r ? "bg-ink text-white" : "bg-white"}`} style={{ borderColor: "var(--ink)" }}>{r}</button>
-          ))}
+        <div className="mt-5 rounded-xl border-2 border-ink bg-[var(--brand-yellow)] px-3 py-2 text-sm font-bold text-ink" style={{ borderColor: "var(--ink)", color: "var(--ink)" }}>
+          Joining as: Mentee
         </div>
 
         <label className="mt-5 block text-xs font-bold uppercase tracking-wider text-ink/70">Track</label>
