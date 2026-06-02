@@ -712,11 +712,11 @@ function Timeline() {
 }
 
 /* ------------------------------- Mentors -------------------------------- */
-const MENTORS = [
-  { img: mentor1, name: "Ananya Sharma", role: "SDE Intern @ Microsoft", expertise: "DSA · Internships · Resume", bg: "var(--brand-red)" },
-  { img: mentor2, name: "Priya Iyer", role: "Software Engineer @ Atlassian", expertise: "System design · Backend", bg: "var(--brand-yellow)" },
-  { img: mentor3, name: "Riya Verma", role: "PM Intern @ Google", expertise: "Product · Case prep · Networking", bg: "var(--brand-blue)" },
-  { img: mentor4, name: "Meera Joshi", role: "Data Scientist @ Razorpay", expertise: "ML · Open source · Interviews", bg: "var(--brand-red)" },
+const MENTOR_TEASERS = [
+  { tag: "Mentor 01", hint: "SDE @ Big Tech · DSA whisperer", bg: "var(--brand-red)", fg: "white", emoji: "👩‍💻" },
+  { tag: "Mentor 02", hint: "Backend engineer · System design", bg: "var(--brand-yellow)", fg: "var(--ink)", emoji: "⚙️" },
+  { tag: "Mentor 03", hint: "PM Intern → FAANG · Case prep", bg: "var(--brand-blue)", fg: "white", emoji: "🚀" },
+  { tag: "Mentor 04", hint: "Data Scientist · ML + Open source", bg: "var(--brand-red)", fg: "white", emoji: "📊" },
 ];
 
 function Mentors() {
@@ -728,49 +728,76 @@ function Mentors() {
             ✦ Meet the mentors
           </p>
           <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-            Learn from women already{" "}
-            <span className="bg-[var(--brand-red)] px-2 text-white">building</span> in tech
+            The lineup is{" "}
+            <span className="bg-[var(--brand-red)] px-2 text-white">under wraps</span>
           </h2>
+          <p className="mt-4 text-base text-foreground/75 sm:text-lg">
+            We're curating a small, intentional set of women already shipping at top tech
+            companies. Names drop soon — get on the list before they do.
+          </p>
         </div>
 
         <div data-stagger-up className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {MENTORS.map((m, i) => {
-            const white = m.bg !== "var(--brand-yellow)";
-            return (
-              <article
-                key={m.name}
-                className={`group overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
-                style={{ background: m.bg, borderColor: "var(--ink)", color: white ? "white" : "var(--ink)" }}
-              >
-                <div className="aspect-[4/5] overflow-hidden border-b-2 border-ink" style={{ borderColor: "var(--ink)" }}>
-                  <img
-                    src={m.img}
-                    alt={m.name}
-                    width={512}
-                    height={640}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-5">
-                  <h3 className="font-display text-xl font-extrabold">{m.name}</h3>
-                  <p className="text-sm font-semibold opacity-90">{m.role}</p>
-                  <p className="mt-3 text-sm opacity-80">{m.expertise}</p>
-                  <a
-                    href="#"
-                    className="mt-4 inline-flex items-center gap-1.5 rounded-full border-2 border-current px-3 py-1 text-xs font-bold"
-                    aria-label={`${m.name} on LinkedIn`}
+          {MENTOR_TEASERS.map((m, i) => (
+            <article
+              key={m.tag}
+              className={`group relative overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 hover:rotate-0 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
+              style={{ background: m.bg, borderColor: "var(--ink)", color: m.fg }}
+            >
+              <div className="relative aspect-[4/5] overflow-hidden border-b-2 border-ink" style={{ borderColor: "var(--ink)" }}>
+                {/* dotted texture */}
+                <div
+                  className="absolute inset-0 opacity-30"
+                  style={{
+                    backgroundImage: "radial-gradient(currentColor 1.5px, transparent 1.5px)",
+                    backgroundSize: "14px 14px",
+                  }}
+                />
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
+                  <div
+                    className="grid h-20 w-20 place-items-center rounded-full border-4 border-current text-4xl backdrop-blur-sm"
+                    style={{ background: "rgba(255,255,255,0.15)" }}
                   >
-                    in / LinkedIn
-                  </a>
+                    {m.emoji}
+                  </div>
+                  <div className="rounded-full border-2 border-current px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.25em]">
+                    Revealing Soon
+                  </div>
+                  <div className="font-display text-2xl font-extrabold">?</div>
                 </div>
-              </article>
-            );
-          })}
+                {/* corner sticker */}
+                <span
+                  className="absolute -right-6 top-4 rotate-12 border-2 border-ink bg-white px-8 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-ink shadow-card"
+                  style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
+                >
+                  Top Secret
+                </span>
+              </div>
+              <div className="p-5">
+                <h3 className="font-display text-xl font-extrabold">{m.tag}</h3>
+                <p className="mt-1 text-sm font-semibold opacity-90">{m.hint}</p>
+                <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border-2 border-current px-3 py-1 text-xs font-bold">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-current" />
+                  Identity locked
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
-        <p className="mt-8 text-center text-sm font-medium text-foreground/70">
-          More mentors revealed soon — we're keeping the cohort intentionally small.
-        </p>
+        <div className="mt-10 flex flex-col items-center gap-3 text-center">
+          <p className="text-sm font-medium text-foreground/70">
+            Want to be first to know who's mentoring? Apply now — accepted mentees get the reveal first.
+          </p>
+          <a
+            href={APPLY_MENTEE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-6 py-2.5 text-sm font-bold text-white shadow-pop transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
+            style={{ borderColor: "var(--ink)" }}
+          >
+            Apply & unlock the lineup →
+          </a>
+        </div>
       </div>
     </section>
   );
