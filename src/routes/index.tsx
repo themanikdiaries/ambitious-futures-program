@@ -913,11 +913,22 @@ function Mentors() {
 
 /* --------------------------- Organizing team ---------------------------- */
 function OrganizingTeam() {
+  const palette = ["var(--brand-red)", "var(--brand-blue)", "var(--brand-yellow)"];
   const team = [
-    { name: "Sneha Rao", role: "Founder, GLT", bg: "var(--brand-red)" },
-    { name: "Tanvi Mehta", role: "Cohort Lead", bg: "var(--brand-blue)" },
-    { name: "Ishita Bansal", role: "Mentor Relations", bg: "var(--brand-yellow)" },
-    { name: "Neha Kapoor", role: "Community & Ops", bg: "var(--brand-red)" },
+    { name: "Tavishi Jha", role: "Social Media Manager", location: "Chennai", linkedin: "https://www.linkedin.com/in/tavisshiksjjha/" },
+    { name: "Ankitha M D", role: "Community Engagement", location: "Bangalore", linkedin: "https://www.linkedin.com/in/ankitha-m-d-a8b039219" },
+    { name: "Aakriti Arya", role: "Social Media Manager", location: "Delhi", linkedin: "https://www.linkedin.com/in/aakriti-arya" },
+    { name: "Pratiksha Khare", role: "Designer", location: "Satna, MP", linkedin: "https://www.linkedin.com/in/pratiksha-khare-05557b333" },
+    { name: "Shaifaly Rajput", role: "Designer", location: "Patiala, Punjab", linkedin: "https://www.linkedin.com/in/shaifaly-rajput-08a8a53b5" },
+    { name: "Bhavni Chhabra", role: "Designer", location: "New Delhi", linkedin: "https://www.linkedin.com/in/bhavni-chhabra-95640b334" },
+    { name: "Rhythm Arora", role: "Host & Moderator", location: "New Delhi", linkedin: "https://www.linkedin.com/in/rhythmisloading/" },
+    { name: "Sukrutha Jagannatham", role: "Host & Moderator", location: "Hyderabad", linkedin: "https://www.linkedin.com/in/sukrutha-jagannatham-72662837a" },
+    { name: "Suhani Garg", role: "Host & Moderator", location: "Jaipur", linkedin: "https://www.linkedin.com/in/suhani-garg-88a736318/" },
+    { name: "Tejashwani Mishra", role: "Host & Moderator", location: "Jhansi, UP", linkedin: "https://www.linkedin.com/in/tejashwani-mishra-9a790427a/" },
+    { name: "Nandini Yadav", role: "Designer", location: "Nainital", linkedin: "https://www.linkedin.com/in/nayndini/" },
+    { name: "Isha Singhal", role: "Community Engagement", location: "Dehradun", linkedin: "https://www.linkedin.com/in/isha-singhal12/" },
+    { name: "Gnan Sruthi R", role: "Management", location: "Coimbatore", linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3/" },
+    { name: "Akshita Tyagi", role: "Program Management", location: "Bijnor", linkedin: "https://www.linkedin.com/in/akshita-tyagi8368" },
   ];
   return (
     <section className="border-b-4 border-ink bg-white py-20" style={{ borderColor: "var(--ink)" }}>
@@ -928,7 +939,7 @@ function OrganizingTeam() {
               ✺ The team
             </p>
             <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-              Built by the team behind GLT
+              Meet the humans behind the cohort
             </h2>
           </div>
           <p className="max-w-md text-foreground/70">
@@ -937,16 +948,20 @@ function OrganizingTeam() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((p) => {
-            const white = p.bg !== "var(--brand-yellow)";
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {team.map((p, i) => {
+            const bg = palette[i % palette.length];
+            const white = bg !== "var(--brand-yellow)";
             return (
-              <div
+              <a
                 key={p.name}
+                href={p.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 data-reveal
-                className="flex items-center gap-4 rounded-2xl border-2 border-ink p-4 shadow-card"
+                className="flex items-center gap-4 rounded-2xl border-2 border-ink p-4 shadow-card transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
                 style={{
-                  background: p.bg,
+                  background: bg,
                   borderColor: "var(--ink)",
                   color: white ? "white" : "var(--ink)",
                 }}
@@ -958,13 +973,15 @@ function OrganizingTeam() {
                   {p.name
                     .split(" ")
                     .map((n) => n[0])
-                    .join("")}
+                    .join("")
+                    .slice(0, 2)}
                 </div>
                 <div className="min-w-0">
                   <div className="truncate font-bold">{p.name}</div>
                   <div className="truncate text-sm opacity-90">{p.role}</div>
+                  <div className="truncate text-xs opacity-75">{p.location}</div>
                 </div>
-              </div>
+              </a>
             );
           })}
         </div>
