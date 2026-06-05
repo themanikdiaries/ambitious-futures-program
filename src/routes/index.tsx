@@ -15,6 +15,20 @@ import mentor1 from "@/assets/mentor-1.jpg";
 import mentor3 from "@/assets/mentor-3.jpg";
 import community1 from "@/assets/community-1.jpg";
 import gltLogo from "@/assets/glt-logo.png";
+import tavishiImg from "@/assets/team/Tavishi.jpeg.asset.json";
+import ankithaImg from "@/assets/team/ankitha.jpg.asset.json";
+import aakritiImg from "@/assets/team/aakriti.jpg.asset.json";
+import pratikshaImg from "@/assets/team/pratiksha.jpg.asset.json";
+import shaifaliImg from "@/assets/team/shaifali.jpg.asset.json";
+import bhavniImg from "@/assets/team/bhavni.jpg.asset.json";
+import rhythmImg from "@/assets/team/rhythm.jpg.asset.json";
+import sukruthaImg from "@/assets/team/sukrutha.jpg.asset.json";
+import suhaniImg from "@/assets/team/suhani.jpg.asset.json";
+import tejashwaniImg from "@/assets/team/tejashwani.jpg.asset.json";
+import nandiniImg from "@/assets/team/nandini.jpg.asset.json";
+import ishaImg from "@/assets/team/isha.jpg.asset.json";
+import sruthiImg from "@/assets/team/sruthi.jpg.asset.json";
+import akshitaImg from "@/assets/team/akshita.jpg.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
