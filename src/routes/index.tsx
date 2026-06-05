@@ -15,6 +15,20 @@ import mentor1 from "@/assets/mentor-1.jpg";
 import mentor3 from "@/assets/mentor-3.jpg";
 import community1 from "@/assets/community-1.jpg";
 import gltLogo from "@/assets/glt-logo.png";
+import tavishiImg from "@/assets/team/Tavishi.jpeg.asset.json";
+import ankithaImg from "@/assets/team/ankitha.jpg.asset.json";
+import aakritiImg from "@/assets/team/aakriti.jpg.asset.json";
+import pratikshaImg from "@/assets/team/pratiksha.jpg.asset.json";
+import shaifaliImg from "@/assets/team/shaifali.jpg.asset.json";
+import bhavniImg from "@/assets/team/bhavni.jpg.asset.json";
+import rhythmImg from "@/assets/team/rhythm.jpg.asset.json";
+import sukruthaImg from "@/assets/team/sukrutha.jpg.asset.json";
+import suhaniImg from "@/assets/team/suhani.jpg.asset.json";
+import tejashwaniImg from "@/assets/team/tejashwani.jpg.asset.json";
+import nandiniImg from "@/assets/team/nandini.jpg.asset.json";
+import ishaImg from "@/assets/team/isha.jpg.asset.json";
+import sruthiImg from "@/assets/team/sruthi.jpg.asset.json";
+import akshitaImg from "@/assets/team/akshita.jpg.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -912,74 +926,80 @@ function Mentors() {
 }
 
 /* --------------------------- Organizing team ---------------------------- */
+
 function OrganizingTeam() {
-  const palette = ["var(--brand-red)", "var(--brand-blue)", "var(--brand-yellow)"];
+  const palette = [
+    { bg: "var(--brand-red)", fg: "white" },
+    { bg: "var(--brand-blue)", fg: "white" },
+    { bg: "var(--brand-yellow)", fg: "var(--ink)" },
+  ];
   const team = [
-    { name: "Tavishi Jha", role: "Social Media Manager", location: "Chennai", linkedin: "https://www.linkedin.com/in/tavisshiksjjha/" },
-    { name: "Ankitha M D", role: "Community Engagement", location: "Bangalore", linkedin: "https://www.linkedin.com/in/ankitha-m-d-a8b039219" },
-    { name: "Aakriti Arya", role: "Social Media Manager", location: "Delhi", linkedin: "https://www.linkedin.com/in/aakriti-arya" },
-    { name: "Pratiksha Khare", role: "Designer", location: "Satna, MP", linkedin: "https://www.linkedin.com/in/pratiksha-khare-05557b333" },
-    { name: "Shaifaly Rajput", role: "Designer", location: "Patiala, Punjab", linkedin: "https://www.linkedin.com/in/shaifaly-rajput-08a8a53b5" },
-    { name: "Bhavni Chhabra", role: "Designer", location: "New Delhi", linkedin: "https://www.linkedin.com/in/bhavni-chhabra-95640b334" },
-    { name: "Rhythm Arora", role: "Host & Moderator", location: "New Delhi", linkedin: "https://www.linkedin.com/in/rhythmisloading/" },
-    { name: "Sukrutha Jagannatham", role: "Host & Moderator", location: "Hyderabad", linkedin: "https://www.linkedin.com/in/sukrutha-jagannatham-72662837a" },
-    { name: "Suhani Garg", role: "Host & Moderator", location: "Jaipur", linkedin: "https://www.linkedin.com/in/suhani-garg-88a736318/" },
-    { name: "Tejashwani Mishra", role: "Host & Moderator", location: "Jhansi, UP", linkedin: "https://www.linkedin.com/in/tejashwani-mishra-9a790427a/" },
-    { name: "Nandini Yadav", role: "Designer", location: "Nainital", linkedin: "https://www.linkedin.com/in/nayndini/" },
-    { name: "Isha Singhal", role: "Community Engagement", location: "Dehradun", linkedin: "https://www.linkedin.com/in/isha-singhal12/" },
-    { name: "Gnan Sruthi R", role: "Management", location: "Coimbatore", linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3/" },
-    { name: "Akshita Tyagi", role: "Program Management", location: "Bijnor", linkedin: "https://www.linkedin.com/in/akshita-tyagi8368" },
+    { name: "Tavishi Jha", role: "Social Media Manager", location: "Chennai", linkedin: "https://www.linkedin.com/in/tavisshiksjjha/", img: tavishiImg.url },
+    { name: "Ankitha M D", role: "Community Engagement", location: "Bangalore", linkedin: "https://www.linkedin.com/in/ankitha-m-d-a8b039219", img: ankithaImg.url },
+    { name: "Aakriti Arya", role: "Social Media Manager", location: "Delhi", linkedin: "https://www.linkedin.com/in/aakriti-arya", img: aakritiImg.url },
+    { name: "Pratiksha Khare", role: "Designer", location: "Satna, MP", linkedin: "https://www.linkedin.com/in/pratiksha-khare-05557b333", img: pratikshaImg.url },
+    { name: "Shaifaly Rajput", role: "Designer", location: "Patiala, Punjab", linkedin: "https://www.linkedin.com/in/shaifaly-rajput-08a8a53b5", img: shaifaliImg.url },
+    { name: "Bhavni Chhabra", role: "Designer", location: "New Delhi", linkedin: "https://www.linkedin.com/in/bhavni-chhabra-95640b334", img: bhavniImg.url },
+    { name: "Rhythm Arora", role: "Host & Moderator", location: "New Delhi", linkedin: "https://www.linkedin.com/in/rhythmisloading/", img: rhythmImg.url },
+    { name: "Sukrutha Jagannatham", role: "Host & Moderator", location: "Hyderabad", linkedin: "https://www.linkedin.com/in/sukrutha-jagannatham-72662837a", img: sukruthaImg.url },
+    { name: "Suhani Garg", role: "Host & Moderator", location: "Jaipur", linkedin: "https://www.linkedin.com/in/suhani-garg-88a736318/", img: suhaniImg.url },
+    { name: "Tejashwani Mishra", role: "Host & Moderator", location: "Jhansi, UP", linkedin: "https://www.linkedin.com/in/tejashwani-mishra-9a790427a/", img: tejashwaniImg.url },
+    { name: "Nandini Yadav", role: "Designer", location: "Nainital", linkedin: "https://www.linkedin.com/in/nayndini/", img: nandiniImg.url },
+    { name: "Isha Singhal", role: "Community Engagement", location: "Dehradun", linkedin: "https://www.linkedin.com/in/isha-singhal12/", img: ishaImg.url },
+    { name: "Gnan Sruthi R", role: "Management", location: "Coimbatore", linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3/", img: sruthiImg.url },
+    { name: "Akshita Tyagi", role: "Program Management", location: "Bijnor", linkedin: "https://www.linkedin.com/in/akshita-tyagi8368", img: akshitaImg.url },
   ];
   return (
-    <section className="border-b-4 border-ink bg-white py-20" style={{ borderColor: "var(--ink)" }}>
+    <section className="border-b-4 border-ink bg-white py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4" data-section-title>
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-blue)]">
-              ✺ The team
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-              Meet the humans behind the cohort
-            </h2>
-          </div>
-          <p className="max-w-md text-foreground/70">
-            A volunteer-led group of women putting in late nights so this cohort gets the care it
-            deserves.
+        <div className="mx-auto max-w-2xl text-center" data-section-title>
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-blue)]">
+            ✺ The team
+          </p>
+          <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
+            Meet the humans behind the cohort
+          </h2>
+          <p className="mt-4 text-base text-foreground/75 sm:text-lg">
+            A volunteer-led group of women putting in late nights so this cohort gets the care it deserves.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div data-stagger-up className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {team.map((p, i) => {
-            const bg = palette[i % palette.length];
-            const white = bg !== "var(--brand-yellow)";
+            const c = palette[i % palette.length];
             return (
               <a
                 key={p.name}
                 href={p.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                data-reveal
-                className="flex items-center gap-4 rounded-2xl border-2 border-ink p-4 shadow-card transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
-                style={{
-                  background: bg,
-                  borderColor: "var(--ink)",
-                  color: white ? "white" : "var(--ink)",
-                }}
+                className={`group relative block overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 hover:rotate-0 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
+                style={{ background: c.bg, borderColor: "var(--ink)", color: c.fg }}
               >
                 <div
-                  className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-full border-2 border-ink bg-white font-display text-lg font-extrabold text-ink"
-                  style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
+                  className="relative aspect-[4/5] overflow-hidden border-b-2 border-ink"
+                  style={{ borderColor: "var(--ink)" }}
                 >
-                  {p.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")
-                    .slice(0, 2)}
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <span
+                    className="absolute -right-6 top-4 rotate-12 border-2 border-ink bg-white px-8 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-ink shadow-card"
+                    style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
+                  >
+                    Team GLT
+                  </span>
                 </div>
-                <div className="min-w-0">
-                  <div className="truncate font-bold">{p.name}</div>
-                  <div className="truncate text-sm opacity-90">{p.role}</div>
-                  <div className="truncate text-xs opacity-75">{p.location}</div>
+                <div className="p-5">
+                  <h3 className="font-display text-xl font-extrabold leading-tight">{p.name}</h3>
+                  <p className="mt-1 text-sm font-semibold opacity-90">{p.role}</p>
+                  <div className="mt-3 inline-flex items-center gap-1.5 rounded-full border-2 border-current px-3 py-1 text-xs font-bold">
+                    <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                    {p.location}
+                  </div>
                 </div>
               </a>
             );
