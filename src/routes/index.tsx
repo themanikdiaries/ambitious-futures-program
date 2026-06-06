@@ -373,8 +373,8 @@ function Hero() {
             style={{ borderColor: "var(--ink)" }}
           >
             <img
-              src={heroIllustration}
-              alt="Women in tech mentorship community collaborating"
+              src={community2.url}
+              alt="Girls Leading Tech community at a tech meetup"
               width={1024}
               height={1024}
               className="h-full w-full rounded-2xl object-cover"
@@ -1302,8 +1302,8 @@ function CommunityProof() {
               style={{ borderColor: "var(--ink)" }}
             />
             <img
-              src={community2.url}
-              alt="Girls Leading Tech community with Kunal at a meetup"
+              src={community1.url}
+              alt="Girls Leading Tech community members at a tech event"
               loading="lazy"
               className="col-span-2 aspect-[16/10] w-full -rotate-1 rounded-2xl border-2 border-ink object-cover shadow-pop"
               style={{ borderColor: "var(--ink)" }}
