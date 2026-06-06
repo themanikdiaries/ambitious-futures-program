@@ -1301,13 +1301,6 @@ function CommunityProof() {
               className="col-span-2 aspect-[16/10] w-full rotate-1 rounded-2xl border-2 border-ink object-cover shadow-pop"
               style={{ borderColor: "var(--ink)" }}
             />
-            <img
-              src={community1.url}
-              alt="Girls Leading Tech community members at a tech event"
-              loading="lazy"
-              className="col-span-2 aspect-[16/10] w-full -rotate-1 rounded-2xl border-2 border-ink object-cover shadow-pop"
-              style={{ borderColor: "var(--ink)" }}
-            />
             <Quote
               quote="Finally a space where my questions don't sound stupid."
               by="Sanya, B.Tech Year 2"
