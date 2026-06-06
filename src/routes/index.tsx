@@ -10,26 +10,25 @@ import {
 } from "@/components/ui/accordion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroIllustration from "@/assets/hero-illustration.jpg";
 import mentor1 from "@/assets/mentor-1.jpg";
 import mentor3 from "@/assets/mentor-3.jpg";
-import community1 from "@/assets/community/girls.jpg.asset.json";
-import community2 from "@/assets/community/kunal.jpg.asset.json";
+import community1 from "@/assets/community/girls.webp.asset.json";
+import community2 from "@/assets/community/kunal.webp.asset.json";
 import gltLogo from "@/assets/glt-logo.png";
-import tavishiImg from "@/assets/team/Tavishi.jpeg.asset.json";
-import ankithaImg from "@/assets/team/ankitha.jpg.asset.json";
-import aakritiImg from "@/assets/team/aakriti.jpg.asset.json";
-import pratikshaImg from "@/assets/team/pratiksha.jpg.asset.json";
-import shaifaliImg from "@/assets/team/shaifali.jpg.asset.json";
-import bhavniImg from "@/assets/team/bhavni.jpg.asset.json";
-import rhythmImg from "@/assets/team/rhythm.jpg.asset.json";
-import sukruthaImg from "@/assets/team/sukrutha.jpg.asset.json";
-import suhaniImg from "@/assets/team/suhani.jpg.asset.json";
-import tejashwaniImg from "@/assets/team/tejashwani.jpg.asset.json";
-import nandiniImg from "@/assets/team/nandini.jpg.asset.json";
-import ishaImg from "@/assets/team/isha.jpg.asset.json";
-import sruthiImg from "@/assets/team/sruthi.jpg.asset.json";
-import akshitaImg from "@/assets/team/akshita.jpg.asset.json";
+import tavishiImg from "@/assets/team/Tavishi.webp.asset.json";
+import ankithaImg from "@/assets/team/ankitha.webp.asset.json";
+import aakritiImg from "@/assets/team/aakriti.webp.asset.json";
+import pratikshaImg from "@/assets/team/pratiksha.webp.asset.json";
+import shaifaliImg from "@/assets/team/shaifali.webp.asset.json";
+import bhavniImg from "@/assets/team/bhavni.webp.asset.json";
+import rhythmImg from "@/assets/team/rhythm.webp.asset.json";
+import sukruthaImg from "@/assets/team/sukrutha.webp.asset.json";
+import suhaniImg from "@/assets/team/suhani.webp.asset.json";
+import tejashwaniImg from "@/assets/team/tejashwani.webp.asset.json";
+import nandiniImg from "@/assets/team/nandini.webp.asset.json";
+import ishaImg from "@/assets/team/isha.webp.asset.json";
+import sruthiImg from "@/assets/team/sruthi.webp.asset.json";
+import akshitaImg from "@/assets/team/akshita.webp.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -374,8 +373,8 @@ function Hero() {
             style={{ borderColor: "var(--ink)" }}
           >
             <img
-              src={heroIllustration}
-              alt="Women in tech mentorship community collaborating"
+              src={community2.url}
+              alt="Girls Leading Tech community at a tech meetup"
               width={1024}
               height={1024}
               className="h-full w-full rounded-2xl object-cover"
@@ -1300,13 +1299,6 @@ function CommunityProof() {
               alt="Girls Leading Tech community members at a tech event"
               loading="lazy"
               className="col-span-2 aspect-[16/10] w-full rotate-1 rounded-2xl border-2 border-ink object-cover shadow-pop"
-              style={{ borderColor: "var(--ink)" }}
-            />
-            <img
-              src={community2.url}
-              alt="Girls Leading Tech community with Kunal at a meetup"
-              loading="lazy"
-              className="col-span-2 aspect-[16/10] w-full -rotate-1 rounded-2xl border-2 border-ink object-cover shadow-pop"
               style={{ borderColor: "var(--ink)" }}
             />
             <Quote
