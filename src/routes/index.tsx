@@ -13,7 +13,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import heroIllustration from "@/assets/hero-illustration.jpg";
 import mentor1 from "@/assets/mentor-1.jpg";
 import mentor3 from "@/assets/mentor-3.jpg";
-import community1 from "@/assets/community-1.jpg";
+import community1 from "@/assets/community/girls.jpg.asset.json";
+import community2 from "@/assets/community/kunal.jpg.asset.json";
 import gltLogo from "@/assets/glt-logo.png";
 import tavishiImg from "@/assets/team/Tavishi.jpeg.asset.json";
 import ankithaImg from "@/assets/team/ankitha.jpg.asset.json";
@@ -193,7 +194,6 @@ function LandingPage() {
         <OrganizingTeam />
         <WhoShouldApply />
         <Process />
-        <ApplicationForm />
         <CommunityProof />
         <AssetGenerator />
         <FAQ />
@@ -247,7 +247,9 @@ function Navbar() {
           </a>
         ))}
         <a
-          href="#apply"
+          href={APPLY_FORM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="ml-1 inline-flex items-center gap-1.5 rounded-full bg-[var(--brand-red)] px-4 py-2 text-sm font-bold text-white transition hover:bg-[var(--brand-blue)] whitespace-nowrap"
         >
           Apply
@@ -353,7 +355,7 @@ function Hero() {
               className="rounded-full border-2 border-ink bg-[var(--brand-red)] text-white shadow-pop hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
               style={{ borderColor: "var(--ink)" }}
             >
-              <a href="#apply">Apply as Mentee →</a>
+              <a href={APPLY_FORM_URL} target="_blank" rel="noopener noreferrer">Apply as Mentee →</a>
             </Button>
           </div>
 
@@ -913,7 +915,9 @@ function Mentors() {
             first.
           </p>
           <a
-            href="#apply"
+            href={APPLY_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-6 py-2.5 text-sm font-bold text-white shadow-pop transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             style={{ borderColor: "var(--ink)" }}
           >
@@ -1342,12 +1346,17 @@ function CommunityProof() {
           </div>
           <div className="grid grid-cols-2 gap-3" data-reveal>
             <img
-              src={community1}
-              alt="Girls Leading Tech community meetup"
-              width={1024}
-              height={768}
+              src={community1.url}
+              alt="Girls Leading Tech community members at a tech event"
               loading="lazy"
-              className="col-span-2 aspect-[16/10] w-full rounded-2xl border-2 border-ink object-cover shadow-pop"
+              className="col-span-2 aspect-[16/10] w-full rotate-1 rounded-2xl border-2 border-ink object-cover shadow-pop"
+              style={{ borderColor: "var(--ink)" }}
+            />
+            <img
+              src={community2.url}
+              alt="Girls Leading Tech community with Kunal at a meetup"
+              loading="lazy"
+              className="col-span-2 aspect-[16/10] w-full -rotate-1 rounded-2xl border-2 border-ink object-cover shadow-pop"
               style={{ borderColor: "var(--ink)" }}
             />
             <Quote
@@ -2114,7 +2123,7 @@ function FinalCTA() {
             className="rounded-full border-2 border-ink bg-[var(--brand-red)] text-white shadow-pop hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
             style={{ borderColor: "var(--ink)" }}
           >
-            <a href="#apply">Apply as Mentee →</a>
+            <a href={APPLY_FORM_URL} target="_blank" rel="noopener noreferrer">Apply as Mentee →</a>
           </Button>
         </div>
       </div>
