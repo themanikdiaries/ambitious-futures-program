@@ -54,7 +54,6 @@ export const Route = createFileRoute("/")({
 });
 
 const APPLY_FORM_URL = "https://airtable.com/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
-const APPLY_FORM_EMBED_URL = "https://airtable.com/embed/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
 
 function LandingPage() {
   // Master GSAP setup: scroll reveals, parallax, 3D tilts
@@ -1267,55 +1266,6 @@ function Process() {
   );
 }
 
-/* -------------------------- Embedded application ------------------------- */
-function ApplicationForm() {
-  return (
-    <section
-      id="apply"
-      className="border-y-4 border-ink bg-white py-20 sm:py-28"
-      style={{ borderColor: "var(--ink)" }}
-    >
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center" data-section-title>
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">
-            ✦ Mentee applications
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-            Apply for the <span className="bg-[var(--brand-yellow)] px-2">GLT cohort</span>
-          </h2>
-          <p className="mt-4 text-base text-foreground/75 sm:text-lg">
-            Fill the form below to apply as a mentee. We read every response ourselves.
-          </p>
-        </div>
-
-        <div
-          className="mt-10 overflow-hidden rounded-3xl border-4 border-ink bg-white shadow-pop"
-          style={{ borderColor: "var(--ink)" }}
-          data-reveal
-        >
-          <iframe
-            title="Girls Leading Tech mentee application form"
-            src={APPLY_FORM_EMBED_URL}
-            className="h-[780px] w-full bg-white"
-            loading="lazy"
-          />
-        </div>
-        <p className="mt-4 text-center text-sm font-medium text-foreground/70">
-          If the form does not load,{" "}
-          <a
-            href={APPLY_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold text-[var(--brand-blue)] underline"
-          >
-            open it in a new tab
-          </a>
-          .
-        </p>
-      </div>
-    </section>
-  );
-}
 
 /* --------------------------- Community proof ---------------------------- */
 function CommunityProof() {
