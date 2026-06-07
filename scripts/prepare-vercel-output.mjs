@@ -21,19 +21,18 @@ console.log(`Copied dist/client -> public`);
 const assetsDir = join(target, "assets");
 const assetFiles = readdirSync(assetsDir);
 
-// Find the app entry JS: the index-*.js that imports from the other index-*.js (the vendor chunk).
+// Find the app entry JS: it is the bundle that bootstraps TanStack Start in the browser.
+// Route files are lazy-loaded chunks and may also import the vendor bundle, so choosing
+// "the index file that imports another index file" can point at a page chunk and leave
+// the deployed site as a blank white screen.
 const indexJs = assetFiles.filter((f) => /^index-.*\.js$/.test(f));
-let entryJs = indexJs[0];
-if (indexJs.length > 1) {
-  for (const candidate of indexJs) {
-    const body = readFileSync(join(assetsDir, candidate), "utf8").slice(0, 4000);
-    const others = indexJs.filter((f) => f !== candidate);
-    if (others.some((o) => body.includes(o))) {
-      entryJs = candidate;
-      break;
-    }
-  }
-}
+let entryJs = indexJs.find((candidate) => {
+  const body = readFileSync(join(assetsDir, candidate), "utf8");
+  return body.includes("hydrateRoot(document") || body.includes(".hydrateRoot(document");
+}) ?? indexJs.find((candidate) => {
+  const body = readFileSync(join(assetsDir, candidate), "utf8");
+  return body.includes("__TSS_START_OPTIONS__") || body.includes("$_TSR");
+}) ?? indexJs[0];
 const stylesCss = assetFiles.find((f) => /^styles-.*\.css$/.test(f)) ?? assetFiles.find((f) => f.endsWith(".css"));
 
 if (!entryJs) throw new Error("Could not find client entry JS in dist/client/assets");
