@@ -10,8 +10,6 @@ import {
 } from "@/components/ui/accordion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import mentor1 from "@/assets/mentor-1.jpg";
-import mentor3 from "@/assets/mentor-3.jpg";
 import community1 from "@/assets/community/girls.webp.asset.json";
 import community2 from "@/assets/community/kunal.webp.asset.json";
 import gltLogo from "@/assets/glt-logo.png";
