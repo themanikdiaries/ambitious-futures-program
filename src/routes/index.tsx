@@ -10,8 +10,6 @@ import {
 } from "@/components/ui/accordion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import mentor1 from "@/assets/mentor-1.jpg";
-import mentor3 from "@/assets/mentor-3.jpg";
 import community1 from "@/assets/community/girls.webp.asset.json";
 import community2 from "@/assets/community/kunal.webp.asset.json";
 import gltLogo from "@/assets/glt-logo.png";
@@ -189,16 +187,42 @@ function LandingPage() {
         <ProgramOverview />
         <Timeline />
         <Mentors />
-        <OrganizingTeam />
         <WhoShouldApply />
         <Process />
         <CommunityProof />
         <AssetGenerator />
+        <OrganizingTeam />
         <FAQ />
         <FinalCTA />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
+  );
+}
+
+/* ----------------------------- Scroll to top ---------------------------- */
+function ScrollToTop() {
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  if (!visible) return null;
+  return (
+    <button
+      type="button"
+      aria-label="Scroll to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="fixed bottom-5 right-5 z-50 grid h-12 w-12 place-items-center rounded-full border-2 border-ink bg-[var(--brand-red)] text-white shadow-pop transition-transform hover:-translate-y-1 sm:bottom-6 sm:right-6"
+      style={{ borderColor: "var(--ink)" }}
+    >
+      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="6 15 12 9 18 15" />
+      </svg>
+    </button>
   );
 }
 
@@ -260,7 +284,7 @@ function Navbar() {
 
 /* --------------------------------- Hero --------------------------------- */
 function Hero() {
-  const headline = "Crack Your First Internship with Women in Tech Who've Done It.";
+  const headline = "Get Guidance in DSA and Cracking Internships from Women in Tech Who've Done It.";
   const words = headline.split(" ");
 
   return (
@@ -380,20 +404,6 @@ function Hero() {
               className="h-full w-full rounded-2xl object-cover"
             />
           </div>
-          <MentorPreviewCard
-            className="absolute -bottom-4 -left-3 -rotate-3 sm:-bottom-6 sm:-left-6"
-            img={mentor1}
-            name="Ananya Sharma"
-            role="SDE Intern @ Microsoft"
-            color="var(--brand-yellow)"
-          />
-          <MentorPreviewCard
-            className="absolute -right-2 -top-4 hidden rotate-3 sm:-right-4 sm:-top-6 sm:block"
-            img={mentor3}
-            name="Riya Verma"
-            role="PM Intern @ Google"
-            color="var(--brand-red)"
-          />
         </div>
       </div>
     </section>
