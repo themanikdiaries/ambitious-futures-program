@@ -27,6 +27,7 @@ import nandiniImg from "@/assets/team/nandini.webp.asset.json";
 import ishaImg from "@/assets/team/isha.webp.asset.json";
 import sruthiImg from "@/assets/team/sruthi.webp.asset.json";
 import akshitaImg from "@/assets/team/akshita.webp.asset.json";
+import vijayLaxmiImg from "@/assets/team/vijay-laxmi.webp.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -960,6 +961,7 @@ function OrganizingTeam() {
     { name: "Isha Singhal", role: "Community Engagement", location: "Dehradun", linkedin: "https://www.linkedin.com/in/isha-singhal12/", img: ishaImg.url },
     { name: "Gnan Sruthi R", role: "Management", location: "Coimbatore", linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3/", img: sruthiImg.url },
     { name: "Akshita Tyagi", role: "Program Management", location: "Bijnor", linkedin: "https://www.linkedin.com/in/akshita-tyagi8368", img: akshitaImg.url },
+    { name: "Vijay Laxmi", role: "Management", location: "Delhi", linkedin: "https://www.linkedin.com/in/laxmi-vijay/", img: vijayLaxmiImg.url },
   ];
   return (
     <section className="border-b-4 border-ink bg-white py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
@@ -1298,8 +1300,8 @@ function CommunityProof() {
               warm, and honest.
             </p>
             <div className="mt-6 grid grid-cols-3 gap-4">
-              <BigStat value="40+" label="Events" />
-              <BigStat value="200+" label="Speakers" />
+              <BigStat value="100+" label="Events" />
+              <BigStat value="120+" label="Speakers" />
               <BigStat value="∞" label="DMs answered" />
             </div>
           </div>

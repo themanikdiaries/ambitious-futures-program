@@ -21,6 +21,29 @@ console.log(`Copied dist/client -> public`);
 const assetsDir = join(target, "assets");
 const assetFiles = readdirSync(assetsDir);
 
+async function renderStaticHtml() {
+  const serverEntry = resolve(root, "dist/server/index.mjs");
+  if (!existsSync(serverEntry)) return undefined;
+
+  const mod = await import(serverEntry);
+  const handler = mod.default;
+  if (!handler?.fetch) return undefined;
+
+  const runtimeContext = {
+    waitUntil() {},
+    passThroughOnException() {},
+  };
+  const response = await handler.fetch(
+    new Request("https://mentorship.girlsleadingtech.com/"),
+    {},
+    runtimeContext,
+  );
+  if (!response.ok) {
+    throw new Error(`SSR render failed with status ${response.status}`);
+  }
+  return await response.text();
+}
+
 // Find the app entry JS: it is the bundle that bootstraps TanStack Start in the browser.
 // Route files are lazy-loaded chunks and may also import the vendor bundle, so choosing
 // "the index file that imports another index file" can point at a page chunk and leave
@@ -36,6 +59,13 @@ let entryJs = indexJs.find((candidate) => {
 const stylesCss = assetFiles.find((f) => /^styles-.*\.css$/.test(f)) ?? assetFiles.find((f) => f.endsWith(".css"));
 
 if (!entryJs) throw new Error("Could not find client entry JS in dist/client/assets");
+
+const staticHtml = await renderStaticHtml();
+if (staticHtml) {
+  writeFileSync(join(target, "index.html"), staticHtml);
+  console.log(`Wrote public/index.html from SSR output`);
+  process.exit(0);
+}
 
 const html = `<!doctype html>
 <html lang="en">
