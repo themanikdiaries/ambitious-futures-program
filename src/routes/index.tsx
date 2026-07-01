@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { toPng } from "html-to-image";
 import { Button } from "@/components/ui/button";
@@ -10,50 +9,20 @@ import {
 } from "@/components/ui/accordion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import community1 from "@/assets/community/girls.webp.asset.json";
-import community2 from "@/assets/community/kunal.webp.asset.json";
+import community1 from "@/assets/local/community/girls.webp";
+import community2 from "@/assets/local/community/kunal.webp";
 import gltLogo from "@/assets/glt-logo.png";
-import tavishiImg from "@/assets/team/Tavishi.webp.asset.json";
-import ankithaImg from "@/assets/team/ankitha.webp.asset.json";
-import aakritiImg from "@/assets/team/aakriti.webp.asset.json";
-import pratikshaImg from "@/assets/team/pratiksha.webp.asset.json";
-import shaifaliImg from "@/assets/team/shaifali.webp.asset.json";
-import bhavniImg from "@/assets/team/bhavni.webp.asset.json";
-import rhythmImg from "@/assets/team/rhythm.webp.asset.json";
-import sukruthaImg from "@/assets/team/sukrutha.webp.asset.json";
-import suhaniImg from "@/assets/team/suhani.webp.asset.json";
-import tejashwaniImg from "@/assets/team/tejashwani.webp.asset.json";
-import nandiniImg from "@/assets/team/nandini.webp.asset.json";
-import ishaImg from "@/assets/team/isha.webp.asset.json";
-import sruthiImg from "@/assets/team/sruthi.webp.asset.json";
-import akshitaImg from "@/assets/team/akshita.webp.asset.json";
-import vijayLaxmiImg from "@/assets/team/vijay-laxmi.webp.asset.json";
+import tavishiImg from "@/assets/local/team/tavishi.webp";
+import aakritiImg from "@/assets/local/team/aakriti.webp";
+import rhythmImg from "@/assets/local/team/rhythm.webp";
+import akshitaImg from "@/assets/local/team/akshita.webp";
+import vijayLaxmiImg from "@/assets/local/team/vijay-laxmi.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "GLT DSA & Internship Guidance Cohort — Girls Leading Tech" },
-      {
-        name: "description",
-        content:
-          "A focused 4-week DSA and internship guidance cohort. Learn data structures, build projects, crack interviews, and land your first internship — guided by women already in tech.",
-      },
-      { property: "og:title", content: "GLT DSA & Internship Guidance Cohort" },
-      {
-        property: "og:description",
-        content:
-          "Master DSA fundamentals and land your first internship in 4 weeks with mentors who've done it.",
-      },
-    ],
-  }),
-  component: LandingPage,
-});
-
 const APPLY_FORM_URL = "https://airtable.com/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
 
-function LandingPage() {
+export default function LandingPage() {
   // Master GSAP setup: scroll reveals, parallax, 3D tilts
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -398,7 +367,7 @@ function Hero() {
             style={{ borderColor: "var(--ink)" }}
           >
             <img
-              src={community2.url}
+              src={community2}
               alt="Girls Leading Tech community at a tech meetup"
               width={1024}
               height={1024}
@@ -947,21 +916,21 @@ function OrganizingTeam() {
     { bg: "var(--brand-yellow)", fg: "var(--ink)" },
   ];
   const team = [
-    { name: "Tavishi Jha", role: "Social Media Manager", location: "Chennai", linkedin: "https://www.linkedin.com/in/tavisshiksjjha/", img: tavishiImg.url },
-    { name: "Ankitha M D", role: "Community Engagement", location: "Bangalore", linkedin: "https://www.linkedin.com/in/ankitha-m-d-a8b039219", img: ankithaImg.url },
-    { name: "Aakriti Arya", role: "Social Media Manager", location: "Delhi", linkedin: "https://www.linkedin.com/in/aakriti-arya", img: aakritiImg.url },
-    { name: "Pratiksha Khare", role: "Designer", location: "Satna, MP", linkedin: "https://www.linkedin.com/in/pratiksha-khare-05557b333", img: pratikshaImg.url },
-    { name: "Shaifaly Rajput", role: "Designer", location: "Patiala, Punjab", linkedin: "https://www.linkedin.com/in/shaifaly-rajput-08a8a53b5", img: shaifaliImg.url },
-    { name: "Bhavni Chhabra", role: "Designer", location: "New Delhi", linkedin: "https://www.linkedin.com/in/bhavni-chhabra-95640b334", img: bhavniImg.url },
-    { name: "Rhythm Arora", role: "Host & Moderator", location: "New Delhi", linkedin: "https://www.linkedin.com/in/rhythmisloading/", img: rhythmImg.url },
-    { name: "Sukrutha Jagannatham", role: "Host & Moderator", location: "Hyderabad", linkedin: "https://www.linkedin.com/in/sukrutha-jagannatham-72662837a", img: sukruthaImg.url },
-    { name: "Suhani Garg", role: "Host & Moderator", location: "Jaipur", linkedin: "https://www.linkedin.com/in/suhani-garg-88a736318/", img: suhaniImg.url },
-    { name: "Tejashwani Mishra", role: "Host & Moderator", location: "Jhansi, UP", linkedin: "https://www.linkedin.com/in/tejashwani-mishra-9a790427a/", img: tejashwaniImg.url },
-    { name: "Nandini Yadav", role: "Designer", location: "Nainital", linkedin: "https://www.linkedin.com/in/nayndini/", img: nandiniImg.url },
-    { name: "Isha Singhal", role: "Community Engagement", location: "Dehradun", linkedin: "https://www.linkedin.com/in/isha-singhal12/", img: ishaImg.url },
-    { name: "Gnan Sruthi R", role: "Management", location: "Coimbatore", linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3/", img: sruthiImg.url },
-    { name: "Akshita Tyagi", role: "Program Management", location: "Bijnor", linkedin: "https://www.linkedin.com/in/akshita-tyagi8368", img: akshitaImg.url },
-    { name: "Vijay Laxmi", role: "Management", location: "Delhi", linkedin: "https://www.linkedin.com/in/laxmi-vijay/", img: vijayLaxmiImg.url },
+    { name: "Tavishi Jha", role: "Social Media Manager", location: "Chennai", linkedin: "https://www.linkedin.com/in/tavisshiksjjha/", img: tavishiImg },
+    { name: "Ankitha M D", role: "Community Engagement", location: "Bangalore", linkedin: "https://www.linkedin.com/in/ankitha-m-d-a8b039219", img: gltLogo },
+    { name: "Aakriti Arya", role: "Social Media Manager", location: "Delhi", linkedin: "https://www.linkedin.com/in/aakriti-arya", img: aakritiImg },
+    { name: "Pratiksha Khare", role: "Designer", location: "Satna, MP", linkedin: "https://www.linkedin.com/in/pratiksha-khare-05557b333", img: gltLogo },
+    { name: "Shaifaly Rajput", role: "Designer", location: "Patiala, Punjab", linkedin: "https://www.linkedin.com/in/shaifaly-rajput-08a8a53b5", img: gltLogo },
+    { name: "Bhavni Chhabra", role: "Designer", location: "New Delhi", linkedin: "https://www.linkedin.com/in/bhavni-chhabra-95640b334", img: gltLogo },
+    { name: "Rhythm Arora", role: "Host & Moderator", location: "New Delhi", linkedin: "https://www.linkedin.com/in/rhythmisloading/", img: rhythmImg },
+    { name: "Sukrutha Jagannatham", role: "Host & Moderator", location: "Hyderabad", linkedin: "https://www.linkedin.com/in/sukrutha-jagannatham-72662837a", img: gltLogo },
+    { name: "Suhani Garg", role: "Host & Moderator", location: "Jaipur", linkedin: "https://www.linkedin.com/in/suhani-garg-88a736318/", img: gltLogo },
+    { name: "Tejashwani Mishra", role: "Host & Moderator", location: "Jhansi, UP", linkedin: "https://www.linkedin.com/in/tejashwani-mishra-9a790427a/", img: gltLogo },
+    { name: "Nandini Yadav", role: "Designer", location: "Nainital", linkedin: "https://www.linkedin.com/in/nayndini/", img: gltLogo },
+    { name: "Isha Singhal", role: "Community Engagement", location: "Dehradun", linkedin: "https://www.linkedin.com/in/isha-singhal12/", img: gltLogo },
+    { name: "Gnan Sruthi R", role: "Management", location: "Coimbatore", linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3/", img: gltLogo },
+    { name: "Akshita Tyagi", role: "Program Management", location: "Bijnor", linkedin: "https://www.linkedin.com/in/akshita-tyagi8368", img: akshitaImg },
+    { name: "Vijay Laxmi", role: "Management", location: "Delhi", linkedin: "https://www.linkedin.com/in/laxmi-vijay/", img: vijayLaxmiImg },
   ];
   return (
     <section className="border-b-4 border-ink bg-white py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
@@ -1307,7 +1276,7 @@ function CommunityProof() {
           </div>
           <div className="grid grid-cols-2 gap-3" data-reveal>
             <img
-              src={community1.url}
+              src={community1}
               alt="Girls Leading Tech community members at a tech event"
               loading="lazy"
               className="col-span-2 aspect-[16/10] w-full rotate-1 rounded-2xl border-2 border-ink object-cover shadow-pop"
