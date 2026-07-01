@@ -367,7 +367,7 @@ function Hero() {
             style={{ borderColor: "var(--ink)" }}
           >
             <img
-              src={community2.url}
+              src={community2}
               alt="Girls Leading Tech community at a tech meetup"
               width={1024}
               height={1024}
@@ -916,21 +916,21 @@ function OrganizingTeam() {
     { bg: "var(--brand-yellow)", fg: "var(--ink)" },
   ];
   const team = [
-    { name: "Tavishi Jha", role: "Social Media Manager", location: "Chennai", linkedin: "https://www.linkedin.com/in/tavisshiksjjha/", img: tavishiImg.url },
-    { name: "Ankitha M D", role: "Community Engagement", location: "Bangalore", linkedin: "https://www.linkedin.com/in/ankitha-m-d-a8b039219", img: ankithaImg.url },
-    { name: "Aakriti Arya", role: "Social Media Manager", location: "Delhi", linkedin: "https://www.linkedin.com/in/aakriti-arya", img: aakritiImg.url },
-    { name: "Pratiksha Khare", role: "Designer", location: "Satna, MP", linkedin: "https://www.linkedin.com/in/pratiksha-khare-05557b333", img: pratikshaImg.url },
-    { name: "Shaifaly Rajput", role: "Designer", location: "Patiala, Punjab", linkedin: "https://www.linkedin.com/in/shaifaly-rajput-08a8a53b5", img: shaifaliImg.url },
-    { name: "Bhavni Chhabra", role: "Designer", location: "New Delhi", linkedin: "https://www.linkedin.com/in/bhavni-chhabra-95640b334", img: bhavniImg.url },
-    { name: "Rhythm Arora", role: "Host & Moderator", location: "New Delhi", linkedin: "https://www.linkedin.com/in/rhythmisloading/", img: rhythmImg.url },
-    { name: "Sukrutha Jagannatham", role: "Host & Moderator", location: "Hyderabad", linkedin: "https://www.linkedin.com/in/sukrutha-jagannatham-72662837a", img: sukruthaImg.url },
-    { name: "Suhani Garg", role: "Host & Moderator", location: "Jaipur", linkedin: "https://www.linkedin.com/in/suhani-garg-88a736318/", img: suhaniImg.url },
-    { name: "Tejashwani Mishra", role: "Host & Moderator", location: "Jhansi, UP", linkedin: "https://www.linkedin.com/in/tejashwani-mishra-9a790427a/", img: tejashwaniImg.url },
-    { name: "Nandini Yadav", role: "Designer", location: "Nainital", linkedin: "https://www.linkedin.com/in/nayndini/", img: nandiniImg.url },
-    { name: "Isha Singhal", role: "Community Engagement", location: "Dehradun", linkedin: "https://www.linkedin.com/in/isha-singhal12/", img: ishaImg.url },
-    { name: "Gnan Sruthi R", role: "Management", location: "Coimbatore", linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3/", img: sruthiImg.url },
-    { name: "Akshita Tyagi", role: "Program Management", location: "Bijnor", linkedin: "https://www.linkedin.com/in/akshita-tyagi8368", img: akshitaImg.url },
-    { name: "Vijay Laxmi", role: "Management", location: "Delhi", linkedin: "https://www.linkedin.com/in/laxmi-vijay/", img: vijayLaxmiImg.url },
+    { name: "Tavishi Jha", role: "Social Media Manager", location: "Chennai", linkedin: "https://www.linkedin.com/in/tavisshiksjjha/", img: tavishiImg },
+    { name: "Ankitha M D", role: "Community Engagement", location: "Bangalore", linkedin: "https://www.linkedin.com/in/ankitha-m-d-a8b039219", img: gltLogo },
+    { name: "Aakriti Arya", role: "Social Media Manager", location: "Delhi", linkedin: "https://www.linkedin.com/in/aakriti-arya", img: aakritiImg },
+    { name: "Pratiksha Khare", role: "Designer", location: "Satna, MP", linkedin: "https://www.linkedin.com/in/pratiksha-khare-05557b333", img: gltLogo },
+    { name: "Shaifaly Rajput", role: "Designer", location: "Patiala, Punjab", linkedin: "https://www.linkedin.com/in/shaifaly-rajput-08a8a53b5", img: gltLogo },
+    { name: "Bhavni Chhabra", role: "Designer", location: "New Delhi", linkedin: "https://www.linkedin.com/in/bhavni-chhabra-95640b334", img: gltLogo },
+    { name: "Rhythm Arora", role: "Host & Moderator", location: "New Delhi", linkedin: "https://www.linkedin.com/in/rhythmisloading/", img: rhythmImg },
+    { name: "Sukrutha Jagannatham", role: "Host & Moderator", location: "Hyderabad", linkedin: "https://www.linkedin.com/in/sukrutha-jagannatham-72662837a", img: gltLogo },
+    { name: "Suhani Garg", role: "Host & Moderator", location: "Jaipur", linkedin: "https://www.linkedin.com/in/suhani-garg-88a736318/", img: gltLogo },
+    { name: "Tejashwani Mishra", role: "Host & Moderator", location: "Jhansi, UP", linkedin: "https://www.linkedin.com/in/tejashwani-mishra-9a790427a/", img: gltLogo },
+    { name: "Nandini Yadav", role: "Designer", location: "Nainital", linkedin: "https://www.linkedin.com/in/nayndini/", img: gltLogo },
+    { name: "Isha Singhal", role: "Community Engagement", location: "Dehradun", linkedin: "https://www.linkedin.com/in/isha-singhal12/", img: gltLogo },
+    { name: "Gnan Sruthi R", role: "Management", location: "Coimbatore", linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3/", img: gltLogo },
+    { name: "Akshita Tyagi", role: "Program Management", location: "Bijnor", linkedin: "https://www.linkedin.com/in/akshita-tyagi8368", img: akshitaImg },
+    { name: "Vijay Laxmi", role: "Management", location: "Delhi", linkedin: "https://www.linkedin.com/in/laxmi-vijay/", img: vijayLaxmiImg },
   ];
   return (
     <section className="border-b-4 border-ink bg-white py-20 sm:py-28" style={{ borderColor: "var(--ink)" }}>
@@ -1276,7 +1276,7 @@ function CommunityProof() {
           </div>
           <div className="grid grid-cols-2 gap-3" data-reveal>
             <img
-              src={community1.url}
+              src={community1}
               alt="Girls Leading Tech community members at a tech event"
               loading="lazy"
               className="col-span-2 aspect-[16/10] w-full rotate-1 rounded-2xl border-2 border-ink object-cover shadow-pop"
