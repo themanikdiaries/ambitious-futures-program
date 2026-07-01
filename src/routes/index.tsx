@@ -9,24 +9,14 @@ import {
 } from "@/components/ui/accordion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import community1 from "@/assets/community/girls.webp.asset.json";
-import community2 from "@/assets/community/kunal.webp.asset.json";
+import community1 from "@/assets/local/community/girls.webp";
+import community2 from "@/assets/local/community/kunal.webp";
 import gltLogo from "@/assets/glt-logo.png";
-import tavishiImg from "@/assets/team/Tavishi.webp.asset.json";
-import ankithaImg from "@/assets/team/ankitha.webp.asset.json";
-import aakritiImg from "@/assets/team/aakriti.webp.asset.json";
-import pratikshaImg from "@/assets/team/pratiksha.webp.asset.json";
-import shaifaliImg from "@/assets/team/shaifali.webp.asset.json";
-import bhavniImg from "@/assets/team/bhavni.webp.asset.json";
-import rhythmImg from "@/assets/team/rhythm.webp.asset.json";
-import sukruthaImg from "@/assets/team/sukrutha.webp.asset.json";
-import suhaniImg from "@/assets/team/suhani.webp.asset.json";
-import tejashwaniImg from "@/assets/team/tejashwani.webp.asset.json";
-import nandiniImg from "@/assets/team/nandini.webp.asset.json";
-import ishaImg from "@/assets/team/isha.webp.asset.json";
-import sruthiImg from "@/assets/team/sruthi.webp.asset.json";
-import akshitaImg from "@/assets/team/akshita.webp.asset.json";
-import vijayLaxmiImg from "@/assets/team/vijay-laxmi.webp.asset.json";
+import tavishiImg from "@/assets/local/team/tavishi.webp";
+import aakritiImg from "@/assets/local/team/aakriti.webp";
+import rhythmImg from "@/assets/local/team/rhythm.webp";
+import akshitaImg from "@/assets/local/team/akshita.webp";
+import vijayLaxmiImg from "@/assets/local/team/vijay-laxmi.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
