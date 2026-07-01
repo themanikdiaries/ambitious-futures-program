@@ -4,14 +4,14 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-  "dev": "vite dev",
-  "build": "node scripts/clean-public.mjs && vite build && node scripts/prepare-vercel-output.mjs",
-  "build:vercel": "node scripts/clean-public.mjs && vite build && node scripts/prepare-vercel-output.mjs",
-  "build:dev": "vite build --mode development",
-  "preview": "vite preview",
-  "lint": "eslint .",
-  "format": "prettier --write ."
-},
+    "dev": "vite dev",
+    "build": "node scripts/clean-public.mjs && vite build && node scripts/prepare-vercel-output.mjs",
+    "build:vercel": "node scripts/clean-public.mjs && vite build && node scripts/prepare-vercel-output.mjs",
+    "build:dev": "vite build --mode development",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
     "@gsap/react": "^2.1.2",
@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
-    "@lovable.dev/vite-tanstack-config": "2.3.2",
+    "@lovable.dev/vite-tanstack-config": "2.6.4",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
