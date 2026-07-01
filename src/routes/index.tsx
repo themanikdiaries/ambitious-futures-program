@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { toPng } from "html-to-image";
 import { Button } from "@/components/ui/button";
@@ -31,29 +30,9 @@ import vijayLaxmiImg from "@/assets/team/vijay-laxmi.webp.asset.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "GLT DSA & Internship Guidance Cohort — Girls Leading Tech" },
-      {
-        name: "description",
-        content:
-          "A focused 4-week DSA and internship guidance cohort. Learn data structures, build projects, crack interviews, and land your first internship — guided by women already in tech.",
-      },
-      { property: "og:title", content: "GLT DSA & Internship Guidance Cohort" },
-      {
-        property: "og:description",
-        content:
-          "Master DSA fundamentals and land your first internship in 4 weeks with mentors who've done it.",
-      },
-    ],
-  }),
-  component: LandingPage,
-});
-
 const APPLY_FORM_URL = "https://airtable.com/appygJDzQSoSiPzuR/pageFJqBGak4pli3Y/form";
 
-function LandingPage() {
+export default function LandingPage() {
   // Master GSAP setup: scroll reveals, parallax, 3D tilts
   useEffect(() => {
     const ctx = gsap.context(() => {
