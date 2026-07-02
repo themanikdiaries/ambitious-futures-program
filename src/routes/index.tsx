@@ -2188,7 +2188,7 @@ function Footer() {
               href="mailto:girlsleadingtech@gmail.com"
               className="mt-5 inline-flex items-center gap-2 rounded-full border-2 border-white px-4 py-2 text-sm font-bold transition hover:bg-white hover:text-ink"
             >
-              ✉ hello@girlsleadingtech.in
+              ✉ girlsleadingtech@gmail.com
             </a>
           </div>
         </div>
