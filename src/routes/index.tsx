@@ -17,6 +17,15 @@ import aakritiImg from "@/assets/local/team/aakriti.webp";
 import rhythmImg from "@/assets/local/team/rhythm.webp";
 import akshitaImg from "@/assets/local/team/akshita.webp";
 import vijayLaxmiImg from "@/assets/local/team/vijay-laxmi.webp";
+import ankithaImg from "@/assets/local/team/ankitha.webp";
+import pratikshaImg from "@/assets/local/team/pratiksha.webp";
+import bhavniImg from "@/assets/local/team/bhavni.webp";
+import sukruthaImg from "@/assets/local/team/sukrutha.webp";
+import suhaniImg from "@/assets/local/team/suhani.webp";
+import tejashwaniImg from "@/assets/local/team/tejashwani.webp";
+import nandiniImg from "@/assets/local/team/nandini.webp";
+import ishaImg from "@/assets/local/team/isha.webp";
+import gnanSruthiImg from "@/assets/local/team/gnan-sruthi.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
