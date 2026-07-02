@@ -166,6 +166,7 @@ export default function LandingPage() {
         <ProgramOverview />
         <Timeline />
         <Mentors />
+        <MenteesGrid />
         <WhoShouldApply />
         <Process />
         <CommunityProof />
