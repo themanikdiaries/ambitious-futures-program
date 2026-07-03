@@ -2102,7 +2102,7 @@ const SOCIALS = [
   },
 ];
 
-function Footer() {
+export function Footer() {
   return (
     <footer className="relative bg-ink text-white" style={{ background: "var(--ink)" }}>
       {/* Massive wordmark */}
@@ -2133,27 +2133,27 @@ function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Explore</h4>
             <ul className="mt-4 space-y-2 font-display text-lg font-semibold">
               <li>
-                <a href="#why" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#why" className="hover:text-[var(--brand-yellow)]">
                   About
                 </a>
               </li>
               <li>
-                <a href="#program" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#program" className="hover:text-[var(--brand-yellow)]">
                   Program
                 </a>
               </li>
               <li>
-                <a href="#timeline" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#timeline" className="hover:text-[var(--brand-yellow)]">
                   Timeline
                 </a>
               </li>
               <li>
-                <a href="#mentors" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#mentors" className="hover:text-[var(--brand-yellow)]">
                   Mentors
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#faq" className="hover:text-[var(--brand-yellow)]">
                   FAQ
                 </a>
               </li>
