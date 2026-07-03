@@ -12,7 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import community1 from "@/assets/local/community/girls.webp";
 import community2 from "@/assets/local/community/kunal.webp";
 import gltLogo from "@/assets/glt-logo.png";
-import { mentees as menteesData } from "@/data/mentees";
+
 import tavishiImg from "@/assets/local/team/tavishi.webp";
 import aakritiImg from "@/assets/local/team/aakriti.webp";
 import rhythmImg from "@/assets/local/team/rhythm.webp";
@@ -167,7 +167,7 @@ export default function LandingPage() {
         <ProgramOverview />
         <Timeline />
         <Mentors />
-        <MenteesGrid />
+
         <WhoShouldApply />
         <Process />
         <CommunityProof />
@@ -183,7 +183,7 @@ export default function LandingPage() {
 }
 
 /* ----------------------------- Scroll to top ---------------------------- */
-function ScrollToTop() {
+export function ScrollToTop() {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);
@@ -208,15 +208,15 @@ function ScrollToTop() {
 }
 
 /* -------------------------------- Navbar -------------------------------- */
-function Navbar() {
+export function Navbar() {
   const links = [
-    { label: "About", href: "#why" },
-    { label: "Program", href: "#program" },
-    { label: "Timeline", href: "#timeline" },
-    { label: "Mentors", href: "#mentors" },
-    { label: "Mentees", href: "#mentees" },
-    { label: "Studio", href: "#generator" },
-    { label: "FAQs", href: "#faq" },
+    { label: "About", href: "/#why" },
+    { label: "Program", href: "/#program" },
+    { label: "Timeline", href: "/#timeline" },
+    { label: "Mentors", href: "/#mentors" },
+    { label: "Mentees", href: "/mentees" },
+    { label: "Studio", href: "/#generator" },
+    { label: "FAQs", href: "/#faq" },
   ];
   return (
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3 sm:top-4 sm:px-4">
@@ -225,9 +225,10 @@ function Navbar() {
         style={{ borderColor: "var(--ink)" }}
       >
         <a
-          href="#top"
+          href="/"
           className="flex flex-shrink-0 items-center gap-2 rounded-full pl-1 pr-2 whitespace-nowrap"
         >
+
           <img
             src={gltLogo}
             alt="Girls Leading Tech"
@@ -919,168 +920,6 @@ function Mentors() {
   );
 }
 
-/* -------------------------------- Mentees ------------------------------- */
-
-function MenteesGrid() {
-  const [query, setQuery] = useState("");
-  const [visible, setVisible] = useState(24);
-  const palette = [
-    { bg: "var(--brand-red)", fg: "white" },
-    { bg: "var(--brand-blue)", fg: "white" },
-    { bg: "var(--brand-yellow)", fg: "var(--ink)" },
-    { bg: "white", fg: "var(--ink)" },
-  ];
-  const q = query.trim().toLowerCase();
-  const filtered = q
-    ? menteesData.filter(
-        (m) =>
-          m.name.toLowerCase().includes(q) ||
-          m.college.toLowerCase().includes(q) ||
-          m.place.toLowerCase().includes(q) ||
-          m.branch.toLowerCase().includes(q),
-      )
-    : menteesData;
-  const shown = filtered.slice(0, visible);
-
-  const initials = (name: string) =>
-    name
-      .split(/\s+/)
-      .filter(Boolean)
-      .slice(0, 2)
-      .map((n) => n[0]?.toUpperCase() ?? "")
-      .join("");
-
-  return (
-    <section
-      id="mentees"
-      className="border-b-4 border-ink bg-[var(--brand-yellow)] py-20 sm:py-28"
-      style={{ borderColor: "var(--ink)" }}
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center" data-section-title>
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--brand-red)]">
-            ✺ Cohort 1
-          </p>
-          <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-            Meet the {menteesData.length} mentees
-          </h2>
-          <p className="mt-4 text-base text-ink/80 sm:text-lg">
-            Ambitious women from across India cracking DSA and internships together.
-          </p>
-        </div>
-
-        <div className="mx-auto mt-8 flex max-w-xl items-center gap-2 rounded-full border-2 border-ink bg-white px-4 py-2 shadow-card" style={{ borderColor: "var(--ink)" }}>
-          <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0 text-ink" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="7" />
-            <path d="m20 20-3.5-3.5" />
-          </svg>
-          <input
-            value={query}
-            onChange={(e) => {
-              setQuery(e.target.value);
-              setVisible(24);
-            }}
-            placeholder="Search by name, college, city or branch"
-            className="w-full bg-transparent text-sm font-medium text-ink placeholder:text-ink/50 focus:outline-none"
-          />
-          {query && (
-            <button
-              type="button"
-              onClick={() => setQuery("")}
-              className="rounded-full px-2 text-xs font-bold text-ink/60 hover:text-ink"
-            >
-              clear
-            </button>
-          )}
-        </div>
-        <p className="mt-2 text-center text-xs font-semibold text-ink/70">
-          Showing {shown.length} of {filtered.length}
-        </p>
-
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {shown.map((p, i) => {
-            const c = palette[i % palette.length];
-            return (
-              <a
-                key={p.name}
-                href={p.linkedin || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group relative block overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 hover:rotate-0 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
-                style={{ background: c.bg, borderColor: "var(--ink)", color: c.fg }}
-              >
-                <div
-                  className="relative flex aspect-[4/5] items-center justify-center overflow-hidden border-b-2 border-ink"
-                  style={{ borderColor: "var(--ink)", background: `linear-gradient(135deg, ${c.bg} 0%, rgba(0,0,0,0.15) 100%)` }}
-                >
-                  <span
-                    className="font-display text-6xl font-black tracking-tight sm:text-7xl"
-                    style={{ color: c.fg }}
-                  >
-                    {initials(p.name)}
-                  </span>
-                  <span
-                    className="absolute -right-6 top-4 rotate-12 border-2 border-ink bg-white px-8 py-0.5 text-[10px] font-extrabold uppercase tracking-widest shadow-card"
-                    style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
-                  >
-                    Mentee · C1
-                  </span>
-                  <span
-                    className="absolute bottom-3 left-3 rounded-full border-2 border-ink bg-white/95 px-2.5 py-0.5 text-[10px] font-extrabold uppercase tracking-wider"
-                    style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
-                  >
-                    #{String(i + 1).padStart(3, "0")}
-                  </span>
-                </div>
-                <div className="p-5">
-                  <h3 className="font-display text-lg font-extrabold leading-tight">{p.name}</h3>
-                  <p className="mt-1 line-clamp-2 text-xs font-semibold opacity-90">{p.branch}</p>
-                  <p className="mt-2 line-clamp-2 text-xs font-medium opacity-80">{p.college}</p>
-                  <div className="mt-3 flex flex-wrap items-center gap-2">
-                    {p.place && (
-                      <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-current px-2.5 py-0.5 text-[10px] font-bold">
-                        <span className="h-1.5 w-1.5 rounded-full bg-current" />
-                        {p.place}
-                      </span>
-                    )}
-                    {p.github && (
-                      <span
-                        onClick={(e) => {
-                          e.preventDefault();
-                          window.open(p.github, "_blank", "noopener,noreferrer");
-                        }}
-                        className="inline-flex cursor-pointer items-center gap-1 rounded-full border-2 border-current px-2.5 py-0.5 text-[10px] font-bold"
-                      >
-                        <svg viewBox="0 0 24 24" className="h-3 w-3" fill="currentColor">
-                          <path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.72-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.3 1.19-3.11-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.19a11.03 11.03 0 0 1 5.79 0c2.2-1.5 3.17-1.19 3.17-1.19.64 1.59.24 2.77.12 3.06.74.81 1.19 1.85 1.19 3.11 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5z" />
-                        </svg>
-                        GitHub
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </a>
-            );
-          })}
-        </div>
-
-        {visible < filtered.length && (
-          <div className="mt-10 flex justify-center">
-            <button
-              type="button"
-              onClick={() => setVisible((v) => v + 24)}
-              className="inline-flex items-center gap-2 rounded-full border-2 border-ink bg-[var(--brand-red)] px-6 py-3 text-sm font-extrabold uppercase tracking-wider text-white shadow-pop transition-transform hover:-translate-y-1"
-              style={{ borderColor: "var(--ink)" }}
-            >
-              Load more mentees
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-yellow)]" />
-            </button>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
 
 /* --------------------------- Organizing team ---------------------------- */
 
@@ -2263,7 +2102,7 @@ const SOCIALS = [
   },
 ];
 
-function Footer() {
+export function Footer() {
   return (
     <footer className="relative bg-ink text-white" style={{ background: "var(--ink)" }}>
       {/* Massive wordmark */}
@@ -2294,27 +2133,27 @@ function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Explore</h4>
             <ul className="mt-4 space-y-2 font-display text-lg font-semibold">
               <li>
-                <a href="#why" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#why" className="hover:text-[var(--brand-yellow)]">
                   About
                 </a>
               </li>
               <li>
-                <a href="#program" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#program" className="hover:text-[var(--brand-yellow)]">
                   Program
                 </a>
               </li>
               <li>
-                <a href="#timeline" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#timeline" className="hover:text-[var(--brand-yellow)]">
                   Timeline
                 </a>
               </li>
               <li>
-                <a href="#mentors" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#mentors" className="hover:text-[var(--brand-yellow)]">
                   Mentors
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-[var(--brand-yellow)]">
+                <a href="/#faq" className="hover:text-[var(--brand-yellow)]">
                   FAQ
                 </a>
               </li>
