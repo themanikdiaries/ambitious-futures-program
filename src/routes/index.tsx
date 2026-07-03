@@ -183,7 +183,7 @@ export default function LandingPage() {
 }
 
 /* ----------------------------- Scroll to top ---------------------------- */
-function ScrollToTop() {
+export function ScrollToTop() {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);
@@ -208,15 +208,15 @@ function ScrollToTop() {
 }
 
 /* -------------------------------- Navbar -------------------------------- */
-function Navbar() {
+export function Navbar() {
   const links = [
-    { label: "About", href: "#why" },
-    { label: "Program", href: "#program" },
-    { label: "Timeline", href: "#timeline" },
-    { label: "Mentors", href: "#mentors" },
-    { label: "Mentees", href: "#mentees" },
-    { label: "Studio", href: "#generator" },
-    { label: "FAQs", href: "#faq" },
+    { label: "About", href: "/#why" },
+    { label: "Program", href: "/#program" },
+    { label: "Timeline", href: "/#timeline" },
+    { label: "Mentors", href: "/#mentors" },
+    { label: "Mentees", href: "/mentees" },
+    { label: "Studio", href: "/#generator" },
+    { label: "FAQs", href: "/#faq" },
   ];
   return (
     <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3 sm:top-4 sm:px-4">
@@ -225,9 +225,10 @@ function Navbar() {
         style={{ borderColor: "var(--ink)" }}
       >
         <a
-          href="#top"
+          href="/"
           className="flex flex-shrink-0 items-center gap-2 rounded-full pl-1 pr-2 whitespace-nowrap"
         >
+
           <img
             src={gltLogo}
             alt="Girls Leading Tech"
