@@ -12,7 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import community1 from "@/assets/local/community/girls.webp";
 import community2 from "@/assets/local/community/kunal.webp";
 import gltLogo from "@/assets/glt-logo.png";
-import { mentees as menteesData } from "@/data/mentees";
+
 import tavishiImg from "@/assets/local/team/tavishi.webp";
 import aakritiImg from "@/assets/local/team/aakriti.webp";
 import rhythmImg from "@/assets/local/team/rhythm.webp";
