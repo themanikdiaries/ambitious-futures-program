@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { mentees as menteesData, type Mentee } from "@/data/mentees";
 
-const photoModules = import.meta.glob("@/assets/local/mentees/*", {
+const photoModules = import.meta.glob("../assets/local/mentees/*", {
   eager: true,
   query: "?url",
   import: "default",
