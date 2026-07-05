@@ -1,6 +1,28 @@
 import { useMemo, useState } from "react";
 import { mentees as menteesData, type Mentee } from "@/data/mentees";
 
+const photoModules = import.meta.glob("@/assets/local/mentees/*", {
+  eager: true,
+  query: "?url",
+  import: "default",
+}) as Record<string, string>;
+
+const slugify = (name: string) =>
+  name
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+const photoBySlug: Record<string, string> = {};
+for (const [path, url] of Object.entries(photoModules)) {
+  const file = path.split("/").pop() ?? "";
+  const slug = file.replace(/\.[^.]+$/, "");
+  photoBySlug[slug] = url;
+}
+
+const getPhoto = (name: string) => photoBySlug[slugify(name)];
+
 const palette = [
   { bg: "var(--brand-red)", fg: "white" },
   { bg: "var(--brand-blue)", fg: "white" },
@@ -120,7 +142,7 @@ export function MenteesGrid({ initialVisible = 24 }: { initialVisible?: number }
 
 function MenteeCard({ p, i }: { p: Mentee; i: number }) {
   const c = palette[i % palette.length];
-  const img = (p as Mentee & { image?: string }).image;
+  const img = (p as Mentee & { image?: string }).image ?? getPhoto(p.name);
   return (
     <div
       className={`group relative block overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 hover:rotate-0 ${
