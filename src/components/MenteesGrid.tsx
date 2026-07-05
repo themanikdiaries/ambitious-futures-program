@@ -141,8 +141,7 @@ export function MenteesGrid({ initialVisible = 24 }: { initialVisible?: number }
 }
 
 function MenteeCard({ p, i }: { p: Mentee; i: number }) {
-  const c = palette[i % palette.length];
-  const img = (p as Mentee & { image?: string }).image;
+  const img = (p as Mentee & { image?: string }).image ?? getPhoto(p.name);
   return (
     <div
       className={`group relative block overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 hover:rotate-0 ${
