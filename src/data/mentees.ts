@@ -864,5 +864,261 @@ export const mentees: Mentee[] = [
     "linkedin": "https://www.linkedin.com/in/yamininarayanan10/",
     "github": "https://github.com/repos",
     "place": "CHENNAI,TAMIL NADU,INDIA"
+  },
+  {
+    "name": "Aashna Gupta",
+    "college": "KJ Somaiya College of Engineering, Vidyavihar",
+    "branch": "B.Tech, Information Technology",
+    "linkedin": "https://linkedin.com/in/aashna-gupta-689426295",
+    "github": "https://github.com/guptaaashna",
+    "place": "Thane, Maharashtra, India"
+  },
+  {
+    "name": "ADITI",
+    "college": "Indian Institute of Technology Madras",
+    "branch": "BS in Data Science",
+    "linkedin": "https://www.linkedin.com/in/aditi-s15679",
+    "github": "https://github.com/Aditi-15679",
+    "place": "Dehradun, Uttarakhand, India"
+  },
+  {
+    "name": "Anchal Singh",
+    "college": "Government Leather Institute Agra",
+    "branch": "Computer science and engineering",
+    "linkedin": "https://www.linkedin.com/in/anchal-singh-5b2517397?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "github": "https://github.com/singhanchal9454",
+    "place": "Agra, Uttar Pradesh, India"
+  },
+  {
+    "name": "Arshdeep Kaur",
+    "college": "Chandigarh Group of Colleges, Landran, Mohali",
+    "branch": "B.Tech, Computer Science Engineering",
+    "linkedin": "https://www.linkedin.com/in/arshdeep-kaur-42654b388",
+    "github": "https://github.com/arshkaur18",
+    "place": "Mohali, Punjab, India"
+  },
+  {
+    "name": "Ayushi Srivastava",
+    "college": "United University Prayagraj",
+    "branch": "BCA",
+    "linkedin": "https://www.linkedin.com/in/ayushi542",
+    "github": "https://github.com/ayushi826",
+    "place": "Prayagraj, Uttar Pradesh, India"
+  },
+  {
+    "name": "Bhashyam Harika",
+    "college": "CMR College Of Engineering And Technology",
+    "branch": "B.Tech, Computer Science Engineering",
+    "linkedin": "https://www.linkedin.com/in/bashyamharika",
+    "github": "https://github.com/bashyamharika",
+    "place": "Hyderabad , Telangana , India"
+  },
+  {
+    "name": "D. Gopika",
+    "college": "Mailam Engineering College",
+    "branch": "B.Tech, Artificial Intelligence and Data Science",
+    "linkedin": "https://www.linkedin.com/in/gopika-d-435b43360?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "github": "https://github.com/gopika10-ai",
+    "place": "Villupuram, Tamil Nadu, India"
+  },
+  {
+    "name": "Ditya",
+    "college": "Inderprastha Engineering College, Ghaziabad",
+    "branch": "B.Tech, Computer Science & Engineering",
+    "linkedin": "https://www.linkedin.com/in/dityaa11/",
+    "github": "https://github.com/ditya-decodes",
+    "place": "Meerut, Uttar Pradesh, India"
+  },
+  {
+    "name": "Drishti Rana",
+    "college": "Institute of Engineering and Technology, Lucknow",
+    "branch": "Chemical with minor in Computer Science Engineering",
+    "linkedin": "https://linkedin.com/in/drishti-rana-963a06349",
+    "github": "https://github.com/Drishti160803",
+    "place": "Bulandshahr, Uttar Pradesh, India"
+  },
+  {
+    "name": "Harshita Sen",
+    "college": "Manikya Lal Verma textile and engineering college",
+    "branch": "BTech information technology",
+    "linkedin": "https://www.linkedin.com/in/harshita-sen20",
+    "github": "https://github.com/harshita719",
+    "place": "Bhilwara Rajasthan India"
+  },
+  {
+    "name": "Ishita Singh",
+    "college": "Rajiv gandhi institute of Petroleum technology",
+    "branch": "Integrated dual degree,  Computer Science Engineering",
+    "linkedin": "https://www.linkedin.com/in/ishita-singh09/",
+    "github": "https://github.com/Ishita-Si",
+    "place": "Ayodhya, uttar pradesh, India"
+  },
+  {
+    "name": "Kalisetty Prasanna",
+    "college": "ACE Engineering College",
+    "branch": "B.Tech, Computer Science Engineering(Data Science)",
+    "linkedin": "https://linkedin.com/in/prasannakalisetty",
+    "github": "https://github.com/kalisettyprasanna72-alt",
+    "place": "Hyderabad, Telangana ,India"
+  },
+  {
+    "name": "Kaushiki Kumari",
+    "college": "IITM College of Engineering affl. Maharshi Dayanand University",
+    "branch": "B.Tech, Computer Science and Engineering",
+    "linkedin": "https://www.linkedin.com/in/kaushiki-kumari-jha",
+    "github": "https://github.com/bug-huntress",
+    "place": "New Delhi, Delhi, India"
+  },
+  {
+    "name": "Naina Modi",
+    "college": "Lakshmi Narain College of Technology, Bhopal",
+    "branch": "Computer Science and Engineering",
+    "linkedin": "https://www.linkedin.com/in/naina-modi-145209322/",
+    "github": "https://github.com/naina-modi123",
+    "place": "Bhopal, Madhya Pradesh, India"
+  },
+  {
+    "name": "Naina Modi",
+    "college": "Lakshmi Narain College of Technology, Bhopal",
+    "branch": "B.Tech, Computer Science and Engineering",
+    "linkedin": "https://www.linkedin.com/in/naina-modi-145209322/",
+    "github": "https://github.com/naina-modi123",
+    "place": "Bhopal, Madhya Pradesh, India"
+  },
+  {
+    "name": "P. Grace Theresa",
+    "college": "Methodist College",
+    "branch": "Computer science engineering with AIML",
+    "linkedin": "https://www.linkedin.com/in/p-grace-theresa-8104a1325/",
+    "github": "https://github.com/gracetheresa",
+    "place": "Hyderabad, Telangana, India"
+  },
+  {
+    "name": "Parul Sharma",
+    "college": "Army Institute of Technology, Pune",
+    "branch": "B.E. Computer Engineering",
+    "linkedin": "https://www.linkedin.com/in/-parul-sharma/",
+    "github": "https://github.com/parul-sharma16",
+    "place": "Pune, Maharashtra, India"
+  },
+  {
+    "name": "Poonam Kumari",
+    "college": "Netaji Subhash Engineering College",
+    "branch": "B.Tech, Information Technology",
+    "linkedin": "https://www.linkedin.com/in/poonam-kumari786",
+    "github": "https://github.com/Poonam945",
+    "place": "Kolkata, West Bengal, India"
+  },
+  {
+    "name": "Prerna Mehta",
+    "college": "Panipat institute of Engineering and Technology",
+    "branch": "BTech, Computer Science Engineering",
+    "linkedin": "https://www.linkedin.com/in/prerna-mehta-108563382?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "github": "https://github.com/Prerna2367-pm",
+    "place": "Safidon, Haryana, India"
+  },
+  {
+    "name": "Radhika dodain",
+    "college": "Army Institute of Technology",
+    "branch": "Electronics and Telecommunication",
+    "linkedin": "https://www.linkedin.com/in/radhika-dodain",
+    "github": "https://github.com/Radhika-dodain",
+    "place": "Pune, Maharashtra, India"
+  },
+  {
+    "name": "Ramya Sri",
+    "college": "Sri Vasavi Engineering College-Tadepalligudem",
+    "branch": "B.Tech,Computer science Engineering",
+    "linkedin": "https://www.linkedin.com/in/ramya-sri-dulam-bb3867335",
+    "github": "https://github.com/ramyasridulam063-lgtm",
+    "place": "Eluru,Andhra Pradesh,India"
+  },
+  {
+    "name": "Ranjana L",
+    "college": "Amrita vishwa vidhyapeetham",
+    "branch": "B.tech Artififcal Intelligence",
+    "linkedin": "https://www.linkedin.com/in/ranjana034/",
+    "github": "https://github.com/Ranjana-git7",
+    "place": "chennai , tamilnadu , india"
+  },
+  {
+    "name": "Ravina",
+    "college": "Bhagat phool singh mahila vishwavidyalaya",
+    "branch": "B.te h, Computer Science Engineering",
+    "linkedin": "https://www.linkedin.com/in/ravina-s-23052b334",
+    "github": "https://github.com/Ravina1-ops",
+    "place": "Sonipat,Haryana,India"
+  },
+  {
+    "name": "Samiksha Bajoria",
+    "college": "Kalyani Government Engineering College",
+    "branch": "B.Tech, Computer Science Engineering",
+    "linkedin": "https://www.linkedin.com/in/samiksha-bajoria-9821ba312",
+    "github": "https://github.com/Samiksha-bajoria",
+    "place": "Kolkata West Bengal India"
+  },
+  {
+    "name": "Samruddhi Sunil Firange",
+    "college": "Annasaheb Dange College of Engineering Ashta",
+    "branch": "B.Tech, Computer Science Engineering",
+    "linkedin": "https://linkedin.com/in/samruddhi-firange-6a40842ab",
+    "github": "https://github.com/Samruddhi992",
+    "place": "Sangli,Maharashtra,india"
+  },
+  {
+    "name": "shatakshi",
+    "college": "Indira Gandhi Delhi Technical University For Women",
+    "branch": "Btech,Computer science",
+    "linkedin": "https://www.linkedin.com/in/shatakshi-3a818a320/",
+    "github": "https://github.com/shatakshi220805",
+    "place": "delhi , India"
+  },
+  {
+    "name": "Shreya Adhikari",
+    "college": "Noida Institute of Engineering and Technology",
+    "branch": "B.Tech, Computer Science Engineering",
+    "linkedin": "https://www.linkedin.com/in/shreya-a-b9967b326?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "github": "https://github.com/shrcodes23",
+    "place": "Noida, Uttar Pradesh, India"
+  },
+  {
+    "name": "Soumya chandel",
+    "college": "Dr.bhimrao ambedkar University agra",
+    "branch": "B.tecg,Computer Science Engineering",
+    "linkedin": "https://www.linkedin.com/in/soumya-chandel-92421a34a/",
+    "github": "https://github.com/soumya1234-git",
+    "place": "Agra , Uttarpradesh, India"
+  },
+  {
+    "name": "Suhani",
+    "college": "Graphic era deemed to be univesity",
+    "branch": "B.Tech,Computer science engineering",
+    "linkedin": "https://www.linkedin.com/in/suhani-kaushik-691493322/",
+    "github": "https://github.com/Suhanikaushik-36",
+    "place": "Meerut,Uttarpradesh,India"
+  },
+  {
+    "name": "Vaishnavi Desale",
+    "college": "K k wagh institute of engineering education and research Nashik",
+    "branch": "B.Tech , Electronics and Telecommunication",
+    "linkedin": "https://www.linkedin.com/in/vaishnavidesale27?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "github": "https://github.com/vadesale370224",
+    "place": "Nashik Maharashtra"
+  },
+  {
+    "name": "vaishnavi kulkarni",
+    "college": "RV COLLEGE OF ENGINEERING BENGALURU",
+    "branch": "B.E Computer Science",
+    "linkedin": "https://www.linkedin.com/in/vaishnavikulkarni06",
+    "github": "https://github.com/codepaysme",
+    "place": "Bengaluru, Karnataka, India"
+  },
+  {
+    "name": "Yogita Mehta",
+    "college": "Indian institute of information technology Kottayam",
+    "branch": "Computer science with specialisation in cyber security",
+    "linkedin": "https://www.linkedin.com/in/yogita-mehta-93a53b330",
+    "github": "https://github.com/yogita-mehta",
+    "place": "Hisar , Haryana , India"
   }
 ];
