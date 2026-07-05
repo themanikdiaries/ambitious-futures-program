@@ -141,6 +141,7 @@ export function MenteesGrid({ initialVisible = 24 }: { initialVisible?: number }
 }
 
 function MenteeCard({ p, i }: { p: Mentee; i: number }) {
+  const c = palette[i % palette.length];
   const img = (p as Mentee & { image?: string }).image ?? getPhoto(p.name);
   return (
     <div
