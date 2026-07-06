@@ -1,6 +1,6 @@
 export type Mentee = { name: string; college: string; branch: string; linkedin: string; github: string; place: string };
 
-export const mentees: Mentee[] = [
+export const mentees: Mentee[
   {
     "name": "Aadya Agrawal",
     "college": "Birla Institute of Technology Mesra Ranchi",
@@ -978,14 +978,6 @@ export const mentees: Mentee[] = [
     "place": "Bhopal, Madhya Pradesh, India"
   },
   {
-    "name": "Naina Modi",
-    "college": "Lakshmi Narain College of Technology, Bhopal",
-    "branch": "B.Tech, Computer Science and Engineering",
-    "linkedin": "https://www.linkedin.com/in/naina-modi-145209322/",
-    "github": "https://github.com/naina-modi123",
-    "place": "Bhopal, Madhya Pradesh, India"
-  },
-  {
     "name": "P. Grace Theresa",
     "college": "Methodist College",
     "branch": "Computer science engineering with AIML",
@@ -1064,6 +1056,14 @@ export const mentees: Mentee[] = [
     "linkedin": "https://linkedin.com/in/samruddhi-firange-6a40842ab",
     "github": "https://github.com/Samruddhi992",
     "place": "Sangli,Maharashtra,india"
+  },
+  {
+    "name": "Shagun",
+    "college": "Dr. Ram Manohar Lohia Avadh University",
+    "branch": "B.Tech, Electronics and Communication Engineering",
+    "linkedin": "https://www.linkedin.com/in/shagunn06/",
+    "github": "https://github.com/shagunnmishra",
+    "place": "Ludhiana, Punjab, India"
   },
   {
     "name": "shatakshi",
