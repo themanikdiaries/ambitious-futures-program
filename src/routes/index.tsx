@@ -25,7 +25,7 @@ import sukruthaImg from "@/assets/local/team/sukrutha.webp";
 import suhaniImg from "@/assets/local/team/suhani.webp";
 import tejashwaniImg from "@/assets/local/team/tejashwani.webp";
 import nandiniImg from "@/assets/local/team/nandini.webp";
-import ishaImg from "@/assets/local/team/isha.webp";
+
 import gnanSruthiImg from "@/assets/local/team/gnan-sruthi.webp";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -940,7 +940,7 @@ function OrganizingTeam() {
     { name: "Suhani Garg", role: "Host & Moderator", location: "Jaipur", linkedin: "https://www.linkedin.com/in/suhani-garg-88a736318/", img: suhaniImg },
     { name: "Tejashwani Mishra", role: "Host & Moderator", location: "Jhansi, UP", linkedin: "https://www.linkedin.com/in/tejashwani-mishra-9a790427a/", img: tejashwaniImg },
     { name: "Nandini Yadav", role: "Designer", location: "Nainital", linkedin: "https://www.linkedin.com/in/nayndini/", img: nandiniImg },
-    { name: "Isha Singhal", role: "Community Engagement", location: "Dehradun", linkedin: "https://www.linkedin.com/in/isha-singhal12/", img: ishaImg },
+    
     { name: "Gnan Sruthi R", role: "Management", location: "Coimbatore", linkedin: "https://www.linkedin.com/in/gnan-sruthi-r-1a99492b3/", img: gnanSruthiImg },
     { name: "Akshita Tyagi", role: "Program Management", location: "Bijnor", linkedin: "https://www.linkedin.com/in/akshita-tyagi8368", img: akshitaImg },
     { name: "Vijay Laxmi", role: "Management", location: "Delhi", linkedin: "https://www.linkedin.com/in/laxmi-vijay/", img: vijayLaxmiImg },
