@@ -1,6 +1,6 @@
 export type Mentee = { name: string; college: string; branch: string; linkedin: string; github: string; place: string };
 
-export const mentees: Mentee[
+export const mentees: Mentee[] = [
   {
     "name": "Aadya Agrawal",
     "college": "Birla Institute of Technology Mesra Ranchi",
