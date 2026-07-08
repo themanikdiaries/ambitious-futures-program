@@ -246,7 +246,9 @@ export function Navbar() {
           <a
             key={l.href}
             href={l.href}
-            className="hidden rounded-full px-4 py-2 text-sm font-semibold text-foreground transition hover:bg-[var(--brand-yellow)] sm:inline-block whitespace-nowrap"
+            className={`${
+              l.label === "Mentees" ? "inline-block" : "hidden sm:inline-block"
+            } rounded-full px-3 py-1.5 text-xs font-semibold text-foreground transition hover:bg-[var(--brand-yellow)] sm:px-4 sm:py-2 sm:text-sm whitespace-nowrap`}
           >
             {l.label}
           </a>
