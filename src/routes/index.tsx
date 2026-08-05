@@ -831,7 +831,46 @@ const MENTOR_TEASERS = [
   },
 ];
 
+const mentorPhotoModules = import.meta.glob("../assets/local/mentors/*", {
+  eager: true,
+  query: "?url",
+  import: "default",
+}) as Record<string, string>;
+
+const mentorPhoto: Record<string, string> = {};
+for (const [path, url] of Object.entries(mentorPhotoModules)) {
+  const file = path.split("/").pop() ?? "";
+  mentorPhoto[file.replace(/\.[^.]+$/, "")] = url;
+}
+
+const MENTORS = [
+  { name: "Ashinee Kesanam", role: "Software Engineer", company: "Uber", linkedin: "https://www.linkedin.com/in/ashinee20/", photo: "ashinee" },
+  { name: "Sonam Rastogi", role: "Senior Engineering Manager", company: "Microsoft", linkedin: "https://www.linkedin.com/in/sonam-rastogi-b3a23947/" },
+  { name: "Yukti Lnu", role: "Advanced Software Engineer", company: "FM", linkedin: "https://www.linkedin.com/in/yukti-lnu-08732a5b/", photo: "yukti" },
+  { name: "Mahalakshmi Ashokkumar", role: "Lead Engineer", company: "Bosch", linkedin: "https://www.linkedin.com/in/mahalakshmi-a" },
+  { name: "Tanvy Bhola", role: "Software Engineer II", company: "Dell", linkedin: "https://www.linkedin.com/in/tanvy-bhola-0752081a4/", photo: "tanvy" },
+  { name: "Lipi Sharma", role: "Engineer", company: "Billdesk", linkedin: "https://www.linkedin.com/in/lipisharma13", photo: "lipi" },
+  { name: "Pravallika Nunna", role: "Trainee Software Engineer", company: "HSBC", linkedin: "https://www.linkedin.com/in/pravallika-nunna/" },
+  { name: "Navyashree N", role: "Project Associate", company: "IITM HTIC Medtech Incubator", linkedin: "https://www.linkedin.com/in/navyashree-n-7bbab2280", photo: "navyashree" },
+  { name: "Rhythm Arora", role: "Software Engineer Intern", company: "Paytm", linkedin: "https://www.linkedin.com/in/rhythmisloading/", photo: "rhythm" },
+  { name: "Kritika K Sharma", role: "Software Engineer Intern", company: "CampX", linkedin: "https://www.linkedin.com/in/kritika-k-sharma-42466a258/", photo: "kritika" },
+  { name: "Anupriya Poddar", role: "Software Engineering Intern", company: "IIT Delhi", linkedin: "https://www.linkedin.com/in/anupriyapoddar/", photo: "anupriya" },
+  { name: "Gauri Rajpal", role: "Engineering Intern", company: "CDAC Delhi", linkedin: "https://www.linkedin.com/in/gauri-rajpal-613554286/", photo: "gauri" },
+  { name: "Anuradha Rajeswari Nistala", role: "Research Intern", company: "NIT Karnataka", linkedin: "https://www.linkedin.com/in/anuradha-r-n-2424441ba/" },
+  { name: "Neha", role: "Software Developer Intern", company: "Futures First", linkedin: "https://www.linkedin.com/in/neha067-n" },
+  { name: "Reva Rahul Tamboli", role: "Intern", company: "Thinkloud", linkedin: "https://www.linkedin.com/in/reva-tamboli-2a473b286" },
+];
+
 function Mentors() {
+  const palette = [
+    { bg: "var(--brand-red)", fg: "white" },
+    { bg: "var(--brand-blue)", fg: "white" },
+    { bg: "var(--brand-yellow)", fg: "var(--ink)" },
+    { bg: "white", fg: "var(--ink)" },
+  ];
+  const initials = (n: string) =>
+    n.split(/\s+/).filter(Boolean).slice(0, 2).map((p) => p[0]?.toUpperCase() ?? "").join("");
+
   return (
     <section
       id="mentors"
@@ -844,68 +883,85 @@ function Mentors() {
             ✦ Meet the mentors
           </p>
           <h2 className="mt-3 font-display text-4xl font-extrabold sm:text-5xl">
-            The lineup is <span className="bg-[var(--brand-red)] px-2 text-white">under wraps</span>
+            {MENTORS.length} women{" "}
+            <span className="bg-[var(--brand-red)] px-2 text-white">already shipping</span>
           </h2>
           <p className="mt-4 text-base text-foreground/75 sm:text-lg">
-            We're curating a small, intentional set of women already shipping at top tech companies.
-            Names drop soon — get on the list before they do.
+            Engineers, managers and interns from Uber, Microsoft, Dell, Bosch, HSBC and more —
+            guiding you through DSA and internship prep.
           </p>
         </div>
 
         <div data-stagger-up className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {MENTOR_TEASERS.map((m, i) => (
-            <article
-              key={m.tag}
-              className={`group relative overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 hover:rotate-0 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
-              style={{ background: m.bg, borderColor: "var(--ink)", color: m.fg }}
-            >
-              <div
-                className="relative aspect-[4/5] overflow-hidden border-b-2 border-ink"
-                style={{ borderColor: "var(--ink)" }}
+          {MENTORS.map((m, i) => {
+            const c = palette[i % palette.length];
+            const img = m.photo ? mentorPhoto[m.photo] : undefined;
+            return (
+              <article
+                key={m.name}
+                className={`group relative overflow-hidden rounded-3xl border-2 border-ink shadow-card transition-transform hover:-translate-y-2 hover:rotate-0 ${i % 2 === 0 ? "rotate-1" : "-rotate-1"}`}
+                style={{ background: c.bg, borderColor: "var(--ink)", color: c.fg }}
               >
-                {/* dotted texture */}
                 <div
-                  className="absolute inset-0 opacity-30"
+                  className="relative flex aspect-[4/5] items-center justify-center overflow-hidden border-b-2 border-ink"
                   style={{
-                    backgroundImage: "radial-gradient(currentColor 1.5px, transparent 1.5px)",
-                    backgroundSize: "14px 14px",
+                    borderColor: "var(--ink)",
+                    background: `linear-gradient(135deg, ${c.bg} 0%, rgba(0,0,0,0.15) 100%)`,
                   }}
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center">
-                  <div
-                    className="grid h-20 w-20 place-items-center rounded-full border-4 border-current text-4xl backdrop-blur-sm"
-                    style={{ background: "rgba(255,255,255,0.15)" }}
-                  >
-                    {m.emoji}
-                  </div>
-                  <div className="rounded-full border-2 border-current px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.25em]">
-                    Revealing Soon
-                  </div>
-                  <div className="font-display text-2xl font-extrabold">?</div>
-                </div>
-                {/* corner sticker */}
-                <span
-                  className="absolute -right-6 top-4 rotate-12 border-2 border-ink bg-white px-8 py-0.5 text-[10px] font-extrabold uppercase tracking-widest text-ink shadow-card"
-                  style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
                 >
-                  Top Secret
-                </span>
-              </div>
-              <div className="p-5">
-                <h3 className="font-display text-xl font-extrabold">{m.tag}</h3>
-                <p className="mt-1 text-sm font-semibold opacity-90">{m.hint}</p>
-                <div className="mt-4 inline-flex items-center gap-1.5 rounded-full border-2 border-current px-3 py-1 text-xs font-bold">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-current" />
-                  Identity locked
+                  {img ? (
+                    <img
+                      src={img}
+                      alt={m.name}
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <span className="font-display text-6xl font-black" style={{ color: c.fg }}>
+                      {initials(m.name)}
+                    </span>
+                  )}
+                  <span
+                    className="absolute -right-6 top-4 z-10 rotate-12 border-2 border-ink bg-white px-8 py-0.5 text-[10px] font-extrabold uppercase tracking-widest shadow-card"
+                    style={{ borderColor: "var(--ink)", color: "var(--ink)" }}
+                  >
+                    Mentor
+                  </span>
                 </div>
-              </div>
-            </article>
-          ))}
+                <div className="p-5">
+                  <h3 className="font-display text-lg font-extrabold leading-tight">{m.name}</h3>
+                  <p className="mt-1 text-xs font-semibold opacity-90">{m.role}</p>
+                  <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border-2 border-current px-2.5 py-0.5 text-[10px] font-bold">
+                    <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                    {m.company}
+                  </p>
+                  <div className="mt-4">
+                    <a
+                      href={m.linkedin.startsWith("http") ? m.linkedin : `https://${m.linkedin}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${m.name} on LinkedIn`}
+                      className="group/li relative inline-flex items-center gap-1.5 overflow-hidden rounded-full border-2 border-current px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider transition-all hover:scale-105"
+                      style={{ color: c.fg }}
+                    >
+                      <span
+                        className="absolute inset-0 -translate-x-full bg-[#0A66C2] transition-transform duration-300 group-hover/li:translate-x-0"
+                        aria-hidden
+                      />
+                      <svg viewBox="0 0 24 24" className="relative h-3.5 w-3.5 transition-colors group-hover/li:text-white" fill="currentColor">
+                        <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.27 2.38 4.27 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.44c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+                      </svg>
+                      <span className="relative transition-colors group-hover/li:text-white">LinkedIn</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
         <div className="mt-10 flex flex-col items-center gap-3 text-center">
           <p className="text-sm font-medium text-foreground/70">
-            Want to be first to know who's mentoring? Apply now — accepted mentees get the reveal
-            first.
+            More mentors joining soon. Apply now to get matched.
           </p>
           <a
             href={APPLY_FORM_URL}
@@ -914,13 +970,14 @@ function Mentors() {
             className="rounded-full border-2 border-ink bg-[var(--brand-red)] px-6 py-2.5 text-sm font-bold text-white shadow-pop transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none"
             style={{ borderColor: "var(--ink)" }}
           >
-            Apply & unlock the lineup →
+            Apply to the cohort →
           </a>
         </div>
       </div>
     </section>
   );
 }
+
 
 
 /* --------------------------- Organizing team ---------------------------- */
