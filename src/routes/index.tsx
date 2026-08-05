@@ -800,36 +800,8 @@ function Timeline() {
 }
 
 /* ------------------------------- Mentors -------------------------------- */
-const MENTOR_TEASERS = [
-  {
-    tag: "Mentor 01",
-    hint: "SDE @ Big Tech · DSA whisperer",
-    bg: "var(--brand-red)",
-    fg: "white",
-    emoji: "👩‍💻",
-  },
-  {
-    tag: "Mentor 02",
-    hint: "Backend engineer · System design",
-    bg: "var(--brand-yellow)",
-    fg: "var(--ink)",
-    emoji: "⚙️",
-  },
-  {
-    tag: "Mentor 03",
-    hint: "PM Intern → FAANG · Case prep",
-    bg: "var(--brand-blue)",
-    fg: "white",
-    emoji: "🚀",
-  },
-  {
-    tag: "Mentor 04",
-    hint: "Data Scientist · ML + Open source",
-    bg: "var(--brand-red)",
-    fg: "white",
-    emoji: "📊",
-  },
-];
+
+
 
 const mentorPhotoModules = import.meta.glob("../assets/local/mentors/*", {
   eager: true,
