@@ -817,19 +817,19 @@ for (const [path, url] of Object.entries(mentorPhotoModules)) {
 
 const MENTORS = [
   { name: "Ashinee Kesanam", role: "Software Engineer", company: "Uber", linkedin: "https://www.linkedin.com/in/ashinee20/", photo: "ashinee" },
-  { name: "Sonam Rastogi", role: "Senior Engineering Manager", company: "Microsoft", linkedin: "https://www.linkedin.com/in/sonam-rastogi-b3a23947/" },
+  { name: "Sonam Rastogi", role: "Senior Engineering Manager", company: "Microsoft", linkedin: "https://www.linkedin.com/in/sonam-rastogi-b3a23947/", photo: "sonam" },
   { name: "Yukti Lnu", role: "Advanced Software Engineer", company: "FM", linkedin: "https://www.linkedin.com/in/yukti-lnu-08732a5b/", photo: "yukti" },
-  { name: "Mahalakshmi Ashokkumar", role: "Lead Engineer", company: "Bosch", linkedin: "https://www.linkedin.com/in/mahalakshmi-a" },
+  { name: "Mahalakshmi Ashokkumar", role: "Lead Engineer", company: "Bosch", linkedin: "https://www.linkedin.com/in/mahalakshmi-a", photo: "mahalakshmi" },
   { name: "Tanvy Bhola", role: "Software Engineer II", company: "Dell", linkedin: "https://www.linkedin.com/in/tanvy-bhola-0752081a4/", photo: "tanvy" },
   { name: "Lipi Sharma", role: "Engineer", company: "Billdesk", linkedin: "https://www.linkedin.com/in/lipisharma13", photo: "lipi" },
-  { name: "Pravallika Nunna", role: "Trainee Software Engineer", company: "HSBC", linkedin: "https://www.linkedin.com/in/pravallika-nunna/" },
+  { name: "Pravallika Nunna", role: "Trainee Software Engineer", company: "HSBC", linkedin: "https://www.linkedin.com/in/pravallika-nunna/", photo: "pravallika" },
   { name: "Navyashree N", role: "Project Associate", company: "IITM HTIC Medtech Incubator", linkedin: "https://www.linkedin.com/in/navyashree-n-7bbab2280", photo: "navyashree" },
   { name: "Rhythm Arora", role: "Software Engineer Intern", company: "Paytm", linkedin: "https://www.linkedin.com/in/rhythmisloading/", photo: "rhythm" },
   { name: "Kritika K Sharma", role: "Software Engineer Intern", company: "CampX", linkedin: "https://www.linkedin.com/in/kritika-k-sharma-42466a258/", photo: "kritika" },
   { name: "Anupriya Poddar", role: "Software Engineering Intern", company: "IIT Delhi", linkedin: "https://www.linkedin.com/in/anupriyapoddar/", photo: "anupriya" },
   { name: "Gauri Rajpal", role: "Engineering Intern", company: "CDAC Delhi", linkedin: "https://www.linkedin.com/in/gauri-rajpal-613554286/", photo: "gauri" },
-  { name: "Anuradha Rajeswari Nistala", role: "Research Intern", company: "NIT Karnataka", linkedin: "https://www.linkedin.com/in/anuradha-r-n-2424441ba/" },
-  { name: "Neha", role: "Software Developer Intern", company: "Futures First", linkedin: "https://www.linkedin.com/in/neha067-n" },
+  { name: "Anuradha Rajeswari Nistala", role: "Research Intern", company: "NIT Karnataka", linkedin: "https://www.linkedin.com/in/anuradha-r-n-2424441ba/", photo: "anuradha" },
+  { name: "Neha", role: "Software Developer Intern", company: "Futures First", linkedin: "https://www.linkedin.com/in/neha067-n", photo: "neha" },
   { name: "Reva Rahul Tamboli", role: "Intern", company: "Thinkloud", linkedin: "https://www.linkedin.com/in/reva-tamboli-2a473b286" },
 ];
 
