@@ -830,7 +830,7 @@ const MENTORS = [
   { name: "Gauri Rajpal", role: "Engineering Intern", company: "CDAC Delhi", linkedin: "https://www.linkedin.com/in/gauri-rajpal-613554286/", photo: "gauri" },
   { name: "Anuradha Rajeswari Nistala", role: "Research Intern", company: "NIT Karnataka", linkedin: "https://www.linkedin.com/in/anuradha-r-n-2424441ba/", photo: "anuradha" },
   { name: "Neha", role: "Software Developer Intern", company: "Futures First", linkedin: "https://www.linkedin.com/in/neha067-n", photo: "neha" },
-  { name: "Reva Rahul Tamboli", role: "Intern", company: "Thinkloud", linkedin: "https://www.linkedin.com/in/reva-tamboli-2a473b286" },
+  { name: "Reva Rahul Tamboli", role: "Intern", company: "Thinkloud", linkedin: "https://www.linkedin.com/in/reva-tamboli-2a473b286", photo: "reva" },
 ];
 
 function Mentors() {
